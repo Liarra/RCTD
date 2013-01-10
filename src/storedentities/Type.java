@@ -10,7 +10,6 @@ import java.util.Collection;
  * Time: 11:02:22
  * To change this template use File | Settings | File Templates.
  */
-@EntityListeners(EntityListener.class)
 @Entity
 public class Type {
 

@@ -10,7 +10,7 @@ import java.util.Date;
  * Time: 11:23:01
  * To change this template use File | Settings | File Templates.
  */
-@EntityListeners(EntityListener.class)
+
 @Entity
 public class UserLastDonate {
     private Long id;

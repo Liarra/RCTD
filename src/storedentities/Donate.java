@@ -10,7 +10,7 @@ import java.util.Collection;
  * Time: 10:47:57
  * To change this template use File | Settings | File Templates.
  */
-@EntityListeners(EntityListener.class)
+
 @Entity
 public class Donate {
     private Long id;

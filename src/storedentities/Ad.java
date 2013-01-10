@@ -12,7 +12,7 @@ import javax.persistence.EntityListeners;
  * Time: 11:22:09
  * To change this template use File | Settings | File Templates.
  */
-@EntityListeners(EntityListener.class)
+
 @Entity
 public class Ad {
     private String id;
