@@ -3,6 +3,9 @@
 
     <persistence-unit name="NewPeristenceUnit">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>storedentities.Type</class>
+        <class>storedentities.Ad</class>
+        <class>storedentities.UserLastDonate</class>
         <properties>
             <property name="hibernate.connection.url" value=""/>
             <property name="hibernate.connection.driver_class" value=""/>
