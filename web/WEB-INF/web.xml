@@ -10,8 +10,33 @@
         <servlet-name>PageServlet</servlet-name>
         <servlet-class>servlet.PageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ThankYou</servlet-name>
+        <servlet-class>servlet.ThankYou</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DonatesServlet</servlet-name>
+        <servlet-class>servlet.DonatesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HelpServlet</servlet-name>
+        <servlet-class>HelpServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PageServlet</servlet-name>
         <url-pattern>/page</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThankYou</servlet-name>
+        <url-pattern>/thankyou</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DonatesServlet</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>HelpServlet</servlet-name>
+        <url-pattern>/help</url-pattern>
     </servlet-mapping>
 </web-app>

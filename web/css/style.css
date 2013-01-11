@@ -16,14 +16,17 @@ border:0;
 background:url(http://bglabs.evade.netdna-cdn.com/45875kli90/524.png);
 }
 
-#buttonscell{
+#menucell {
 height:50px;
+}
+
+#buttonscell{
+    height:50px;
 }
 
 .btn_controls{
     font-size:32px;
-    position:absolute;
-    bottom:5px;
+    
 }
 
 .donate{
@@ -40,7 +43,7 @@ height:50px;
    visibility:visible; 
 }
 
-.btn_help{
+.btn_donate {
 	top:10px;
 	margin-top:100px;
 	margin-left:100px;

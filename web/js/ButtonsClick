@@ -1,0 +1,72 @@
+function clickDonateButton(donateID) {
+    //Clear screen and place loader
+    clearSpace();
+    //Request thankYou page
+    loadDataAJAXParams("/thankyou", donateID);
+    //On mistake tell it and return base screen
+}
+
+function clickBackButton(){
+    clearSpace();
+    loadDataAJAXParams("/main",-1);
+}
+
+function clickHelp(){
+    clearSpace();
+    loadDataAJAX("/help");
+}
+
+function clickMenu(TypeID, buttonID){
+    clearSpace();
+    uncheckAllMenuButtons();
+    document.getElementById(buttonID).className="btn_checked";
+    loadDataAJAXParams("/main",TypeID);
+}
+
+function uncheckAllMenuButtons(){
+    var menuContainer=document.getElementById("menucell");
+    var children=menuContainer.childNodes;
+
+    for(var child in children){
+        child.className="btn_unchecked";
+    }
+}
+
+function clearSpace() {
+     document.getElementById("content").innerHTML="";
+    //TODO: Place loader
+}
+
+function loadDataAJAXParams(servletpath,someID) {
+    var xmlhttp=getAJAXSender();
+    xmlhttp.open("GET", servletpath, true);
+    var params="id="+someID;
+    xmlhttp.send(params);
+}
+
+function loadDataAJAX(servletpath) {
+    var xmlhttp=getAJAXSender();
+    xmlhttp.open("GET", servletpath, true);
+    xmlhttp.send();
+}
+
+function getAJAXSender(){
+  var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            document.getElementById("content").innerHTML = xmlhttp.responseText;
+        }
+    }
+
+    return xmlhttp;
+}

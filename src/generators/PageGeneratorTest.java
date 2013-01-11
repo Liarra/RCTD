@@ -21,9 +21,9 @@ public class PageGeneratorTest {
 
     @Test
     public void testGetMainScreenMenu() {
-        String result=gen.getMainScreen();
-        if(!result.contains("Дома престарелых"))
-            fail("Нету нужной менюшеи");
+        String result=gen.getMainPage();
+        if(!result.contains("Р”РѕРјР° РїСЂРµСЃС‚Р°СЂРµР»С‹С…"))
+            fail("РќРµС‚Сѓ РЅСѓР¶РЅРѕР№ РјРµРЅСЋС€РµРё");
         System.out.println(result);
         // Add your code here
     }

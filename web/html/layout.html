@@ -3,11 +3,13 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="../css/buttons.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/ButtonsClick"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 <table id="frametable">
 <tr>
-<td id="buttonscell">
+<td id="menucell">
 
 </td>
 </tr>
@@ -17,28 +19,31 @@
 
     <div class="donate" style="background:url(http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg/220px-Ash_Tree_-_geograph.org.uk_-_590710.jpg)">
     <div class="hint">Кошакевичус</div>
-    <a href="#" class="btn_checked btn_help">Помочь</a>
+    <a href="#" class="btn_checked btn_donate">Помочь</a>
      </div>
 
         <div class="donate" style="background:url(http://www.helpinghomelesscats.com/images/cat1.jpg);">
     <div class="hint">Кошакевичус</div>
-    <a href="#" class="btn_checked btn_help">Помочь</a>
+    <a href="#" class="btn_checked btn_donate">Помочь</a>
      </div>
 
         <div class="donate">
     <div class="hint">Кошакевичус</div>
-    <a href="#" class="btn_checked btn_help">Помочь</a>
+    <a href="#" class="btn_checked btn_donate">Помочь</a>
      </div>
 
         <div class="donate">
     <div class="hint">Кошакевичус</div>
-    <a href="#" class="btn_checked btn_help">Помочь</a>
+    <a href="#" class="btn_checked btn_donate">Помочь</a>
      </div>
-    <br/>
-    <br/>
-    <a href="#" class="btn_checked btn_controls" style="left:150px;">?</a>
-    <a href="#" class="btn_checked btn_controls"><=</a>
 
+</td>
+</tr>
+
+    <tr>
+<td id="buttonscell">
+     <a href="#" class="btn_checked btn_controls" onclick="clickHelp()">?</a>
+    <a href="#" class="btn_checked btn_controls" onclick="clickBackButton()"><=</a>
 </td>
 </tr>
 </table>
