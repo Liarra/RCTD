@@ -7,6 +7,8 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
+import datasource.TypeDataSource;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Buchina
@@ -14,7 +16,7 @@ import java.util.List;
  * Time: 14:07:28
  * To change this template use File | Settings | File Templates.
  */
-public class TypeGetter {
+public class TypeGetter implements TypeDataSource{
     EntityManagerFactory entityManagerFactory;
     EntityManager typeManager;
 

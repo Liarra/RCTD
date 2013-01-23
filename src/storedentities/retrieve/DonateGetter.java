@@ -10,6 +10,8 @@ import javax.persistence.Query;
 import java.util.List;
 import java.util.Collection;
 
+import datasource.DonateDataSource;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Buchina
@@ -17,7 +19,7 @@ import java.util.Collection;
  * Time: 14:05:06
  * To change this template use File | Settings | File Templates.
  */
-public class DonateGetter {
+public class DonateGetter implements DonateDataSource{
 
     EntityManagerFactory entityManagerFactory;
     EntityManager donateManager;
