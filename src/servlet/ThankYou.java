@@ -1,5 +1,7 @@
 package servlet;
 
+import generators.PageGenerator;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +20,10 @@ import java.io.PrintWriter;
 public class ThankYou extends HttpServlet {
 
     void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
-         OutputStream stream= response.getOutputStream();
-         PrintWriter writer=new PrintWriter(stream);
-         writer.print("Sample thank You");
-         writer.close();
-         stream.close();
+        if (!request.getParameterMap().isEmpty()) {
+            Long typeId = new Long(request.getParameter("id"));
+            response.sendRedirect("/jsp/ThankYou.jsp?id="+typeId);
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

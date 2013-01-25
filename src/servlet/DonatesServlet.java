@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.io.OutputStreamWriter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,8 +21,6 @@ import java.io.PrintWriter;
 public class DonatesServlet extends HttpServlet
 
 {
-
-
     protected void doPost(HttpServletRequest
             request, HttpServletResponse
             response) throws ServletException, IOException {
@@ -33,9 +32,21 @@ public class DonatesServlet extends HttpServlet
     }
 
     private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String page;
+        PageGenerator gen = new PageGenerator();
+        if (!request.getParameterMap().isEmpty()) {
+            Long typeId = new Long(request.getParameter("id"));
+            if (typeId == -1L)
+                page = gen.getDonatesHTML();
+            else
+                page = gen.getDonatesHTML(typeId);
+        } else {
+            page = gen.getDonatesHTML();
+        }
+
         OutputStream stream = response.getOutputStream();
-        PrintWriter writer = new PrintWriter(stream);
-        String page = new PageGenerator().getMainData();
+        PrintWriter writer = new PrintWriter(new OutputStreamWriter(stream, "UTF-8"));
+
         writer.print(page);
         writer.close();
         stream.close();

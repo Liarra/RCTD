@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.io.OutputStreamWriter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,9 +31,9 @@ public class PageServlet extends HttpServlet {
 
      private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
          OutputStream stream= response.getOutputStream();
-         PrintWriter writer=new PrintWriter(stream);
+         PrintWriter writer=new PrintWriter(new OutputStreamWriter(stream,"UTF-8"));
          String page= new PageGenerator().getMainPage();
-         writer.print(page);
+         writer.write(page);
          writer.close();
          stream.close();
     }

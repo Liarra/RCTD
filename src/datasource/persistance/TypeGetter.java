@@ -1,4 +1,4 @@
-package storedentities.retrieve;
+package datasource.persistance;
 
 import storedentities.Donate;
 import storedentities.Type;

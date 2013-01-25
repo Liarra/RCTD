@@ -2,13 +2,19 @@ function clickDonateButton(donateID) {
     //Clear screen and place loader
     clearSpace();
     //Request thankYou page
-    loadDataAJAXParams("/thankyou", donateID);
+    loadDataAJAX("/thankyou?id="+donateID);
     //On mistake tell it and return base screen
 }
 
 function clickBackButton(){
     clearSpace();
-    loadDataAJAXParams("/main",-1);
+    uncheckAllMenuButtons();
+    loadDataAJAX("/main");
+    checkStartMenuButton();
+}
+
+function checkMainButton(){
+    
 }
 
 function clickHelp(){
@@ -20,28 +26,26 @@ function clickMenu(TypeID, buttonID){
     clearSpace();
     uncheckAllMenuButtons();
     document.getElementById(buttonID).className="btn_checked";
-    loadDataAJAXParams("/main",TypeID);
+    loadDataAJAX("/main?id="+TypeID);
 }
 
 function uncheckAllMenuButtons(){
     var menuContainer=document.getElementById("menucell");
     var children=menuContainer.childNodes;
 
-    for(var child in children){
-        child.className="btn_unchecked";
+    for(var i in children){
+        children[i].className="btn_unchecked";
     }
+}
+
+function checkStartMenuButton(){
+    var AllMenu=document.getElementById("menuAll");
+    AllMenu.className="btn_checked";
 }
 
 function clearSpace() {
      document.getElementById("content").innerHTML="";
     //TODO: Place loader
-}
-
-function loadDataAJAXParams(servletpath,someID) {
-    var xmlhttp=getAJAXSender();
-    xmlhttp.open("GET", servletpath, true);
-    var params="id="+someID;
-    xmlhttp.send(params);
 }
 
 function loadDataAJAX(servletpath) {

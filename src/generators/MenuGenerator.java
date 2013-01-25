@@ -21,8 +21,15 @@ public class MenuGenerator {
         return newMenuItem;
     }
 
+    public String generateAllMenuItem(){
+        String elementID="menuAll";
+        String mainMenuTemplate="<a href=\"#\" class=\"btn_checked\" id=\"%s\", onclick=\"clickMenu(%s,'%s')\">%s</a>";
+        String newMenuItem=String.format(mainMenuTemplate,elementID,-1,elementID,"Все");
+        return newMenuItem;
+    }
+
     public String generateMenu(Collection<Type> types){
-        String menu="";
+        String menu=generateAllMenuItem();
 
         for(Type type:types)
         menu+=generateMenuItem(type);
