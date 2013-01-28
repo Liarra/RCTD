@@ -8,22 +8,24 @@
 </head>
 <body>
 <table id="frametable">
-<tr>
+<tr id="menurow">
 <td id="menucell">
 
+</td> 
+<td id="buttonscell">
+     <a href="#" class="btn_unchecked" onclick="clickHelp()">?</a>
+    <a href="#" class="btn_checked " onclick="clickBackButton()"><=</a>
 </td>
 </tr>
 <tr>
-<td id="content">
+    <td id="contenttd" colspan="2">
+        <div id="content"></div>
     <br/>
 </td>
 </tr>
 
     <tr>
-<td id="buttonscell">
-     <a href="#" class="btn_checked btn_controls" onclick="clickHelp()">?</a>
-    <a href="#" class="btn_checked btn_controls" onclick="clickBackButton()"><=</a>
-</td>
+
 </tr>
 </table>
 </body>

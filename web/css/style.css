@@ -14,14 +14,20 @@ border:0;
 
 #content{
 background:url(http://bglabs.evade.netdna-cdn.com/45875kli90/524.png);
+height: 430px;
+    overflow-y: scroll;
+}
+
+#menurow{
+/*   height:30px; */
 }
 
 #menucell {
-height:50px;
+/*height:30px; */
 }
 
 #buttonscell{
-    height:50px;
+/*height:30px; */
 }
 
 .btn_controls{
