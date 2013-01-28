@@ -3,7 +3,6 @@ package storedentities;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Basic;
-import javax.persistence.EntityListeners;
 
 /**
  * Created by IntelliJ IDEA.
@@ -37,25 +36,25 @@ public class Ad {
         this.account = account;
     }
 
-    private String link;
+    private String script;
 
     @Basic
-    public String getLink() {
-        return link;
+    public String getScript() {
+        return script;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setScript(String script) {
+        this.script = script;
     }
 
-    private String picURL;
+    private String HTML;
 
     @Basic
-    public String getPicURL() {
-        return picURL;
+    public String getHTML() {
+        return HTML;
     }
 
-    public void setPicURL(String picURL) {
-        this.picURL = picURL;
+    public void setHTML(String HTML) {
+        this.HTML = HTML;
     }
 }

@@ -1,14 +1,14 @@
 #ThankYouBar{
      width:90%;
     margin:auto;
-    height:150px;
+    height:120px;
 }
 
 #ThankYouString{
     margin-left:100px;
     padding-left:75px;
     text-align:center;
-    line-height:150px;
+    line-height:120px;
     color:#ffc477;
 
     font-size:100px;
@@ -28,7 +28,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 }
 
 #AdPics{
-    background-color:blue;
+    /*background-color:blue;*/
+    /*background-image:url("../img/1.jpg");*/
     height:300px;
-   margin-top:30px;
+    width:600px;
+   margin-top:10px;
+    margin:auto;
 }

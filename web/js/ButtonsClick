@@ -21,6 +21,8 @@ function checkMainButton(){
 
 function clickHelp(){
     clearSpace();
+    uncheckAllMenuButtons();
+    document.getElementById("helpMenuBtn").className="btn_checked";
     loadDataAJAX("/help");
 }
 
@@ -38,6 +40,7 @@ function uncheckAllMenuButtons(){
     for(var i in children){
         children[i].className="btn_unchecked";
     }
+     document.getElementById("helpMenuBtn").className="btn_unchecked";
 }
 
 function checkStartMenuButton(){
@@ -46,7 +49,7 @@ function checkStartMenuButton(){
 }
 
 function clearSpace() {
-     document.getElementById("content").innerHTML="";
+     document.getElementById("content").innerHTML="<i class='icon-spinner icon-spin'></i>";
     //TODO: Place loader
 }
 

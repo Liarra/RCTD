@@ -1,5 +1,7 @@
 package datasource;
 
+import storedentities.Ad;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Buchina
@@ -8,4 +10,5 @@ package datasource;
  * To change this template use File | Settings | File Templates.
  */
 public interface AdDataSource {
+    public Ad getAdbyId(Long id);
 }
