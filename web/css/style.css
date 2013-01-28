@@ -30,13 +30,14 @@ height:50px;
 }
 
 .donate{
-	width:300px;
-	height:200px;
+	width:210px;
+	height:140px;
     margin:20px;
 	background-color:gray;
 	background-repeat:no-repeat;
 	box-shadow: 2px 2px 3px 2px gray;
     display:inline-block;
+    boorder-radius:5px;
 }
 
 .donate:hover .hint{
@@ -45,9 +46,9 @@ height:50px;
 
 .btn_donate {
 	top:10px;
-	margin-top:100px;
-	margin-left:100px;
-	width:50px;
+	margin-top:50px;
+	margin-left:50px;
+	width:60px;
 }
 
 .hint{
@@ -55,7 +56,7 @@ height:50px;
 	background:white;
     padding-left:5px;
     padding-top:5px;
-	width:300px;
+	width:210px;
 	height:50px;
     font-size:20px;
 }

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-           version="2.5">
-
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee     http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
         <display-name>page</display-name>
         <servlet-name>PageServlet</servlet-name>
         <servlet-class>servlet.PageServlet</servlet-class>
+        <init-param>
+            <param-name>layout</param-name>
+            <param-value>/html/layout.html</param-value>
+        </init-param>
     </servlet>
     <servlet>
         <servlet-name>ThankYou</servlet-name>
@@ -23,10 +22,6 @@
         <servlet-class>HelpServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>PageServlet</servlet-name>
-        <url-pattern>/page</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ThankYou</servlet-name>
         <url-pattern>/thankyou</url-pattern>
     </servlet-mapping>
@@ -34,9 +29,12 @@
         <servlet-name>DonatesServlet</servlet-name>
         <url-pattern>/main</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>HelpServlet</servlet-name>
         <url-pattern>/help</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PageServlet</servlet-name>
+        <url-pattern>/page</url-pattern>
     </servlet-mapping>
 </web-app>

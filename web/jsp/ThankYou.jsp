@@ -10,7 +10,7 @@
     Long donateId=new Long(request.getParameter("id"));
     image=new PageGenerator().getDonatePicAddress(donateId);
 %>
-<link href="../css/thankyou.css" type="text/css" rel="stylesheet"/>
+<link href="css/thankyou.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript"><%=AdScripts%> </script>
 <div id="ThankYouBar" style="background-image:url(<%=image%>);">
     <div id="ThankYouString">Спасибо!</div>

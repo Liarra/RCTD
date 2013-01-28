@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.OutputStreamWriter;
+import java.net.URL;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,7 +22,7 @@ import java.io.OutputStreamWriter;
  * To change this template use File | Settings | File Templates.
  */
 public class PageServlet extends HttpServlet {
-
+    String layout;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
           doServe( request, response);
@@ -32,7 +35,11 @@ public class PageServlet extends HttpServlet {
      private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
          OutputStream stream= response.getOutputStream();
          PrintWriter writer=new PrintWriter(new OutputStreamWriter(stream,"UTF-8"));
-         String page= new PageGenerator().getMainPage();
+         
+         layout=getServletConfig().getInitParameter("layout");
+         URL FileURL=getServletContext().getResource(layout);
+         
+         String page= new PageGenerator().getMainPage(getServletContext().getResourceAsStream(layout));
          writer.write(page);
          writer.close();
          stream.close();

@@ -1,14 +1,11 @@
 package servlet;
 
-import generators.PageGenerator;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,11 +15,14 @@ import java.io.PrintWriter;
  * To change this template use File | Settings | File Templates.
  */
 public class ThankYou extends HttpServlet {
-
+    private String context;
+    
     void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (!request.getParameterMap().isEmpty()) {
             Long typeId = new Long(request.getParameter("id"));
-            response.sendRedirect("/jsp/ThankYou.jsp?id="+typeId);
+            
+            context=getServletContext().getContextPath();
+            response.sendRedirect(context+"/jsp/ThankYou.jsp?id="+typeId);
         }
     }
 

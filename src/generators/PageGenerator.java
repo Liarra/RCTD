@@ -14,6 +14,9 @@ import datasource.TypeDataSource;
 import datasource.DonateDataSource;
 import datasource.stub.StubTypeDataSource;
 import datasource.stub.StubDonateDataSource;
+import java.io.InputStream;
+import java.net.URL;
+import javax.servlet.ServletContext;
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,13 +27,13 @@ import datasource.stub.StubDonateDataSource;
  */
 public class PageGenerator {
     String defString = "<html>Sorry chief, something went wrong</html>";
-    String basePagePath = "C:\\Documents and Settings\\Buchina\\My Documents\\Develop\\own\\RCTD\\web\\html\\layout.html";
+    String basePagePath = "/html/layout.html";
     TypeDataSource typeDataSource=new StubTypeDataSource();
     DonateDataSource donateDataSource=new StubDonateDataSource();
 
-    public String getMainPage() {
+    public String getMainPage(InputStream context) {
         try {
-            Document basePage = getBasePage();
+            Document basePage = getHTMLFromFile(context);
             addMenu(basePage);
             addAllDonateHTMLs(basePage);
             return basePage.html();
@@ -45,10 +48,6 @@ public class PageGenerator {
         return defString;
     }
 
-     private Document getBasePage() throws IOException {
-        Document basePage = getHTMLFromFile(basePagePath);
-        return basePage;
-    }
 
     private void addMenu(Document doc) {
         String categories = getCategoriesHTML();
@@ -63,10 +62,12 @@ public class PageGenerator {
     }
 
 
-    private Document getHTMLFromFile(String address) throws IOException {
-        File input = new File(address);
-        Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
-
+    private Document getHTMLFromFile(InputStream source) throws IOException {
+//        File input = new File(address);
+//        File input= new File(servContext.getResourceAsStream(basePagePath));
+//        Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
+//        Document doc = Jsoup.parse(address,500);
+        Document doc=Jsoup.parse(source, "UTF-8", "http://example.com/");
         return doc;
     }
 

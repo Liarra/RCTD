@@ -1,3 +1,5 @@
+var context="/RCTD";
+
 function clickDonateButton(donateID) {
     //Clear screen and place loader
     clearSpace();
@@ -50,7 +52,7 @@ function clearSpace() {
 
 function loadDataAJAX(servletpath) {
     var xmlhttp=getAJAXSender();
-    xmlhttp.open("GET", servletpath, true);
+    xmlhttp.open("GET", context+servletpath, true);
     xmlhttp.send();
 }
 
