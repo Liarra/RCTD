@@ -15,7 +15,7 @@
     AdHTML=request.getParameter("adH");
 %>
 <link href="css/thankyou.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript"><%=AdScripts%> </script>
+<script type="text/javascript" id="adscript"> <%=AdScripts%> </script>
 <div id="ThankYouBar" style="background-image:url(<%=image%>);">
     <div id="ThankYouString">Спасибо!</div>
 </div>

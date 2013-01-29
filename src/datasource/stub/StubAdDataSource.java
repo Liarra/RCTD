@@ -14,7 +14,7 @@ public class StubAdDataSource implements AdDataSource{
     public Ad getAdbyId(Long id) {
         Ad ad=new Ad();
         ad.setHTML("<img src='img/1.jpg' />");
-        ad.setScript("<script>alert('Ok ad');</script>");
+        ad.setScript("alert(\"Ok ad\");");
         return ad;
     }
 }
