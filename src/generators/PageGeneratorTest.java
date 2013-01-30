@@ -18,13 +18,13 @@ public class PageGeneratorTest {
     PageGenerator gen;
     @Before
     public void setUp() {
-         gen=new PageGenerator(TypeDataSourceInstance,DonateDataSourceInstance,UserClicksDataSourceInstance);
+         gen=new PageGenerator(TypeDataSourceInstance,DonateDataSourceInstance,UserClicksDataSourceInstance,"0");
         // Add your code here
     }
 
     @Test
     public void testGetMainScreenMenu() {
-        String result=gen.getMainPage(null,null);
+        String result=gen.getMainPage(null);
         if(!result.contains("Дома престарелых"))
             fail("Нету нужной менюшеи");
         System.out.println(result);
