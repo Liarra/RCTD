@@ -50,7 +50,7 @@ function checkStartMenuButton(){
 
 function clearSpace() {
      document.getElementById("content").innerHTML="<i class='icon-spinner icon-spin'></i>";
-    //TODO: Place loader
+//     document.getElementById("contentd").className="contentd_whileloading";
 }
 
 function loadDataAJAX(servletpath) {
@@ -76,7 +76,8 @@ function getAJAXSender(){
         {
             document.getElementById("content").innerHTML = xmlhttp.responseText;
             var fu=new Function(document.getElementById("adscript").innerHTML);
-            fu();
+            //fu();
+//             document.getElementById("contentd").className="";
         }
     }
 

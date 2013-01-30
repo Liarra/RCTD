@@ -56,3 +56,11 @@ overflow-y: scroll;
 	height:50px;
     font-size:20px;
 }
+
+.icon-spinner{
+    color: darkorange;
+    font-size: 35px;
+    left: 50%;
+    position: absolute;
+    top: 235px;
+}
