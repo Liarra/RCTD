@@ -1,17 +1,20 @@
 var context="/RCTD";
+var viewer_id;
+
+
 
 function clickDonateButton(donateID) {
     //Clear screen and place loader
     clearSpace();
     //Request thankYou page
-    loadDataAJAX("/thankyou?id="+donateID);
+    loadDataAJAX("/thankyou?id="+donateID+"&viewer_id="+viewer_id);
     //On mistake tell it and return base screen
 }
 
 function clickBackButton(){
     clearSpace();
     uncheckAllMenuButtons();
-    loadDataAJAX("/main");
+    loadDataAJAX("/main"+"?viewer_id="+viewer_id);
     checkStartMenuButton();
 }
 
@@ -30,7 +33,7 @@ function clickMenu(TypeID, buttonID){
     clearSpace();
     uncheckAllMenuButtons();
     document.getElementById(buttonID).className="btn_checked";
-    loadDataAJAX("/main?id="+TypeID);
+    loadDataAJAX("/main?id="+TypeID+"&viewer_id="+viewer_id);
 }
 
 function uncheckAllMenuButtons(){
@@ -50,7 +53,6 @@ function checkStartMenuButton(){
 
 function clearSpace() {
      document.getElementById("content").innerHTML="<i class='icon-spinner icon-spin'></i>";
-//     document.getElementById("contentd").className="contentd_whileloading";
 }
 
 function loadDataAJAX(servletpath) {
@@ -83,3 +85,22 @@ function getAJAXSender(){
 
     return xmlhttp;
 }
+
+function initScript(){
+var prmstr = window.location.search.substr(1);
+var prmarr = prmstr.split ("&");
+var params = {};
+
+for ( var i = 0; i < prmarr.length; i++) {
+    var tmparr = prmarr[i].split("=");
+    params[tmparr[0]] = tmparr[1];
+}
+
+    setViewerId(params["viewer_id"]);
+}
+
+function setViewerId(vid){
+    viewer_id=vid;
+}
+
+initScript();

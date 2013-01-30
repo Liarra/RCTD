@@ -13,6 +13,7 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
+import static datasource.stub.StubDataSourcesRepository.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,6 +24,7 @@ import javax.servlet.ServletContext;
  */
 public class PageServlet extends HttpServlet {
     String layout;
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
           doServe( request, response);
@@ -37,9 +39,9 @@ public class PageServlet extends HttpServlet {
          PrintWriter writer=new PrintWriter(new OutputStreamWriter(stream,"UTF-8"));
          
          layout=getServletConfig().getInitParameter("layout");
-         URL FileURL=getServletContext().getResource(layout);
-         
-         String page= new PageGenerator().getMainPage(getServletContext().getResourceAsStream(layout));
+         String viewer_id=request.getParameter("viewer_id");
+         PageGenerator pageGenerator=new PageGenerator(TypeDataSourceInstance,DonateDataSourceInstance,UserClicksDataSourceInstance,viewer_id);
+         String page= pageGenerator.getMainPage(getServletContext().getResourceAsStream(layout));
          writer.write(page);
          writer.close();
          stream.close();

@@ -3,6 +3,9 @@ package generators;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.fail;
+import static datasource.stub.StubDataSourcesRepository.TypeDataSourceInstance;
+import static datasource.stub.StubDataSourcesRepository.DonateDataSourceInstance;
+import static datasource.stub.StubDataSourcesRepository.UserClicksDataSourceInstance;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,13 +18,13 @@ public class PageGeneratorTest {
     PageGenerator gen;
     @Before
     public void setUp() {
-         gen=new PageGenerator();
+         gen=new PageGenerator(TypeDataSourceInstance,DonateDataSourceInstance,UserClicksDataSourceInstance);
         // Add your code here
     }
 
     @Test
     public void testGetMainScreenMenu() {
-        String result=gen.getMainPage(null);
+        String result=gen.getMainPage(null,null);
         if(!result.contains("Дома престарелых"))
             fail("Нету нужной менюшеи");
         System.out.println(result);

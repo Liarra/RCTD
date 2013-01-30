@@ -12,8 +12,11 @@ import storedentities.Donate;
 import storedentities.Type;
 import datasource.TypeDataSource;
 import datasource.DonateDataSource;
+import datasource.UserClicksDataSource;
 import datasource.stub.StubTypeDataSource;
 import datasource.stub.StubDonateDataSource;
+import datasource.stub.StubUserClicksDataSource;
+
 import java.io.InputStream;
 import java.net.URL;
 import javax.servlet.ServletContext;
@@ -28,8 +31,22 @@ import javax.servlet.ServletContext;
 public class PageGenerator {
     String defString = "<html>Sorry chief, something went wrong</html>";
     String basePagePath = "/html/layout.html";
-    TypeDataSource typeDataSource=new StubTypeDataSource();
-    DonateDataSource donateDataSource=new StubDonateDataSource();
+
+    TypeDataSource typeDataSource;
+    DonateDataSource donateDataSource;
+
+     String viewer_id="";
+
+    public PageGenerator(TypeDataSource typeDataSource, DonateDataSource donateDataSource, UserClicksDataSource userClicksDataSource, String viewer) {
+        this.typeDataSource = typeDataSource;
+        this.donateDataSource = donateDataSource;
+        this.userClicksDataSource = userClicksDataSource;
+        this.viewer_id=viewer;
+    }
+
+    UserClicksDataSource userClicksDataSource;
+
+
 
     public String getMainPage(InputStream context) {
         try {
@@ -63,10 +80,6 @@ public class PageGenerator {
 
 
     private Document getHTMLFromFile(InputStream source) throws IOException {
-//        File input = new File(address);
-//        File input= new File(servContext.getResourceAsStream(basePagePath));
-//        Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
-//        Document doc = Jsoup.parse(address,500);
         Document doc=Jsoup.parse(source, "UTF-8", "http://example.com/");
         return doc;
     }
@@ -80,7 +93,7 @@ public class PageGenerator {
     public String getDonatesHTML() {
         Collection<Donate> testDonates=donateDataSource.getAllDonates();
 
-        DonateGenerator gen = new DonateGenerator();
+        DonateGenerator gen = new DonateGenerator(userClicksDataSource,viewer_id);
         return gen.generateDonatesHTML(testDonates);
     }
 
@@ -88,7 +101,7 @@ public class PageGenerator {
          Type type=typeDataSource.getTypeById(typeID);
         Collection<Donate> donates=donateDataSource.getDonatesByType(type);
 
-        DonateGenerator gen = new DonateGenerator();
+        DonateGenerator gen = new DonateGenerator(userClicksDataSource,viewer_id);
         return gen.generateDonatesHTML(donates);
     }
 

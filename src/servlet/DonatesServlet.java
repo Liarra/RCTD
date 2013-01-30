@@ -11,6 +11,10 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.OutputStreamWriter;
 
+import static datasource.stub.StubDataSourcesRepository.TypeDataSourceInstance;
+import static datasource.stub.StubDataSourcesRepository.DonateDataSourceInstance;
+import static datasource.stub.StubDataSourcesRepository.UserClicksDataSourceInstance;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Buchina
@@ -21,6 +25,8 @@ import java.io.OutputStreamWriter;
 public class DonatesServlet extends HttpServlet
 
 {
+
+
     protected void doPost(HttpServletRequest
             request, HttpServletResponse
             response) throws ServletException, IOException {
@@ -32,16 +38,20 @@ public class DonatesServlet extends HttpServlet
     }
 
     private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String page;
-        PageGenerator gen = new PageGenerator();
+        String page="something went wrong";
         if (!request.getParameterMap().isEmpty()) {
-            Long typeId = new Long(request.getParameter("id"));
+            String typeIdS=request.getParameter("id");
+            if(typeIdS==null)typeIdS="-1";
+            Long typeId = new Long(typeIdS);
+            String userId=request.getParameter("viewer_id");
+
+            PageGenerator gen=new PageGenerator(TypeDataSourceInstance,DonateDataSourceInstance,UserClicksDataSourceInstance, userId);
             if (typeId == -1L)
                 page = gen.getDonatesHTML();
             else
                 page = gen.getDonatesHTML(typeId);
         } else {
-            page = gen.getDonatesHTML();
+//            page = gen.getDonatesHTML();
         }
 
         OutputStream stream = response.getOutputStream();

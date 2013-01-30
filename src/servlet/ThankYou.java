@@ -2,6 +2,7 @@ package servlet;
 
 
 import storedentities.Ad;
+import storedentities.Donate;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +11,12 @@ import javax.servlet.ServletException;
 import java.io.IOException;
 
 import datasource.AdDataSource;
+import datasource.UserClicksDataSource;
+import datasource.DonateDataSource;
 import datasource.stub.StubAdDataSource;
+import datasource.stub.StubUserClicksDataSource;
+import datasource.stub.StubDonateDataSource;
+import static datasource.stub.StubDataSourcesRepository.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +27,9 @@ import datasource.stub.StubAdDataSource;
  */
 public class ThankYou extends HttpServlet {
     private String context;
-    AdDataSource adDataSource=new StubAdDataSource();
+    AdDataSource adDataSource=AdDataSourceInstance;
+    UserClicksDataSource userClicksDataSource=UserClicksDataSourceInstance;
+    DonateDataSource donateDataSource=DonateDataSourceInstance;
     
     void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (!request.getParameterMap().isEmpty()) {
@@ -30,16 +38,27 @@ public class ThankYou extends HttpServlet {
             catch(NoSuchMethodError er){
                 context="/RCTD";
             }
-
-            Long typeId = new Long(request.getParameter("id"));
-            Ad ad= adDataSource.getAdbyId(1L);
+             Ad ad= adDataSource.getAdbyId(1L);
             String adH =ad.getHTML();
             String adS=ad.getScript();
 
+            String userId=request.getParameter("viewer_id");
+            Long typeId = new Long(request.getParameter("id"));
+            submitClick(userId,typeId);
 
-            String requestString=String.format("/jsp/ThankYou.jsp?id=%s&adS=%s&adH=%s",typeId,adS,adH);
+               String requestString=String.format("/jsp/ThankYou.jsp?id=%s&adS=%s&adH=%s",typeId,adS,adH);
             response.sendRedirect(context+requestString);
         }
+    }
+
+    private void submitClick(String user, Long donateId){
+        Donate donate=donateDataSource.getDonateById(donateId);
+
+        if(!userClicksDataSource.isAbleToClick(user,donate))
+            throw new IllegalArgumentException("This user cannot click on this donate anymore!");
+
+        userClicksDataSource.click(user,donate);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
