@@ -2,6 +2,7 @@ package datasource;
 
 import storedentities.Type;
 
+import javax.xml.bind.JAXBException;
 import java.util.Collection;
 
 /**
@@ -13,5 +14,5 @@ import java.util.Collection;
  */
 public interface TypeDataSource {
     public Collection<Type> getAllTypes();
-    public Type getTypeById(Long typeId);
+    public Type getTypeById(Long typeId) ;
 }

@@ -27,12 +27,12 @@ public class DonateGenerator {
 
     public DonateGenerator() {
         buttonLabel = "Помочь";
-            donateHTMLEnabledTemplate = "<div class=\"donate\" style=\"background:url(%s);\">\n" +
+            donateHTMLEnabledTemplate = "<div class=\"donate\" style=\"background-image:url(%s);\">\n" +
                 "<div class=\"hint\">%s</div>\n" +
                 "<a href=\"#\" class=\"btn_checked btn_donate\" onclick=\"clickDonateButton(%s)\">"+buttonLabel+"</a>\n" +
                 " </div>";
 
-        donateHTMLDisabledTemplate = "<div class=\"donate\" style=\"background:url(%s);\">\n" +
+        donateHTMLDisabledTemplate = "<div class=\"donate\" style=\"background-image:url(%s);\">\n" +
                 "<div class=\"hint\">%s</div>\n" +
                 "<a href=\"#\" class=\"btn_unchecked btn_donate\">"+buttonLabel+"</a>\n" +
                 " </div>";

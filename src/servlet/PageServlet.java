@@ -10,10 +10,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.OutputStreamWriter;
-import java.net.URL;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import static datasource.stub.StubDataSourcesRepository.*;
+import static datasource.xml.XmlDataSourcesRepository.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -40,7 +38,7 @@ public class PageServlet extends HttpServlet {
          
          layout=getServletConfig().getInitParameter("layout");
          String viewer_id=request.getParameter("viewer_id");
-         PageGenerator pageGenerator=new PageGenerator(TypeDataSourceInstance,DonateDataSourceInstance,UserClicksDataSourceInstance,viewer_id);
+         PageGenerator pageGenerator=new PageGenerator(XmlTypeDataSourceInstance,XmlDonateDataSourceInstance,UserClicksDataSourceInstance,viewer_id);
          String page= pageGenerator.getMainPage(getServletContext().getResourceAsStream(layout));
          writer.write(page);
          writer.close();

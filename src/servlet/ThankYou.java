@@ -17,6 +17,7 @@ import datasource.stub.StubAdDataSource;
 import datasource.stub.StubUserClicksDataSource;
 import datasource.stub.StubDonateDataSource;
 import static datasource.stub.StubDataSourcesRepository.*;
+import static datasource.xml.XmlDataSourcesRepository.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,7 +30,7 @@ public class ThankYou extends HttpServlet {
     private String context;
     AdDataSource adDataSource=AdDataSourceInstance;
     UserClicksDataSource userClicksDataSource=UserClicksDataSourceInstance;
-    DonateDataSource donateDataSource=DonateDataSourceInstance;
+    DonateDataSource donateDataSource=XmlDonateDataSourceInstance;
     
     void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (!request.getParameterMap().isEmpty()) {

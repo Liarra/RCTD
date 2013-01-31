@@ -1,4 +1,4 @@
-<%@ page import="static datasource.stub.StubDataSourcesRepository.DonateDataSourceInstance" %>
+<%@ page import="static datasource.xml.XmlDataSourcesRepository.XmlDonateDataSourceInstance" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%!
@@ -9,7 +9,7 @@
 
 <%
     Long donateId=new Long(request.getParameter("id"));
-    image=DonateDataSourceInstance.getDonateById(donateId).getPicURL();
+    image=XmlDonateDataSourceInstance.getDonateById(donateId).getPicURL();
 
     AdScripts=request.getParameter("adS");
     AdHTML=request.getParameter("adH");

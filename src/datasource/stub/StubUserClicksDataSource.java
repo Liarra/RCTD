@@ -57,7 +57,7 @@ public class StubUserClicksDataSource implements UserClicksDataSource{
 
     private UserLastDonate getLastUserDonate(String user, Donate donate){
         for(UserLastDonate d:lastdonates){
-              if(d.getUser_id().equals(user)&&d.getDonate().equals(donate))
+              if(d.getUser_id().equals(user)&&d.getDonate().getId().equals(donate.getId()))
                   return d;
         }
 

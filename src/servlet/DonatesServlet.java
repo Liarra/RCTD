@@ -11,9 +11,10 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.OutputStreamWriter;
 
-import static datasource.stub.StubDataSourcesRepository.TypeDataSourceInstance;
-import static datasource.stub.StubDataSourcesRepository.DonateDataSourceInstance;
-import static datasource.stub.StubDataSourcesRepository.UserClicksDataSourceInstance;
+
+import static datasource.stub.StubDataSourcesRepository.*;
+import static datasource.xml.XmlDataSourcesRepository.*;
+
 
 /**
  * Created by IntelliJ IDEA.
@@ -45,7 +46,7 @@ public class DonatesServlet extends HttpServlet
             Long typeId = new Long(typeIdS);
             String userId=request.getParameter("viewer_id");
 
-            PageGenerator gen=new PageGenerator(TypeDataSourceInstance,DonateDataSourceInstance,UserClicksDataSourceInstance, userId);
+            PageGenerator gen=new PageGenerator(XmlTypeDataSourceInstance, XmlDonateDataSourceInstance,UserClicksDataSourceInstance, userId);
             if (typeId == -1L)
                 page = gen.getDonatesHTML();
             else

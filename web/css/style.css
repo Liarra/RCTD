@@ -28,11 +28,11 @@ overflow-y: scroll;
 	width:210px;
 	height:140px;
     margin:20px;
-	background-color:gray;
+	background-color:white;
 	background-repeat:no-repeat;
+    background-position:center top;
 	box-shadow: 2px 2px 3px 2px gray;
     display:inline-block;
-    boorder-radius:5px;
 }
 
 .donate:hover .hint{
