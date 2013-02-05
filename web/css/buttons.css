@@ -55,6 +55,6 @@
 
 
 .btn_checked:active {
-	position:relative;
-	top:1px;
+	/*position:relative;*/
+	/*top:1px;*/
 }

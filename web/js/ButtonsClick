@@ -36,6 +36,13 @@ function clickMenu(TypeID, buttonID){
     loadDataAJAX("/main?id="+TypeID+"&viewer_id="+viewer_id);
 }
 
+function clickWelcome(){
+    var a1=document.getElementById("dialog-overlay");
+    a1.parentNode.removeChild(a1);
+    var a2=document.getElementById("dialog-box");
+    a2.parentNode.removeChild(a2);
+}
+
 function uncheckAllMenuButtons(){
     var menuContainer=document.getElementById("menucell");
     var children=menuContainer.childNodes;

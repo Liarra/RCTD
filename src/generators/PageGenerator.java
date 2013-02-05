@@ -3,6 +3,7 @@ package generators;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.Jsoup;
+import org.jsoup.select.Elements;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,11 +47,14 @@ public class PageGenerator {
 
     UserClicksDataSource userClicksDataSource;
 
-
+    public String getAboutContent() {
+        return defString;
+    }
 
     public String getMainPage(InputStream context) {
         try {
             Document basePage = getHTMLFromFile(context);
+            addWelcomeScreenForNewUsers(basePage);
             addMenu(basePage);
             addAllDonateHTMLs(basePage);
             return basePage.html();
@@ -61,9 +65,14 @@ public class PageGenerator {
 
     }
 
-    public String getAboutContent() {
-        return defString;
+    private void addWelcomeScreenForNewUsers(Document doc) {
+         String welcomeScreen=new WelcomeScreenGenerator().getWelcomeScreen();
+            Element body = doc.getElementsByTag("body").first();
+        body.append(welcomeScreen);
+
     }
+
+
 
 
     private void addMenu(Document doc) {
@@ -105,8 +114,4 @@ public class PageGenerator {
         return gen.generateDonatesHTML(donates);
     }
 
-    public String getDonatePicAddress(Long donateID){
-        Donate don=donateDataSource.getDonateById(donateID);
-        return don.getPicURL();
-    }
 }
