@@ -1,0 +1,13 @@
+#vkfake{
+    background-image:url("../img/vk-back.png");
+    margin:auto;
+    background-repeat:no-repeat;
+    width:972px;
+    height:593px;
+}
+
+#vkfake iframe{
+    position:relative;
+     left:149;
+    top:72;
+}

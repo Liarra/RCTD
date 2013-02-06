@@ -12,6 +12,9 @@ import java.io.PrintWriter;
 import java.io.OutputStreamWriter;
 import static datasource.stub.StubDataSourcesRepository.*;
 import static datasource.xml.XmlDataSourcesRepository.*;
+import datasource.xml.XmlDataSourcesRepository;
+import datasource.TypeDataSource;
+import datasource.DonateDataSource;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,11 +36,15 @@ public class PageServlet extends HttpServlet {
     }
 
      private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
+         XmlDataSourcesRepository rep=new XmlDataSourcesRepository();
+         TypeDataSource XmlTypeDataSourceInstance=rep.XmlTypeDataSourceInstance;
+         DonateDataSource XmlDonateDataSourceInstance=rep.XmlDonateDataSourceInstance;
          OutputStream stream= response.getOutputStream();
          PrintWriter writer=new PrintWriter(new OutputStreamWriter(stream,"UTF-8"));
          
          layout=getServletConfig().getInitParameter("layout");
          String viewer_id=request.getParameter("viewer_id");
+
          PageGenerator pageGenerator=new PageGenerator(XmlTypeDataSourceInstance,XmlDonateDataSourceInstance,UserClicksDataSourceInstance,viewer_id);
          String page= pageGenerator.getMainPage(getServletContext().getResourceAsStream(layout));
          writer.write(page);

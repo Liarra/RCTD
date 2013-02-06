@@ -14,6 +14,9 @@ import java.io.OutputStreamWriter;
 
 import static datasource.stub.StubDataSourcesRepository.*;
 import static datasource.xml.XmlDataSourcesRepository.*;
+import datasource.xml.XmlDataSourcesRepository;
+import datasource.TypeDataSource;
+import datasource.DonateDataSource;
 
 
 /**
@@ -45,6 +48,10 @@ public class DonatesServlet extends HttpServlet
             if(typeIdS==null)typeIdS="-1";
             Long typeId = new Long(typeIdS);
             String userId=request.getParameter("viewer_id");
+
+            XmlDataSourcesRepository rep=new XmlDataSourcesRepository();
+         TypeDataSource XmlTypeDataSourceInstance=rep.XmlTypeDataSourceInstance;
+         DonateDataSource XmlDonateDataSourceInstance=rep.XmlDonateDataSourceInstance;
 
             PageGenerator gen=new PageGenerator(XmlTypeDataSourceInstance, XmlDonateDataSourceInstance,UserClicksDataSourceInstance, userId);
             if (typeId == -1L)

@@ -18,6 +18,7 @@ import datasource.stub.StubUserClicksDataSource;
 import datasource.stub.StubDonateDataSource;
 import static datasource.stub.StubDataSourcesRepository.*;
 import static datasource.xml.XmlDataSourcesRepository.*;
+import datasource.xml.XmlDataSourcesRepository;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,7 +31,7 @@ public class ThankYou extends HttpServlet {
     private String context;
     AdDataSource adDataSource=AdDataSourceInstance;
     UserClicksDataSource userClicksDataSource=UserClicksDataSourceInstance;
-    DonateDataSource donateDataSource=XmlDonateDataSourceInstance;
+    DonateDataSource donateDataSource=new XmlDataSourcesRepository().XmlDonateDataSourceInstance;
     
     void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (!request.getParameterMap().isEmpty()) {
@@ -47,7 +48,7 @@ public class ThankYou extends HttpServlet {
             Long typeId = new Long(request.getParameter("id"));
             submitClick(userId,typeId);
 
-               String requestString=String.format("/jsp/ThankYou.jsp?id=%s&adS=%s&adH=%s",typeId,adS,adH);
+            String requestString=String.format("/jsp/ThankYou.jsp?id=%s&adS=%s&adH=%s",typeId,adS,adH);
             response.sendRedirect(context+requestString);
         }
     }
@@ -56,7 +57,8 @@ public class ThankYou extends HttpServlet {
         Donate donate=donateDataSource.getDonateById(donateId);
 
         if(!userClicksDataSource.isAbleToClick(user,donate))
-            throw new IllegalArgumentException("This user cannot click on this donate anymore!");
+                return;
+//            throw new IllegalArgumentException("This user cannot click on this donate anymore!");
 
         userClicksDataSource.click(user,donate);
 

@@ -23,7 +23,7 @@
         <building>
           <setting name="EXPLODED_URL" value="file://$MODULE_DIR$/../../../Documents/HSE/RCTD/out/exploded/RCTDWeb" />
           <setting name="EXPLODED_ENABLED" value="true" />
-          <setting name="JAR_URL" value="file://$MODULE_DIR$/../RCTD-war/Web.war" />
+          <setting name="JAR_URL" value="file://$MODULE_DIR$/../RCTD-war/RCTD.war" />
           <setting name="JAR_ENABLED" value="true" />
           <setting name="EXCLUDE_EXPLODED_DIRECTORY" value="true" />
         </building>

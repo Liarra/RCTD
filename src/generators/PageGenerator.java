@@ -8,6 +8,7 @@ import org.jsoup.select.Elements;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Random;
 
 import storedentities.Donate;
 import storedentities.Type;
@@ -43,6 +44,8 @@ public class PageGenerator {
         this.donateDataSource = donateDataSource;
         this.userClicksDataSource = userClicksDataSource;
         this.viewer_id=viewer;
+
+//        if(viewer_id=="undefined")viewer_id=new Random().nextInt(553454)+"";
     }
 
     UserClicksDataSource userClicksDataSource;

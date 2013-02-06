@@ -1,4 +1,5 @@
-<%@ page import="static datasource.xml.XmlDataSourcesRepository.XmlDonateDataSourceInstance" %>
+<%@ page import="datasource.DonateDataSource" %>
+<%@ page import="datasource.xml.XmlDataSourcesRepository" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%!
@@ -9,6 +10,8 @@
 
 <%
     Long donateId=new Long(request.getParameter("id"));
+
+    DonateDataSource XmlDonateDataSourceInstance=new XmlDataSourcesRepository().XmlDonateDataSourceInstance;
     image=XmlDonateDataSourceInstance.getDonateById(donateId).getPicURL();
 
     AdScripts=request.getParameter("adS");
