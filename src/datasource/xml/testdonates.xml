@@ -18,7 +18,7 @@
       <donate id="2">
       <name>Защитита прав животных</name>
       <picURL>http://shaavida.org/s/cc_images/cache_2564301504.jpg?t=1326602108</picURL>
-      <description>string</description>
+      <description>http://www.peta.org/</description>
       <accountNumber>string</accountNumber>
     </donate>
 
@@ -28,14 +28,14 @@
     <donate id="3">
       <name>Спасение тяжелобольных детей</name>
       <picURL>http://www.life-line.ru/i/logotype.gif</picURL>
-      <description>string</description>
+      <description>http://www.life-line.ru</description>
       <accountNumber>string</accountNumber>
     </donate>
 
          <donate id="4">
       <name>Поддержка детей-сирот</name>
       <picURL>http://www.sharecare.ru/image/spec/seeworldchildren/pictures/pomog_deti3.jpg</picURL>
-      <description>string</description>
+      <description>http://www.sharecare.ru</description>
       <accountNumber>string</accountNumber>
     </donate>
 
@@ -47,14 +47,14 @@
     <donate id="6">
       <name>Помощь пожилым, инвалидам, одиноким старикам</name>
       <picURL>http://www.sofiafond.ru/sites/all/themes/sofia/logo.png</picURL>
-      <description>string</description>
+      <description>http://www.sofiafond.ru/</description>
       <accountNumber>string</accountNumber>
     </donate>
 
          <donate id="7">
       <name>Помощь живущим в домах престарелых</name>
       <picURL>http://www.pencioner.ru/for_pencioners/2011/Starost_v_radostAnons.jpg</picURL>
-      <description>string</description>
+      <description>www.starikam.ru</description>
       <accountNumber>string</accountNumber>
     </donate>
 
