@@ -2,21 +2,21 @@
 
   <type id="0" name="Животные">
     <donate id="0">
-      <name>WWF</name>
+      <name>Cохранение биологического разнообразия Земли</name>
       <picURL>http://www.energieallianz.ch/images/logo_wwf.jpg</picURL>
-      <description>string</description>
+      <description>http://wwf.ru</description>
       <accountNumber>string</accountNumber>
     </donate>
 
       <donate id="1">
-      <name>Greenpeace</name>
+      <name>Сохранение природы и мира на планете</name>
       <picURL>http://www.ecomowne.com/images/greenpeace.gif</picURL>
-      <description>string</description>
+      <description>http://greenpeace.ru</description>
       <accountNumber>string</accountNumber>
     </donate>
 
       <donate id="2">
-      <name>PETA</name>
+      <name>Защитита прав животных</name>
       <picURL>http://shaavida.org/s/cc_images/cache_2564301504.jpg?t=1326602108</picURL>
       <description>string</description>
       <accountNumber>string</accountNumber>
@@ -26,14 +26,14 @@
 
      <type id="1" name="Дети">
     <donate id="3">
-      <name>Линия жизни</name>
+      <name>Спасение тяжелобольных детей</name>
       <picURL>http://www.life-line.ru/i/logotype.gif</picURL>
       <description>string</description>
       <accountNumber>string</accountNumber>
     </donate>
 
          <donate id="4">
-      <name>Поделись теплом</name>
+      <name>Поддержка детей-сирот</name>
       <picURL>http://www.sharecare.ru/image/spec/seeworldchildren/pictures/pomog_deti3.jpg</picURL>
       <description>string</description>
       <accountNumber>string</accountNumber>
@@ -45,14 +45,14 @@
 
      <type id="2" name="Дома престарелых">
     <donate id="6">
-      <name>София</name>
+      <name>Помощь пожилым, инвалидам, одиноким старикам</name>
       <picURL>http://www.sofiafond.ru/sites/all/themes/sofia/logo.png</picURL>
       <description>string</description>
       <accountNumber>string</accountNumber>
     </donate>
 
          <donate id="7">
-      <name>Старость в радость</name>
+      <name>Помощь живущим в домах престарелых</name>
       <picURL>http://www.pencioner.ru/for_pencioners/2011/Starost_v_radostAnons.jpg</picURL>
       <description>string</description>
       <accountNumber>string</accountNumber>

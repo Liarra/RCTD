@@ -28,12 +28,18 @@ public class DonateGenerator {
     public DonateGenerator() {
         buttonLabel = "Помочь";
             donateHTMLEnabledTemplate = "<div class=\"donate\" style=\"background-image:url(%s);\">\n" +
-                "<div class=\"hint\">%s</div>\n" +
+                "<div class=\"hint\">" +
+                    "%s " +
+                    "<div class=\"donate-home-link\"><a href=%s target=\"_blank\"><i class=\"icon-home\"></i></a></div>" +
+                    "</div>\n" +
                 "<a href=\"#\" class=\"btn_checked btn_donate\" onclick=\"clickDonateButton(%s)\">"+buttonLabel+"</a>\n" +
                 " </div>";
 
         donateHTMLDisabledTemplate = "<div class=\"donate\" style=\"background-image:url(%s);\">\n" +
-                "<div class=\"hint\">%s</div>\n" +
+                "<div class=\"hint\">" +
+                "%s" +
+                 "<div class=\"donate-home-link\"><a href=%s target=\"_blank\"><i class=\"icon-home\"></i></a></div>" +
+                "</div>\n" +
                 "<a href=\"#\" class=\"btn_unchecked btn_donate\">"+buttonLabel+"</a>\n" +
                 " </div>";
     }
@@ -42,9 +48,10 @@ public class DonateGenerator {
         String donateName=d.getName();
         String donatePic=d.getPicURL();
         String id=String.valueOf(d.getId());
+        String donateHome=d.getDescription();
 
         String template=enabled?donateHTMLEnabledTemplate:donateHTMLDisabledTemplate;
-        String newDonateHTML=String.format(template,donatePic,donateName,id);
+        String newDonateHTML=String.format(template,donatePic,donateName,donateHome,id);
         return newDonateHTML;
     }
 

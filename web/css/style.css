@@ -52,12 +52,15 @@ background-color:white;
   background-position:initial initial;
   background-repeat:initial initial;
   box-shadow:black 0 5px 20px -5px;
-  font-size:20px;
+  font-size:13px;
+    color:#404040;
   height:50px;
   padding-left:5px;
   padding-top:5px;
+    padding-right:5px;
   visibility:hidden;
-  width:210px; 
+  width:205px;
+    position:relative;
 }
 
 .icon-spinner{
@@ -66,4 +69,18 @@ background-color:white;
     left: 50%;
     position: absolute;
     top: 235px;
+}
+
+.donate-home-link{
+    position: absolute;
+    bottom: 3px;
+    right:3px;
+    margin-right:4px;
+    text-align: right;
+    color:darkorange;
+}
+
+.donate-home-link a{
+      color:darkorange;
+    text-decoration:none;
 }
