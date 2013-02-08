@@ -84,7 +84,7 @@ function getAJAXSender(){
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
         {
             document.getElementById("content").innerHTML = xmlhttp.responseText;
-            var fu=new Function(document.getElementById("adscript").innerHTML);
+            //var fu=new Function(document.getElementById("adscript").innerHTML);
             //fu();
 //             document.getElementById("contentd").className="";
         }
