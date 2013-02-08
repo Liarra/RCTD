@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 import java.util.Collection;
+import java.util.ArrayList;
 
 import datasource.DonateDataSource;
 
@@ -40,6 +41,18 @@ public class DonateGetter implements DonateDataSource{
         query.setParameter("1",t);
          List<Donate> DonateList= query.getResultList();
        return DonateList;
+    }
+
+    public Collection<Donate> getDonatesByTypeId(Long typeId) {
+        Collection<Donate> all=getAllDonates();
+        Collection<Donate> ret=new ArrayList<Donate>();
+
+        for(Donate d:all){
+            if(d.getType().getId().equals(typeId))
+                ret.add(d);
+        }
+
+        return ret;
     }
 
     public Collection<Donate> getDonatesByTypeID(Long typeId){

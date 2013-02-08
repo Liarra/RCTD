@@ -10,8 +10,8 @@
         </init-param>
     </servlet>
     <servlet>
-        <servlet-name>ThankYou</servlet-name>
-        <servlet-class>servlet.ThankYou</servlet-class>
+        <servlet-name>ThankYouServlet</servlet-name>
+        <servlet-class>servlet.ThankYouServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DonatesServlet</servlet-name>
@@ -19,10 +19,10 @@
     </servlet>
     <servlet>
         <servlet-name>HelpServlet</servlet-name>
-        <servlet-class>HelpServlet</servlet-class>
+        <servlet-class>servlet.HelpServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ThankYou</servlet-name>
+        <servlet-name>ThankYouServlet</servlet-name>
         <url-pattern>/thankyou</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

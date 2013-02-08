@@ -1,27 +1,15 @@
-package generators;
+package pagebuild;
 
+import generators.MenuGenerator;
+import generators.WelcomeScreenGenerator;
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.Jsoup;
-import org.jsoup.select.Elements;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.Random;
-
-import storedentities.Donate;
 import storedentities.Type;
-import datasource.TypeDataSource;
-import datasource.DonateDataSource;
-import datasource.UserClicksDataSource;
-import datasource.stub.StubTypeDataSource;
-import datasource.stub.StubDonateDataSource;
-import datasource.stub.StubUserClicksDataSource;
 
+import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import javax.servlet.ServletContext;
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,25 +18,16 @@ import javax.servlet.ServletContext;
  * Time: 13:02:01
  * To change this template use File | Settings | File Templates.
  */
-public class PageGenerator {
+public class PageComposer extends AbstractComposer{
     String defString = "<html>Sorry chief, something went wrong</html>";
     String basePagePath = "/html/layout.html";
+    String viewer_id="";
 
-    TypeDataSource typeDataSource;
-    DonateDataSource donateDataSource;
-
-     String viewer_id="";
-
-    public PageGenerator(TypeDataSource typeDataSource, DonateDataSource donateDataSource, UserClicksDataSource userClicksDataSource, String viewer) {
-        this.typeDataSource = typeDataSource;
-        this.donateDataSource = donateDataSource;
-        this.userClicksDataSource = userClicksDataSource;
+    public PageComposer(String viewer) {
+        initDataSources();
         this.viewer_id=viewer;
-
-//        if(viewer_id=="undefined")viewer_id=new Random().nextInt(553454)+"";
     }
 
-    UserClicksDataSource userClicksDataSource;
 
     public String getAboutContent() {
         return defString;
@@ -75,9 +54,6 @@ public class PageGenerator {
 
     }
 
-
-
-
     private void addMenu(Document doc) {
         String categories = getCategoriesHTML();
         Element menuContainer = doc.getElementById("menucell");
@@ -85,11 +61,10 @@ public class PageGenerator {
     }
 
     private void addAllDonateHTMLs(Document doc) {
-        String donateHTMLs = getDonatesHTML();
+        String donateHTMLs = new DonatesListComposer(viewer_id).getDonatesHTML();
         Element menuContainer = doc.getElementById("content");
-            menuContainer.append(donateHTMLs);
+        menuContainer.append(donateHTMLs);
     }
-
 
     private Document getHTMLFromFile(InputStream source) throws IOException {
         Document doc=Jsoup.parse(source, "UTF-8", "http://example.com/");
@@ -97,24 +72,9 @@ public class PageGenerator {
     }
 
     private String getCategoriesHTML() {
-          Collection<Type> types=typeDataSource.getAllTypes();
+        Collection<Type> types=typeDataSource.getAllTypes();
         MenuGenerator menuGenerator = new MenuGenerator();
         return menuGenerator.generateMenu(types);
-    }
-
-    public String getDonatesHTML() {
-        Collection<Donate> testDonates=donateDataSource.getAllDonates();
-
-        DonateGenerator gen = new DonateGenerator(userClicksDataSource,viewer_id);
-        return gen.generateDonatesHTML(testDonates);
-    }
-
-    public String getDonatesHTML(Long typeID){
-         Type type=typeDataSource.getTypeById(typeID);
-        Collection<Donate> donates=donateDataSource.getDonatesByType(type);
-
-        DonateGenerator gen = new DonateGenerator(userClicksDataSource,viewer_id);
-        return gen.generateDonatesHTML(donates);
     }
 
 }

@@ -1,20 +1,13 @@
 package servlet;
 
-import generators.PageGenerator;
+import pagebuild.PageComposer;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.io.OutputStreamWriter;
-import static datasource.stub.StubDataSourcesRepository.*;
-import static datasource.xml.XmlDataSourcesRepository.*;
-import datasource.xml.XmlDataSourcesRepository;
-import datasource.TypeDataSource;
-import datasource.DonateDataSource;
+
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,6 +18,7 @@ import datasource.DonateDataSource;
  */
 public class PageServlet extends HttpServlet {
     String layout;
+    ResponseWriter responseWriter=new ResponseWriter();
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,19 +30,12 @@ public class PageServlet extends HttpServlet {
     }
 
      private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
-         XmlDataSourcesRepository rep=new XmlDataSourcesRepository();
-         TypeDataSource XmlTypeDataSourceInstance=rep.XmlTypeDataSourceInstance;
-         DonateDataSource XmlDonateDataSourceInstance=rep.XmlDonateDataSourceInstance;
-         OutputStream stream= response.getOutputStream();
-         PrintWriter writer=new PrintWriter(new OutputStreamWriter(stream,"UTF-8"));
-         
          layout=getServletConfig().getInitParameter("layout");
          String viewer_id=request.getParameter("viewer_id");
 
-         PageGenerator pageGenerator=new PageGenerator(XmlTypeDataSourceInstance,XmlDonateDataSourceInstance,UserClicksDataSourceInstance,viewer_id);
-         String page= pageGenerator.getMainPage(getServletContext().getResourceAsStream(layout));
-         writer.write(page);
-         writer.close();
-         stream.close();
+         PageComposer pageComposer =new PageComposer(viewer_id);
+         String page= pageComposer.getMainPage(getServletContext().getResourceAsStream(layout));
+         
+         responseWriter.writeResponse(request,response,page);
     }
 }

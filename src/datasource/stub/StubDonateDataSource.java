@@ -62,6 +62,18 @@ public class StubDonateDataSource implements DonateDataSource{
         return ret;
     }
 
+    public Collection<Donate> getDonatesByTypeId(Long typeId) {
+        Collection<Donate> all=getAllDonates();
+        Collection<Donate> ret=new ArrayList<Donate>();
+
+        for(Donate d:all){
+            if(d.getType().getId().equals(typeId))
+                ret.add(d);
+        }
+
+        return ret;
+    }
+
     public Donate getDonateById(Long donateId) {
         return exampleDonateTypes.get(donateId.intValue());
     }

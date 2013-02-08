@@ -8,7 +8,7 @@ function clickDonateButton(donateID) {
     clearSpace();
     //Request thankYou page
     loadDataAJAX("/thankyou?id="+donateID+"&viewer_id="+viewer_id);
-    //On mistake tell it and return base screen
+    return false;
 }
 
 function clickBackButton(){

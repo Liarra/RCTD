@@ -14,7 +14,10 @@ import java.util.Collection;
  */
 public interface DonateDataSource {
      public Collection<Donate> getAllDonates();
+    
+    @Deprecated
     public Collection<Donate> getDonatesByType(Type t);
+    public Collection<Donate> getDonatesByTypeId(Long typeId);
      public Donate getDonateById(Long donateId);
 
 }

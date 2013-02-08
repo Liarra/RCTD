@@ -1,22 +1,13 @@
 package servlet;
 
-import generators.PageGenerator;
+import pagebuild.DonatesListComposer;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.io.OutputStreamWriter;
 
-
-import static datasource.stub.StubDataSourcesRepository.*;
-import static datasource.xml.XmlDataSourcesRepository.*;
-import datasource.xml.XmlDataSourcesRepository;
-import datasource.TypeDataSource;
-import datasource.DonateDataSource;
 
 
 /**
@@ -29,6 +20,7 @@ import datasource.DonateDataSource;
 public class DonatesServlet extends HttpServlet
 
 {
+    ResponseWriter responseWriter=new ResponseWriter();
 
 
     protected void doPost(HttpServletRequest
@@ -44,29 +36,21 @@ public class DonatesServlet extends HttpServlet
     private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String page="something went wrong";
         if (!request.getParameterMap().isEmpty()) {
+
             String typeIdS=request.getParameter("id");
             if(typeIdS==null)typeIdS="-1";
             Long typeId = new Long(typeIdS);
+
             String userId=request.getParameter("viewer_id");
 
-            XmlDataSourcesRepository rep=new XmlDataSourcesRepository();
-         TypeDataSource XmlTypeDataSourceInstance=rep.XmlTypeDataSourceInstance;
-         DonateDataSource XmlDonateDataSourceInstance=rep.XmlDonateDataSourceInstance;
-
-            PageGenerator gen=new PageGenerator(XmlTypeDataSourceInstance, XmlDonateDataSourceInstance,UserClicksDataSourceInstance, userId);
+            
+            DonatesListComposer gen=new DonatesListComposer(userId);
             if (typeId == -1L)
                 page = gen.getDonatesHTML();
-            else
+            else{
                 page = gen.getDonatesHTML(typeId);
-        } else {
-//            page = gen.getDonatesHTML();
+            }
         }
-
-        OutputStream stream = response.getOutputStream();
-        PrintWriter writer = new PrintWriter(new OutputStreamWriter(stream, "UTF-8"));
-
-        writer.print(page);
-        writer.close();
-        stream.close();
+        responseWriter.writeResponse(request,response,page);
     }
 }

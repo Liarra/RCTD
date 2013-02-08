@@ -16,12 +16,10 @@ import datasource.UserClicksDataSource;
 public class DonateGenerator {
     String buttonLabel;
     String donateHTMLEnabledTemplate, donateHTMLDisabledTemplate;
-    UserClicksDataSource userClicksDataSource;
     String userId;
 
-    public DonateGenerator(UserClicksDataSource userClicksDataSource, String userId){
-         this();
-        this.userClicksDataSource=userClicksDataSource;
+    public DonateGenerator(String userId){
+        this();
         this.userId=userId;
     }
 
@@ -55,23 +53,7 @@ public class DonateGenerator {
         return newDonateHTML;
     }
 
-    public String generateDonatesHTML(Collection<Donate> d){
-        String ret="";
 
-        if(userClicksDataSource==null)
-        for(Donate donate:d){
-            ret+=generateDonateHTML(donate,true);
-        }
-
-        else{
-             for(Donate donate:d){
-                 boolean isEnabled=userClicksDataSource.isAbleToClick(userId,donate);
-                ret+=generateDonateHTML(donate,isEnabled);
-        }
-        }
-
-        return ret;
-    }
 
 
 }

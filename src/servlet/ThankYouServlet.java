@@ -1,25 +1,36 @@
+package servlet;
+
+
+import pagebuild.ThankYouComposer;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 
 /**
  * Created by IntelliJ IDEA.
  * User: Buchina
  * Date: 11.01.2013
- * Time: 17:15:27
+ * Time: 16:25:13
  * To change this template use File | Settings | File Templates.
  */
-public class HelpServlet extends HttpServlet {
+public class ThankYouServlet extends HttpServlet {
+
+    ResponseWriter responseWriter=new ResponseWriter();
+    
     void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
-         OutputStream stream= response.getOutputStream();
-         PrintWriter writer=new PrintWriter(stream);
-         writer.print("Sample Help page");
-           writer.close();
-         stream.close();
+        if (!request.getParameterMap().isEmpty()) {
+
+            String userId=request.getParameter("viewer_id");
+            Long typeId = new Long(request.getParameter("id"));
+             ThankYouComposer c=new ThankYouComposer(typeId);
+            c.submitClick(userId);
+
+            String ThankYouHTML=c.composeThankYouPage();
+            responseWriter.writeResponse(request,response,ThankYouHTML);
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,6 +41,3 @@ public class HelpServlet extends HttpServlet {
         doServe(request,response);
     }
 }
-
-
-

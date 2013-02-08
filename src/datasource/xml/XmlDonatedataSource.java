@@ -43,8 +43,21 @@ public class XmlDonatedataSource implements DonateDataSource{
         return ret;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    @Deprecated
     public Collection<Donate> getDonatesByType(Type t) {
         return t.getDonates();
+    }
+
+    public Collection<Donate> getDonatesByTypeId(Long typeId) {
+        Collection<Donate> all=getAllDonates();
+        Collection<Donate> ret=new ArrayList<Donate>();
+
+        for(Donate d:all){
+            if(d.getType().getId().equals(typeId))
+                ret.add(d);
+        }
+
+        return ret;
     }
 
     public Donate getDonateById(Long donateId) {
