@@ -25,16 +25,22 @@ public class DonateGenerator {
 
     public DonateGenerator() {
         buttonLabel = "Помочь";
-            donateHTMLEnabledTemplate = "<div class=\"donate\" style=\"background-image:url(%s);\">\n" +
-                "<div class=\"hint\">" +
+            donateHTMLEnabledTemplate =
+                    "<div class=\"donate\" style=\"background-image:url(%s);\" " +
+                    "onmouseover=\"mopen('%s_hint')\"\n" +
+                    "onmouseout=\"mclosetime()\">\n" +
+                "<div class=\"hint\" id=\"%s_hint\">" +
                     "%s " +
                     "<div class=\"donate-home-link\"><a href=%s target=\"_blank\"><i class=\"icon-home\"></i></a></div>" +
                     "</div>\n" +
                 "<a href=\"#\" class=\"btn_checked btn_donate\" onclick=\"clickDonateButton(%s)\">"+buttonLabel+"</a>\n" +
                 " </div>";
 
-        donateHTMLDisabledTemplate = "<div class=\"donate\" style=\"background-image:url(%s);\">\n" +
-                "<div class=\"hint\">" +
+        donateHTMLDisabledTemplate =
+                "<div class=\"donate\" style=\"background-image:url(%s);\"" +
+                        "onmouseover=\"mopen('%s_hint')\"\n" +
+                        "onmouseout=\"mclosetime()\">\n" +
+                "<div class=\"hint\" id=\"%s_hint\">" +
                 "%s" +
                  "<div class=\"donate-home-link\"><a href=%s target=\"_blank\"><i class=\"icon-home\"></i></a></div>" +
                 "</div>\n" +
@@ -49,7 +55,7 @@ public class DonateGenerator {
         String donateHome=d.getDescription();
 
         String template=enabled?donateHTMLEnabledTemplate:donateHTMLDisabledTemplate;
-        String newDonateHTML=String.format(template,donatePic,donateName,donateHome,id);
+        String newDonateHTML=String.format(template,donatePic,id,id,donateName,donateHome,id);
         return newDonateHTML;
     }
 

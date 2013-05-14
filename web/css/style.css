@@ -35,9 +35,9 @@ overflow-y: scroll;
     display:inline-block;
 }
 
-.donate:hover .hint{
-   visibility:visible; 
-}
+/*.donate:hover .hint{*/
+   /*visibility:visible; */
+/*}*/
 
 .btn_donate {
 	top:10px;
