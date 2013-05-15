@@ -18,7 +18,8 @@ border:0;
 }
 
 #content{
-background:url(http://bglabs.evade.netdna-cdn.com/45875kli90/524.png);
+    background-color: #ffffff;
+background-image:url("../img/seamless-abstract-squares-1042.png");
 height: 430px;
 overflow-y: scroll;
 
@@ -49,8 +50,6 @@ overflow-y: scroll;
 
 .hint{
 background-color:white;
-  background-position:initial initial;
-  background-repeat:initial initial;
   box-shadow:black 0 5px 20px -5px;
   font-size:13px;
     color:#404040;

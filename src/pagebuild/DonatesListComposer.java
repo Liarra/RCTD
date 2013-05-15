@@ -3,6 +3,7 @@ package pagebuild;
 import generators.DonateGenerator;
 import storedentities.Donate;
 
+import java.io.IOException;
 import java.util.Collection;
 
 /**
@@ -16,24 +17,24 @@ public class DonatesListComposer extends AbstractComposer{
     DonateGenerator gen;
     String userId;
 
-    public DonatesListComposer(String userId) {
+    public DonatesListComposer(String userId) throws IOException {
         initDataSources();
         gen=new DonateGenerator(userId);
         this.userId=userId;
    }
 
-    public String getDonatesHTML() {
+    public String getDonatesHTML() throws IOException {
         Collection<Donate> testDonates=donateDataSource.getAllDonates();
          return generateDonatesHTML(testDonates);
     }
 
-    public String getDonatesHTML(Long typeID){
+    public String getDonatesHTML(Long typeID) throws IOException {
         Collection<Donate> donates=donateDataSource.getDonatesByTypeId(typeID);
         return generateDonatesHTML(donates);
     }
 
 
-     private String generateDonatesHTML(Collection<Donate> d){
+     private String generateDonatesHTML(Collection<Donate> d) throws IOException {
         String ret="";
 
         if(userClicksDataSource==null)
