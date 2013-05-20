@@ -173,3 +173,6 @@ build.xml
 src\hibernate.cfg.xml
 web\META-INF\context.xml
 *.iml
+
+*.idea/*
+*out/*
