@@ -13,6 +13,15 @@ width:100%;
 border:0;
 }
 
+#menucell{
+    display: inline-block;
+}
+
+#buttonscell{
+    display: inline-block;
+    float: right;
+}
+
 #contentd{
     vertical-align: top;
 }
