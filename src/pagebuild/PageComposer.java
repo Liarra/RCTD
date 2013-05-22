@@ -60,7 +60,7 @@ public class PageComposer extends AbstractComposer{
         menuContainer.append(categories);
     }
 
-    private void addAllDonateHTMLs(Document doc) {
+    private void addAllDonateHTMLs(Document doc) throws IOException {
         String donateHTMLs = new DonatesListComposer(viewer_id).getDonatesHTML();
         Element menuContainer = doc.getElementById("content");
         menuContainer.append(donateHTMLs);

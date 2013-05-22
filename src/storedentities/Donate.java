@@ -19,6 +19,8 @@ public class Donate {
     private String description;
     private String accountNumber;
 
+
+
     @Id
     @GeneratedValue
     @Column

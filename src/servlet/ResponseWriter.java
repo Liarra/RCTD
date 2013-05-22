@@ -14,6 +14,7 @@ import java.io.*;
 public class ResponseWriter {
 
     public void writeResponse(HttpServletRequest request, HttpServletResponse response, String page) throws IOException {
+        response.setContentType("text/html");
         OutputStream stream= response.getOutputStream();
          PrintWriter writer=new PrintWriter(new OutputStreamWriter(stream,"UTF-8"));
          writer.write(page);

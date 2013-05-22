@@ -106,6 +106,7 @@ ClientBin
 stylecop.*
 ~$*
 *.dbmdl
+.idea\*
 Generated_Code #added for RIA/Silverlight projects
 
 # Backup & report files from converting an old project file to a newer
@@ -172,3 +173,6 @@ build.xml
 src\hibernate.cfg.xml
 web\META-INF\context.xml
 *.iml
+
+*.idea/*
+*out/*
