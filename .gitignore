@@ -172,7 +172,9 @@ nbproject/*
 build.xml
 src\hibernate.cfg.xml
 web\META-INF\context.xml
-*.iml
+.iml
+RCTD.iml
 
 *.idea/*
 *out/*
+.war
