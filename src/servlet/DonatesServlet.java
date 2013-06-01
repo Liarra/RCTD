@@ -33,6 +33,16 @@ public class DonatesServlet extends HttpServlet
         doServe(request, response);
     }
 
+    String cost=" <link rel=\"stylesheet\" type=\"text/css\" href=\"css/buttons.css\"/>\n" +
+            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\"/>\n" +
+            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/welcome.css\"/>\n" +
+            "    <link href='http://fonts.googleapis.com/css?family=Tenor+Sans&subset=latin,cyrillic' rel='stylesheet'\n" +
+            "          type='text/css'>\n" +
+            "    <link rel=\"stylesheet\" href=\"font/FontAwesome/css/font-awesome.min.css\">\n" +
+            "    <script type=\"text/javascript\" src=\"js/ButtonsClick.js\"></script>\n" +
+            "    <script type=\"text/javascript\" src=\"js/menu.js\"></script>\n" +
+            "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">";
+
     private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String page="something went wrong";
         if (!request.getParameterMap().isEmpty()) {
@@ -51,6 +61,6 @@ public class DonatesServlet extends HttpServlet
                 page = gen.getDonatesHTML(typeId);
             }
         }
-        responseWriter.writeResponse(request,response,page);
+        responseWriter.writeResponse(request,response,cost+page);
     }
 }

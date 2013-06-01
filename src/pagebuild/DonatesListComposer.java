@@ -35,7 +35,7 @@ public class DonatesListComposer extends AbstractComposer{
 
 
      private String generateDonatesHTML(Collection<Donate> d) throws IOException {
-        String ret="";
+        String ret="<body id='innerBody'>";
 
         if(userClicksDataSource==null)
         for(Donate donate:d){
@@ -49,7 +49,7 @@ public class DonatesListComposer extends AbstractComposer{
         }
         }
 
-        return ret;
+        return ret+"</body>";
     }
 
 }

@@ -35,13 +35,14 @@ public class DonateGenerator {
     public DonateGenerator() throws IOException {
         buttonLabel = "Помочь";
            String donateHTMLEnabledTemplate =
-                    "<div class=\"donate\" style=\"background-image:url(${donate_pic});\" " +
-                    "onmouseover=\"mopen('${id}_hint')\"\n" +
-                    "onmouseout=\"mclosetime()\">\n" +
-                "<div class=\"hint\" id=\"${id}_hint\">" +
-                    "${donate_name} " +
-                    "<div class=\"donate-home-link\"><a href=${donate_home} target=\"_blank\"><i class=\"icon-home\"></i></a></div>" +
-                    "</div>\n" +
+                   "<div class=\"donate\" style=\"background-image:url(${donate_pic});\" " +
+                           "onmouseover=\"mopen('${id}_hint')\"\n" +
+                           "onmouseout=\"mclosetime()\">\n" +
+                           "<div class=\"hint\" id=\"${id}_hint\">" +
+                           "${donate_name} " +
+                           "<div class=\"donate-home-link\"><a href=${donate_home} target=\"_blank\"><i class=\"icon-home\"></i></a></div>" +
+                           "</div>\n" +
+
                 "<a href=\"#\" class=\"btn_checked btn_donate\" onclick=\"clickDonateButton(${id})\">"+buttonLabel+"</a>\n" +
                 " </div>";
 

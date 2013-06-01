@@ -16,16 +16,15 @@ import java.util.Collection;
  * User: Buchina
  * Date: 09.01.2013
  * Time: 13:02:01
- * To change this template use File | Settings | File Templates.
  */
-public class PageComposer extends AbstractComposer{
+public class PageComposer extends AbstractComposer {
     String defString = "<html>Sorry chief, something went wrong</html>";
-    String basePagePath = "/html/layout.html";
-    String viewer_id="";
+//    String basePagePath = "/html/layout.html";
+    String viewer_id = "";
 
     public PageComposer(String viewer) {
         initDataSources();
-        this.viewer_id=viewer;
+        this.viewer_id = viewer;
     }
 
 
@@ -48,8 +47,8 @@ public class PageComposer extends AbstractComposer{
     }
 
     private void addWelcomeScreenForNewUsers(Document doc) {
-         String welcomeScreen=new WelcomeScreenGenerator().getWelcomeScreen();
-            Element body = doc.getElementsByTag("body").first();
+        String welcomeScreen = new WelcomeScreenGenerator().getWelcomeScreen();
+        Element body = doc.getElementsByTag("body").first();
         body.append(welcomeScreen);
 
     }
@@ -61,18 +60,21 @@ public class PageComposer extends AbstractComposer{
     }
 
     private void addAllDonateHTMLs(Document doc) throws IOException {
-        String donateHTMLs = new DonatesListComposer(viewer_id).getDonatesHTML();
+        String donateHTMLs = "<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
+                "width='800' height='440' style='border: transparent 0px;'" +
+                "onload=\"processingComplete()\"" +
+                " ></iframe>";
         Element menuContainer = doc.getElementById("content");
         menuContainer.append(donateHTMLs);
     }
 
     private Document getHTMLFromFile(InputStream source) throws IOException {
-        Document doc=Jsoup.parse(source, "UTF-8", "http://example.com/");
+        Document doc = Jsoup.parse(source, "UTF-8", "http://example.com/");
         return doc;
     }
 
     private String getCategoriesHTML() {
-        Collection<Type> types=typeDataSource.getAllTypes();
+        Collection<Type> types = typeDataSource.getAllTypes();
         MenuGenerator menuGenerator = new MenuGenerator();
         return menuGenerator.generateMenu(types);
     }

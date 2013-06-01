@@ -5,9 +5,9 @@ var viewer_id;
 
 function clickDonateButton(donateID) {
     //Clear screen and place loader
-    clearSpace();
+    document.getElementById("innerBody").innerHTML="<i class='icon-spinner icon-spin'></i>";
     //Request thankYou page
-    loadDataAJAX("/thankyou?id="+donateID+"&viewer_id="+viewer_id);
+    loadData("/thankyou?id="+donateID+"&viewer_id="+viewer_id);
     return false;
 }
 
@@ -59,13 +59,23 @@ function checkStartMenuButton(){
 }
 
 function clearSpace() {
-     document.getElementById("content").innerHTML="<i class='icon-spinner icon-spin'></i>";
+//     document.getElementById("content").innerHTML="<i class='icon-spinner icon-spin'></i>";
+    document.getElementById("spinner").style.display="block";
+    document.getElementById("myIframe").style.display="none";
+
 }
 
-function loadDataAJAX(servletpath) {
+
+function loadData(servletpath){
     var xmlhttp=getAJAXSender();
     xmlhttp.open("GET", context+servletpath, true);
     xmlhttp.send();
+}
+function loadDataAJAX(servletpath) {
+document.getElementById("myIframe").src="/RCTD"+servletpath;
+    //var xmlhttp=getAJAXSender();
+    //xmlhttp.open("GET", context+servletpath, true);
+    //xmlhttp.send();
 
 }
 
@@ -83,10 +93,7 @@ function getAJAXSender(){
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
         {
-            document.getElementById("content").innerHTML = xmlhttp.responseText;
-            //var fu=new Function(document.getElementById("adscript").innerHTML);
-            //fu();
-//             document.getElementById("contentd").className="";
+            document.getElementById("innerBody").innerHTML = xmlhttp.responseText;
         }
     }
 
@@ -108,6 +115,11 @@ for ( var i = 0; i < prmarr.length; i++) {
 
 function setViewerId(vid){
     viewer_id=vid;
+}
+
+function processingComplete(){
+    document.getElementById("spinner").style.display="none";
+    document.getElementById("myIframe").style.display="block";
 }
 
 initScript();
