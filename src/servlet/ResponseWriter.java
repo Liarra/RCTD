@@ -1,25 +1,26 @@
 package servlet;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 08.02.2013
  * Time: 10:56:16
- * To change this template use File | Settings | File Templates.
  */
-public class ResponseWriter {
+class ResponseWriter {
 
-    public void writeResponse(HttpServletRequest request, HttpServletResponse response, String page) throws IOException {
+    public void writeResponse(HttpServletResponse response, String page) throws IOException {
         response.setContentType("text/html");
-        OutputStream stream= response.getOutputStream();
-         PrintWriter writer=new PrintWriter(new OutputStreamWriter(stream,"UTF-8"));
-         writer.write(page);
-         writer.close();
-         stream.close();
+        OutputStream stream = response.getOutputStream();
+        PrintWriter writer = new PrintWriter(new OutputStreamWriter(stream, "UTF-8"));
+        writer.write(page);
+        writer.close();
+        stream.close();
 
     }
 }

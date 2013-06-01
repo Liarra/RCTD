@@ -1,81 +1,70 @@
-body{
-
-height:100%;
-width:100%;
-margin:0;
-padding:0;
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Tenor Sans', sans-serif;
-
 }
 
-#mainbody{
-    background-image:url("../img/2jfe2uw.png");
+#mainbody {
+    background-image: url("../img/2jfe2uw.png");
 }
 
-#frametable{
-height:100%;
-width:100%;
-border:0;
+#frametable {
+    height: 100%;
+    width: 100%;
+    border: 0;
 }
 
-#menucell{
+#menucell {
     display: inline-block;
 }
 
-#buttonscell{
+#buttonscell {
     display: inline-block;
     float: right;
 }
 
-#contentd{
+#contentd {
     vertical-align: top;
 }
 
-#content{
-
-height: 430px;
-/*overflow-y: scroll;*/
-
+#content {
+    height: 430px;
 }
 
-.donate{
-	width:210px;
-	height:140px;
-    margin:20px;
-	background-color:white;
-	background-repeat:no-repeat;
-    background-position:center top;
-	box-shadow: 2px 2px 3px 2px gray;
-    display:inline-block;
+.donate {
+    width: 210px;
+    height: 140px;
+    margin: 20px;
+    background: white no-repeat center top;
+    box-shadow: 2px 2px 3px 2px gray;
+    display: inline-block;
 }
-
-/*.donate:hover .hint{*/
-   /*visibility:visible; */
-/*}*/
 
 .btn_donate {
-	top:10px;
-	margin-top:50px;
-	margin-left:50px;
-	width:60px;
-    font-family: Arial,Helvetica,sans-serif;
+    top: 10px;
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 60px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.hint{
-background-color:white;
-  box-shadow:black 0 5px 20px -5px;
-  font-size:13px;
-    color:#404040;
-  height:50px;
-  padding-left:5px;
-  padding-top:5px;
-    padding-right:5px;
-  visibility:hidden;
-  width:205px;
-    position:relative;
+.hint {
+    background-color: white;
+    box-shadow: black 0 5px 20px -5px;
+    font-size: 13px;
+    color: #404040;
+    height: 50px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    visibility: hidden;
+    width: 205px;
+    position: relative;
 }
 
-.icon-spinner{
+.icon-spinner {
     color: white;
     font-size: 35px;
     left: 50%;
@@ -83,16 +72,16 @@ background-color:white;
     top: 235px;
 }
 
-.donate-home-link{
+.donate-home-link {
     position: absolute;
     bottom: 3px;
-    right:3px;
-    margin-right:4px;
+    right: 3px;
+    margin-right: 4px;
     text-align: right;
-    color:darkorange;
+    color: darkorange;
 }
 
-.donate-home-link a{
-      color:darkorange;
-    text-decoration:none;
+.donate-home-link a {
+    color: darkorange;
+    text-decoration: none;
 }

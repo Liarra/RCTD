@@ -4,7 +4,7 @@
    <xs:element name="donates">
        <xs:complexType>
     <xs:sequence>
-            <xs:element name="type" type="Type" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            <xs:element name="type" type="Type" minOccurs="0" maxOccurs="unbounded"/>
      </xs:sequence>
     </xs:complexType>
    </xs:element>
@@ -13,20 +13,20 @@
 
      <xs:complexType name="Donate">
          <xs:sequence>
-             <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
-             <xs:element name="picURL" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
-             <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
-             <xs:element name="accountNumber" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+             <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+             <xs:element name="picURL" type="xs:string" minOccurs="1" maxOccurs="1"/>
+             <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+             <xs:element name="accountNumber" type="xs:string" minOccurs="1" maxOccurs="1"/>
          </xs:sequence>
-         <xs:attribute name="id" type="xs:string"></xs:attribute>
+         <xs:attribute name="id" type="xs:string"/>
     </xs:complexType>
 
     <xs:complexType name="Type">
         <xs:sequence>
-            <xs:element type="Donate" minOccurs="0" maxOccurs="unbounded" name="donate"></xs:element>
+            <xs:element type="Donate" minOccurs="0" maxOccurs="unbounded" name="donate"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:string"></xs:attribute>
-         <xs:attribute name="name" type="xs:string"></xs:attribute>
+        <xs:attribute name="id" type="xs:string"/>
+         <xs:attribute name="name" type="xs:string"/>
     </xs:complexType>
 
 

@@ -1,14 +1,13 @@
-#vkfake{
-    background-image:url("../img/vk-back.png");
-    margin:auto;
-    background-repeat:no-repeat;
-    width:972px;
-    height:593px;
+#vkfake {
+    margin: auto;
+    background: url("../img/vk-back.png") no-repeat;
+    width: 972px;
+    height: 593px;
 }
 
-#vkfake iframe{
-    position:relative;
-    overflow-y:hidden;
-     left:149;
-    top:72;
+#vkfake iframe {
+    position: relative;
+    overflow-y: hidden;
+    left: 149px;
+    top: 72px;
 }

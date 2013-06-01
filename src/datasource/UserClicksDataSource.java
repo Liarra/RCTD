@@ -5,11 +5,10 @@ import storedentities.Donate;
 import java.util.Date;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 30.01.2013
  * Time: 16:50:25
- * To change this template use File | Settings | File Templates.
  */
 public interface UserClicksDataSource {
     public void click(String userId, Donate donate);

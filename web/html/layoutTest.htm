@@ -1,58 +1,51 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="../css/buttons.css">
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/opentip.css">
-    <script type="text/javascript" src="../js/opentip-native.js"></script>
-    <script type="text/javascript">
-        function onHover(){
-        new Opentip("#menucell", "Optional content", "Optional title");
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="/css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 <table id="frametable">
-<tr>
-<td id="menucell">
-<a href="#" class="btn_unchecked">my button</a>
-<a href="#" class="btn_checked">my checked button</a>
-<a href="#" class="btn_unchecked" data-ot="The content" data-ot-delay="2" data-ot-hide-trigger="content">another button</a>
+    <tr>
+        <td id="menucell">
+            <a href="#" class="btn_unchecked">my button</a>
+            <a href="#" class="btn_checked">my checked button</a>
+            <a href="#" class="btn_unchecked" data-ot="The content" data-ot-delay="2" data-ot-hide-trigger="content">another
+                button</a>
 
-    <div data-ot="The content" data-ot-delay="2" data-ot-hide-trigger="content" onmouseover="onHover();">Hover me</div>
+        </td>
+    </tr>
+    <tr>
+        <td id="content">
 
-</td>
-</tr>
-<tr>
-<td id="content">
+            <br/>
 
-<br/>
+            <div class="donate"
+                 style="background:url(http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg/220px-Ash_Tree_-_geograph.org.uk_-_590710.jpg)">
+                <div class="hint">Кошакевичус</div>
+                <a href="#" class="btn_checked btn_donate">Помочь</a>
+            </div>
 
-<div class="donate" style="background:url(http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg/220px-Ash_Tree_-_geograph.org.uk_-_590710.jpg)">
-<div class="hint">Кошакевичус</div>
-<a href="#" class="btn_checked btn_donate">Помочь</a>
- </div>
+            <div class="donate" style="background:url(http://www.helpinghomelesscats.com/images/cat1.jpg);">
+                <div class="hint">Кошакевичус</div>
+                <a href="#" class="btn_checked btn_donate">Помочь</a>
+            </div>
 
-    <div class="donate" style="background:url(http://www.helpinghomelesscats.com/images/cat1.jpg);">
-<div class="hint">Кошакевичус</div>
-<a href="#" class="btn_checked btn_donate">Помочь</a>
- </div>
+            <div class="donate">
+                <div class="hint">Кошакевичус</div>
+                <a href="#" class="btn_checked btn_donate">Помочь</a>
+            </div>
 
-    <div class="donate">
-<div class="hint">Кошакевичус</div>
-<a href="#" class="btn_checked btn_donate">Помочь</a>
- </div>
+            <div class="donate">
+                <div class="hint">Кошакевичус</div>
+                <a href="#" class="btn_checked btn_donate">Помочь</a>
+            </div>
+            <br/>
+            <br/>
+            <a href="#" class="btn_checked btn_controls" style="left:150px;">?</a>
+            <a href="#" class="btn_checked btn_controls"><=</a>
 
-    <div class="donate">
-<div class="hint">Кошакевичус</div>
-<a href="#" class="btn_checked btn_donate">Помочь</a>
- </div>
-<br/>
-<br/>
-<a href="#" class="btn_checked btn_controls" style="left:150px;">?</a>
-<a href="#" class="btn_checked btn_controls"><=</a>
-
-</td>
-</tr>
+        </td>
+    </tr>
 </table>
 </body>
 </html>

@@ -4,31 +4,31 @@ import datasource.DonateDataSource;
 import storedentities.Donate;
 import storedentities.Type;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.ArrayList;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 25.01.2013
  * Time: 14:22:33
- * To change this template use File | Settings | File Templates.
  */
-public class StubDonateDataSource implements DonateDataSource{
-    List<Donate> exampleDonateTypes =new ArrayList<Donate>();
-    List<Donate> testDonates = new ArrayList<Donate>();
-    public StubDonateDataSource(){
+public class StubDonateDataSource implements DonateDataSource {
+    private final List<Donate> exampleDonateTypes = new ArrayList<Donate>();
+    private final List<Donate> testDonates = new ArrayList<Donate>();
 
-          generateExampleDonates();
+    public StubDonateDataSource() {
 
-         for (int i = 0; i < 5; i++){
+        generateExampleDonates();
+
+        for (int i = 0; i < 5; i++) {
             testDonates.add(exampleDonateTypes.get(0));
             testDonates.add(exampleDonateTypes.get(1));
-         }
+        }
     }
 
-    private void generateExampleDonates(){
+    private void generateExampleDonates() {
         Donate d1 = new Donate();
         d1.setId(0L);
         d1.setName("TestDonate");
@@ -47,27 +47,26 @@ public class StubDonateDataSource implements DonateDataSource{
     }
 
     public Collection<Donate> getDonatesByType(Type t) {
-        ArrayList<Donate> ret=new ArrayList<Donate>();
-         if(t.getId()==-1){
+        ArrayList<Donate> ret = new ArrayList<Donate>();
+        if (t.getId() == -1) {
             return testDonates;
         }
         for (int i = 0; i < 5; i++) {
-         if(t.getId()%2==0){
-             ret.add(exampleDonateTypes.get(0));
-        }
-        else{
-              ret.add(exampleDonateTypes.get(1));
-        }
+            if (t.getId() % 2 == 0) {
+                ret.add(exampleDonateTypes.get(0));
+            } else {
+                ret.add(exampleDonateTypes.get(1));
+            }
         }
         return ret;
     }
 
     public Collection<Donate> getDonatesByTypeId(Long typeId) {
-        Collection<Donate> all=getAllDonates();
-        Collection<Donate> ret=new ArrayList<Donate>();
+        Collection<Donate> all = getAllDonates();
+        Collection<Donate> ret = new ArrayList<Donate>();
 
-        for(Donate d:all){
-            if(d.getType().getId().equals(typeId))
+        for (Donate d : all) {
+            if (d.getType().getId().equals(typeId))
                 ret.add(d);
         }
 

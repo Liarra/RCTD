@@ -5,11 +5,10 @@ import storedentities.Ad;
 import storedentities.Donate;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 08.02.2013
  * Time: 16:00:39
- * To change this template use File | Settings | File Templates.
  */
 public class ThankYouComposer extends AbstractComposer{
 
@@ -18,16 +17,13 @@ public class ThankYouComposer extends AbstractComposer{
         this.donateId = donateId;
     }
 
-    Long donateId;
+    private final Long donateId;
       public String composeThankYouPage(){
           Ad ad= adDataSource.getAdbyId(1L);
             String adH =ad.getHTML();
-            String adS=ad.getScript();
 
           Donate donate=donateDataSource.getDonateById(donateId);
-            String ThankYouHTML=new ThankYouGenerator().generateThankYou(donate.getPicURL(),adH);
-
-          return ThankYouHTML;
+          return new ThankYouGenerator().generateThankYou(donate.getPicURL(),adH);
       }
 
     public void submitClick(String user){

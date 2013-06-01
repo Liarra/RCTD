@@ -12,18 +12,17 @@ import java.io.InputStream;
 import java.io.IOException;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 31.01.2013
  * Time: 13:07:57
- * To change this template use File | Settings | File Templates.
  */
 public class XmlDonatedataSource implements DonateDataSource{
     public XmlDonatedataSource(InputStream storageFile) {
         this.storageFile = storageFile;
     }
 
-    InputStream storageFile;
+    private final InputStream storageFile;
 
     public Collection<Donate> getAllDonates() {
         Collection<Donate> ret=new ArrayList<Donate>();
@@ -43,7 +42,6 @@ public class XmlDonatedataSource implements DonateDataSource{
         return ret;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    @Deprecated
     public Collection<Donate> getDonatesByType(Type t) {
         return t.getDonates();
     }

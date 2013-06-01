@@ -4,11 +4,10 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 10.01.2013
  * Time: 11:02:22
- * To change this template use File | Settings | File Templates.
  */
 @Entity
 public class Type {

@@ -6,11 +6,10 @@ import storedentities.Donate;
 import java.util.Date;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 08.02.2013
  * Time: 14:53:48
- * To change this template use File | Settings | File Templates.
  */
 public class UserClicksGetter implements UserClicksDataSource{
     public void click(String userId, Donate donate) {

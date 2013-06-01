@@ -10,13 +10,12 @@ import java.util.List;
 import datasource.xml.jaxbGenerated.Donates;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 31.01.2013
  * Time: 14:18:42
- * To change this template use File | Settings | File Templates.
  */
-public class Transformer {
+class Transformer {
 
     public static Collection<Type> getAllTypes(Donates jaxbDonates){
         List<datasource.xml.jaxbGenerated.Type> jaxbTypes=jaxbDonates.getType();
@@ -30,7 +29,7 @@ public class Transformer {
 
     }
 
-    public static Type getTypeByJAXBType(datasource.xml.jaxbGenerated.Type t){
+    private static Type getTypeByJAXBType(datasource.xml.jaxbGenerated.Type t){
         Type ret=new Type();
 
         ret.setId(new Long(t.getId()));
@@ -47,7 +46,7 @@ public class Transformer {
          return ret;
     }
 
-    public static  Donate getDonateByJAXBDonate(datasource.xml.jaxbGenerated.Donate d){
+    private static  Donate getDonateByJAXBDonate(datasource.xml.jaxbGenerated.Donate d){
         Donate ret=new Donate();
         ret.setId(new Long(d.getId()));
         ret.setAccountNumber(d.getAccountNumber());

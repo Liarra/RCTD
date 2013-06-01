@@ -7,14 +7,13 @@ import java.util.Collection;
 import java.util.ArrayList;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 25.01.2013
  * Time: 14:17:50
- * To change this template use File | Settings | File Templates.
  */
 public class StubTypeDataSource implements TypeDataSource{
-    ArrayList<Type> arr = new ArrayList<Type>();
+    private final ArrayList<Type> arr = new ArrayList<Type>();
 
     public StubTypeDataSource(){
          Type t2 = new Type();

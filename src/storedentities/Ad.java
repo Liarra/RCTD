@@ -5,13 +5,11 @@ import javax.persistence.Id;
 import javax.persistence.Basic;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 10.01.2013
  * Time: 11:22:09
- * To change this template use File | Settings | File Templates.
  */
-
 @Entity
 public class Ad {
     private String id;

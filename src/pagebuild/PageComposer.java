@@ -18,18 +18,11 @@ import java.util.Collection;
  * Time: 13:02:01
  */
 public class PageComposer extends AbstractComposer {
-    String defString = "<html>Sorry chief, something went wrong</html>";
-//    String basePagePath = "/html/layout.html";
-    String viewer_id = "";
+    private String viewer_id = "";
 
     public PageComposer(String viewer) {
         initDataSources();
         this.viewer_id = viewer;
-    }
-
-
-    public String getAboutContent() {
-        return defString;
     }
 
     public String getMainPage(InputStream context) {
@@ -41,7 +34,7 @@ public class PageComposer extends AbstractComposer {
             return basePage.html();
         } catch (IOException e) {
             e.printStackTrace();
-            return defString;
+            return "<html>Sorry chief, something went wrong</html>";
         }
 
     }
@@ -59,7 +52,7 @@ public class PageComposer extends AbstractComposer {
         menuContainer.append(categories);
     }
 
-    private void addAllDonateHTMLs(Document doc) throws IOException {
+    private void addAllDonateHTMLs(Document doc) {
         String donateHTMLs = "<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
                 "width='800' height='440' style='border: transparent 0px;'" +
                 "onload=\"processingComplete()\"" +
@@ -69,8 +62,7 @@ public class PageComposer extends AbstractComposer {
     }
 
     private Document getHTMLFromFile(InputStream source) throws IOException {
-        Document doc = Jsoup.parse(source, "UTF-8", "http://example.com/");
-        return doc;
+        return Jsoup.parse(source, "UTF-8", "http://example.com/");
     }
 
     private String getCategoriesHTML() {

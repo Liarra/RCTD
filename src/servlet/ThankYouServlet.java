@@ -10,15 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 11.01.2013
  * Time: 16:25:13
- * To change this template use File | Settings | File Templates.
  */
 public class ThankYouServlet extends HttpServlet {
 
-    ResponseWriter responseWriter=new ResponseWriter();
+    private final ResponseWriter responseWriter=new ResponseWriter();
     
     void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (!request.getParameterMap().isEmpty()) {
@@ -29,7 +28,7 @@ public class ThankYouServlet extends HttpServlet {
             c.submitClick(userId);
 
             String ThankYouHTML=c.composeThankYouPage();
-            responseWriter.writeResponse(request,response,ThankYouHTML);
+            responseWriter.writeResponse(response,ThankYouHTML);
         }
     }
 

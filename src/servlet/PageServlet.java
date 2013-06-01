@@ -14,12 +14,9 @@ import java.io.IOException;
  * User: Buchina
  * Date: 09.01.2013
  * Time: 13:45:08
- * To change this template use File | Settings | File Templates.
  */
 public class PageServlet extends HttpServlet {
-    String layout;
-    ResponseWriter responseWriter=new ResponseWriter();
-
+    private final ResponseWriter responseWriter=new ResponseWriter();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
           doServe( request, response);
@@ -30,12 +27,12 @@ public class PageServlet extends HttpServlet {
     }
 
      private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
-         layout=getServletConfig().getInitParameter("layout");
+         String layout = getServletConfig().getInitParameter("layout");
          String viewer_id=request.getParameter("viewer_id");
 
          PageComposer pageComposer =new PageComposer(viewer_id);
          String page= pageComposer.getMainPage(getServletContext().getResourceAsStream(layout));
          
-         responseWriter.writeResponse(request,response,page);
+         responseWriter.writeResponse(response,page);
     }
 }

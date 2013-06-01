@@ -1,14 +1,14 @@
 package generators;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 05.02.2013
  * Time: 15:48:37
- * To change this template use File | Settings | File Templates.
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class WelcomeScreenGenerator {
-    String layout="<div id=\"dialog-overlay\"></div>\n" +
+    private final String layout = "<div id=\"dialog-overlay\"></div>\n" +
             "<div id=\"dialog-box\">\n" +
             "    <div class=\"dialog-content\">\n" +
             "        <div id=\"dialog-message\">%s</div>\n" +
@@ -16,7 +16,7 @@ public class WelcomeScreenGenerator {
             "    </div>\n" +
             "</div>";
 
-    String message="<h1>Добро пожаловать!</h1>" +
+    private final String message = "<h1>Добро пожаловать!</h1>" +
             "Добрая кнопка - это приложение для генерации благотворительных пожертвований. Просто выберите, кому вы хотите помочь, и нажмите на кнопку!" +
             "<div style=\"padding-left:10px;\">" +
             "<h2><i class=\"icon-money\"> </i>Это абсолютно БЕСПЛАТНО!</h2> " +
@@ -28,11 +28,8 @@ public class WelcomeScreenGenerator {
             "</div>" +
             "<br />Начните с выбора подходящей вам категории (меню сверху) или узнайте больше из нашего FAQ (кнопка с вопросительным знаком [?])";
 
-    String button_text="Понятно!";
-
-    public String getWelcomeScreen(){
-        String ret=String.format(layout,message,button_text);
-
-        return ret;
+    public String getWelcomeScreen() {
+        String button_text = "Понятно!";
+        return String.format(layout, message, button_text);
     }
 }

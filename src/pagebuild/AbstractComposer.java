@@ -7,13 +7,12 @@ import datasource.TypeDataSource;
 import datasource.AdDataSource;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 08.02.2013
  * Time: 16:09:12
- * To change this template use File | Settings | File Templates.
  */
-public abstract class AbstractComposer {
+abstract class AbstractComposer {
     UserClicksDataSource userClicksDataSource;
     DonateDataSource donateDataSource;
     TypeDataSource typeDataSource;
@@ -27,7 +26,7 @@ public abstract class AbstractComposer {
        this.typeDataSource = new XmlDataSourcesRepository().XmlTypeDataSourceInstance;
     }
 
-    public AbstractComposer(){
+    AbstractComposer(){
         initDataSources();
     }
 }

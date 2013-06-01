@@ -15,7 +15,7 @@ public class DonateGeneratorTest {
     private DonateGenerator donateGenerator;
     @Before
     public void setUp() throws Exception {
-         donateGenerator=new DonateGenerator("123");
+         donateGenerator=new DonateGenerator();
     }
 
     @After

@@ -8,14 +8,13 @@ import java.util.*;
 import datasource.UserClicksDataSource;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 30.01.2013
  * Time: 17:10:28
- * To change this template use File | Settings | File Templates.
  */
 public class StubUserClicksDataSource implements UserClicksDataSource{
-    List<UserLastDonate> lastdonates=new ArrayList<UserLastDonate>();
+    private final List<UserLastDonate> lastDonates =new ArrayList<UserLastDonate>();
 
     public void click(String userId, Donate donate) {
         UserLastDonate don=getLastUserDonate(userId,donate);
@@ -28,7 +27,7 @@ public class StubUserClicksDataSource implements UserClicksDataSource{
             newDonate.setUser_id(userId);
             newDonate.setDonate(donate);
 
-            lastdonates.add(newDonate);
+            lastDonates.add(newDonate);
         }
     }
 
@@ -56,7 +55,7 @@ public class StubUserClicksDataSource implements UserClicksDataSource{
     }
 
     private UserLastDonate getLastUserDonate(String user, Donate donate){
-        for(UserLastDonate d:lastdonates){
+        for(UserLastDonate d: lastDonates){
               if(d.getUser_id().equals(user)&&d.getDonate().getId().equals(donate.getId()))
                   return d;
         }

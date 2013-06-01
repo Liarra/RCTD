@@ -1,6 +1,6 @@
 var timeout	= 500;
 var closetimer	= 0;
-var ddmenuitem	= 0;
+var ddmenuitem	= null;
 
 // open hidden layer
 function mopen(id)
@@ -14,7 +14,6 @@ function mopen(id)
     // get new layer and show it
     ddmenuitem =newmenuitem ;
     ddmenuitem.style.visibility = 'visible';
-//    moveDown(id);
 
 }
 // close showed layer
