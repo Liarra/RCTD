@@ -11,7 +11,8 @@ public class ThankYouGenerator {
     public String generateThankYou(String backgroundImage,String adImage){
         String ret;
 
-        String template = "<link href=\"css/thankyou.css\" type=\"text/css\" rel=\"stylesheet\"/>\n" +
+        String template =
+                "<link href=\"css/thankyou.css\" type=\"text/css\" rel=\"stylesheet\"/>\n" +
                 "<div id=\"ThankYouBar\" style=\"background-image:url(%s);\">\n" +
                 "    <div id=\"ThankYouString\">Спасибо!</div>\n" +
                 "</div>\n" +

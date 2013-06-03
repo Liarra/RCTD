@@ -18,7 +18,7 @@ import java.util.Map;
  * Time: 15:31:17
  */
 public class DonateGenerator {
-    private Template enabledTemplate, disabledTemplate;
+    private Template enabledTemplate;
 
     public DonateGenerator() throws IOException {
         String buttonLabel = "Помочь";
@@ -31,23 +31,10 @@ public class DonateGenerator {
                         "<div class=\"donate-home-link\"><a href=${donate_home} target=\"_blank\"><i class=\"icon-home\"></i></a></div>" +
                         "</div>\n" +
 
-                        "<a href=\"#\" class=\"btn_checked btn_donate\" onclick=\"clickDonateButton(${id})\">" + buttonLabel + "</a>\n" +
+                        "<a class=\"${btn_className} btn_donate\" ${btn_onclickfunction}>" + buttonLabel + "</a>\n" +
                         " </div>";
-
-        String donateHTMLDisabledTemplate =
-                "<div class=\"donate\" style=\"background-image:url(${donate_pic});\" " +
-                        "onmouseover=\"mopen('${id}_hint')\"\n" +
-                        "onmouseout=\"mclosetime()\">\n" +
-                        "<div class=\"hint\" id=\"${id}_hint\">" +
-                        "${donate_name} " +
-                        "<div class=\"donate-home-link\"><a href=${donate_home} target=\"_blank\"><i class=\"icon-home\"></i></a></div>" +
-                        "</div>\n" +
-                        "<a href=\"#\" class=\"btn_unchecked btn_donate\">" + buttonLabel + "</a>\n" +
-                        " </div>";
-
 
         enabledTemplate = new Template("enabledTemplate", new StringReader(donateHTMLEnabledTemplate), new Configuration());
-        disabledTemplate = new Template("disabledTemplate", new StringReader(donateHTMLDisabledTemplate), new Configuration());
     }
 
     public String generateDonateHTML(Donate d, boolean enabled) throws IOException {
@@ -55,17 +42,21 @@ public class DonateGenerator {
         String donatePic = d.getPicURL();
         String id = String.valueOf(d.getId());
         String donateHome = d.getDescription();
+        String btn_className = enabled ? "btn_checked" : "btn_unchecked";
+        String btn_onclickFunction = enabled ? "onclick=\"clickDonateButton(" + id + ");\"" : "";
 
         Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("donate_pic", donatePic);
         parameters.put("id", id);
         parameters.put("donate_name", donateName);
         parameters.put("donate_home", donateHome);
+        parameters.put("btn_className", btn_className);
+        parameters.put("btn_onclickfunction", btn_onclickFunction);
 
         String newDonateHTML;
         StringWriter stringWriter = new StringWriter();
 
-        Template usedTemplate = enabled ? enabledTemplate : disabledTemplate;
+        Template usedTemplate = enabledTemplate;
 
         try {
             usedTemplate.process(parameters, stringWriter);

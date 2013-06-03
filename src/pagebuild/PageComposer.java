@@ -36,14 +36,14 @@ public class PageComposer extends AbstractComposer {
             e.printStackTrace();
             return "<html>Sorry chief, something went wrong</html>";
         }
-
     }
 
     private void addWelcomeScreenForNewUsers(Document doc) {
+        if (userClicksDataSource.existRecord(viewer_id)) return;
+
         String welcomeScreen = new WelcomeScreenGenerator().getWelcomeScreen();
         Element body = doc.getElementsByTag("body").first();
         body.append(welcomeScreen);
-
     }
 
     private void addMenu(Document doc) {

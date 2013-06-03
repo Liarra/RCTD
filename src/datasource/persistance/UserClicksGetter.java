@@ -23,4 +23,9 @@ public class UserClicksGetter implements UserClicksDataSource{
     public boolean isAbleToClick(String userId, Donate donate) {
         return false;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    public boolean existRecord(String userId) {
+        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

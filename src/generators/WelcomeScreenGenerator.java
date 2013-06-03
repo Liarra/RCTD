@@ -8,7 +8,8 @@ package generators;
  */
 @SuppressWarnings("FieldCanBeLocal")
 public class WelcomeScreenGenerator {
-    private final String layout = "<div id=\"dialog-overlay\"></div>\n" +
+    private final String layout =
+            "<div id=\"dialog-overlay\"></div>\n" +
             "<div id=\"dialog-box\">\n" +
             "    <div class=\"dialog-content\">\n" +
             "        <div id=\"dialog-message\">%s</div>\n" +

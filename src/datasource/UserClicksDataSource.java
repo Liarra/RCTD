@@ -14,4 +14,5 @@ public interface UserClicksDataSource {
     public void click(String userId, Donate donate);
     public Date getLastClickDate(String userId, Donate donate);
     public boolean isAbleToClick(String userId, Donate donate);
+    public boolean existRecord(String userId);
 }

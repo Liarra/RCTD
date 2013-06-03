@@ -54,6 +54,15 @@ public class StubUserClicksDataSource implements UserClicksDataSource{
         return true;
     }
 
+    @Override
+    public boolean existRecord(String user) {
+        for(UserLastDonate d: lastDonates){
+            if(d.getUser_id().equals(user))
+                return true;
+        }
+        return false;
+    }
+
     private UserLastDonate getLastUserDonate(String user, Donate donate){
         for(UserLastDonate d: lastDonates){
               if(d.getUser_id().equals(user)&&d.getDonate().getId().equals(donate.getId()))
