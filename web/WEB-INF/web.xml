@@ -21,6 +21,12 @@
         <servlet-name>HelpServlet</servlet-name>
         <servlet-class>servlet.HelpServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VKServlet</servlet-name>
+        <servlet-class>servlet.VKServlet</servlet-class>
+    </servlet>
+
+
     <servlet-mapping>
         <servlet-name>ThankYouServlet</servlet-name>
         <url-pattern>/thankyou</url-pattern>
@@ -37,4 +43,9 @@
         <servlet-name>PageServlet</servlet-name>
         <url-pattern>/page</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VKServlet</servlet-name>
+        <url-pattern>/vk</url-pattern>
+    </servlet-mapping>
+
 </web-app>

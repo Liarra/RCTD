@@ -39,7 +39,7 @@ public class UserReminderSender {
     }
 
     private String getKey() throws IOException {
-        String result = sendURLRequest("https://oauth.vk.com/access_token?client_id=" + app_id + "&client_secret=" + app_secret + "&grant_type=client_credentials");
+        String result = sendURLRequest("https://oauth.vk.com/access_token?client_id=" + app_id + "&client_secret=" + app_secret + "&grant_type=client_credentials&scope=wall,notify");
         return parseResponceForToken(result);
     }
 
