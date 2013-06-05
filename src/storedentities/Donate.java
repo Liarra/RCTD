@@ -16,8 +16,16 @@ public class Donate {
     private String picURL;
     private String description;
     private String accountNumber;
+    private Type type;
+    private Collection<UserLastDonate> lastDonates;
 
+    protected Donate() {
+    }
 
+    public Donate(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     @Id
     @GeneratedValue
@@ -66,8 +74,6 @@ public class Donate {
         this.accountNumber = accountNumber;
     }
 
-    private Type type;
-
     @ManyToOne(optional = false)
     public Type getType() {
         return type;
@@ -76,8 +82,6 @@ public class Donate {
     public void setType(Type type) {
         this.type = type;
     }
-
-    private Collection<UserLastDonate> lastDonates;
 
     @OneToMany(mappedBy = "donate")
     public Collection<UserLastDonate> getLastDonates() {

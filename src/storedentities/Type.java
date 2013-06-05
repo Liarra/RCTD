@@ -1,6 +1,9 @@
 package storedentities;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 
 /**
@@ -13,6 +16,17 @@ import java.util.Collection;
 public class Type {
 
     private Long id;
+    private String name;
+    private Collection<Donate> donates;
+
+    protected Type() {
+
+    }
+
+    public Type(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     @Id
     public Long getId() {
@@ -23,8 +37,6 @@ public class Type {
         this.id = id;
     }
 
-    private String name;
-
     @Basic
     public String getName() {
         return name;
@@ -33,8 +45,6 @@ public class Type {
     public void setName(String name) {
         this.name = name;
     }
-
-    private Collection<Donate> donates;
 
     @OneToMany(mappedBy = "type")
     public Collection<Donate> getDonates() {
