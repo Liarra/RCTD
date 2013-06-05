@@ -30,10 +30,7 @@ class Transformer {
     }
 
     private static Type getTypeByJAXBType(datasource.xml.jaxbGenerated.Type t){
-        Type ret=new Type();
-
-        ret.setId(new Long(t.getId()));
-        ret.setName(t.getName());
+        Type ret=new Type(new Long(t.getId()),t.getName());
 
         Collection<Donate> donates=new ArrayList<Donate>();
 
@@ -47,11 +44,9 @@ class Transformer {
     }
 
     private static  Donate getDonateByJAXBDonate(datasource.xml.jaxbGenerated.Donate d){
-        Donate ret=new Donate();
-        ret.setId(new Long(d.getId()));
+        Donate ret=new Donate(new Long(d.getId()),d.getName());
         ret.setAccountNumber(d.getAccountNumber());
         ret.setDescription(d.getDescription());
-        ret.setName(d.getName());
         ret.setPicURL(d.getPicURL());
         return ret;
     }

@@ -38,6 +38,8 @@ public class DonateGenerator {
     }
 
     public String generateDonateHTML(Donate d, boolean enabled) throws IOException {
+        if(d==null)throw new IllegalArgumentException("Donate must not be null!");
+        if(d.getId()==null)throw new IllegalArgumentException("Donate must have an Id!");
         String donateName = d.getName();
         String donatePic = d.getPicURL();
         String id = String.valueOf(d.getId());
@@ -46,12 +48,12 @@ public class DonateGenerator {
         String btn_onclickFunction = enabled ? "onclick=\"clickDonateButton(" + id + ");\"" : "";
 
         Map<String, String> parameters = new HashMap<String, String>();
-        parameters.put("donate_pic", donatePic);
         parameters.put("id", id);
         parameters.put("donate_name", donateName);
-        parameters.put("donate_home", donateHome);
         parameters.put("btn_className", btn_className);
         parameters.put("btn_onclickfunction", btn_onclickFunction);
+        parameters.put("donate_home", donateHome==null?"":donateHome);
+        parameters.put("donate_pic", donatePic==null?"":donatePic);
 
         String newDonateHTML;
         StringWriter stringWriter = new StringWriter();

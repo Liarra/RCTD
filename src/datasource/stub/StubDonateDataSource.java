@@ -29,15 +29,11 @@ public class StubDonateDataSource implements DonateDataSource {
     }
 
     private void generateExampleDonates() {
-        Donate d1 = new Donate();
-        d1.setId(0L);
-        d1.setName("TestDonate");
+        Donate d1 = new Donate(0L,"TestDonate");
         d1.setPicURL("https://pp.userapi.com/c403716/v403716540/49dc/7VKcDbcGR5Y.jpg");
         exampleDonateTypes.add(d1);
 
-        Donate d2 = new Donate();
-        d2.setId(1L);
-        d2.setName("Котенька");
+        Donate d2 = new Donate(1L,"Котенька");
         d2.setPicURL("http://www.helpinghomelesscats.com/images/cat1.jpg");
         exampleDonateTypes.add(d2);
     }

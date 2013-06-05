@@ -16,17 +16,11 @@ public class StubTypeDataSource implements TypeDataSource{
     private final ArrayList<Type> arr = new ArrayList<Type>();
 
     public StubTypeDataSource(){
-         Type t2 = new Type();
-        t2.setName("Животные");
-        t2.setId(0L);
+         Type t2 = new Type(0L,"Животные");
         arr.add(t2);
-        Type t3 = new Type();
-        t3.setName("Дети");
-        t3.setId(1L);
+        Type t3 = new Type(1L,"Дети");
         arr.add(t3);
-        Type t4 = new Type();
-        t4.setId(2L);
-        t4.setName("Дома престарелых");
+        Type t4 = new Type(2L,"Дома престарелых");
         arr.add(t4);
     }
 
