@@ -20,8 +20,8 @@ public class ThankYouGenerator {
                         "</div>\n" +
                         "<div id='SponsorsText'>Наши спонсоры делают вашу помощь реальной:</div>" +
                         "\n" +
-                        "<div id='SomeKindStuffHere'> 1%s</div>" +
-                        "<div id='TellFriends' ><a href='#'onclick='postToWall(1);'><i class=\"icon-bullhorn\"></i> Расскажи друзьям!</a></div>";
+                        "<div id='SomeKindStuffHere'>%s</div>" +
+                        "<div id='TellFriends' ><a href='#'onclick='parent.postToWall(1);'><i class=\"icon-bullhorn\"></i> Расскажи друзьям!</a></div>";
         ret = String.format(template, backgroundImage, adImage);
         return ret;
     }
