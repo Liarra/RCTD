@@ -1,3 +1,21 @@
+body{
+    color: #ee7b00;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+a:active, a:visited, a:before,a:enabled,a{
+    color: #ee7b00;
+    text-decoration: none;
+}
+
+#SponsorsText,#SomeKindStuffHere, #TellFriends{
+    background: #ffffff;
+    margin: auto;
+    width: 90%;
+}
+
 #ThankYouBar {
     background: white repeat-x left center;
     height: 120px;
@@ -24,9 +42,8 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#00ffffff', endColorstr = '#ffffff', GradientType = 1); /* IE6-9 */
 }
 
-#AdPics {
-    height: 300px;
-    width: 600px;
-    /*margin-top: 10px;*/
-    margin: auto;
-}
+/*#AdPics {*/
+/*height: 300px;*/
+/*width: 600px;*/
+/*margin: auto;*/
+/*}*/

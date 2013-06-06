@@ -1,5 +1,6 @@
 package pagebuild;
 
+import generators.GA;
 import generators.MenuGenerator;
 import generators.WelcomeScreenGenerator;
 import org.jsoup.Jsoup;
@@ -53,7 +54,7 @@ public class PageComposer extends AbstractComposer {
     }
 
     private void addAllDonateHTMLs(Document doc) {
-        String donateHTMLs = "<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
+        String donateHTMLs = GA.GACode+"<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
                 "width='800' height='440' style='border: transparent 0px;'" +
                 "onload=\"processingComplete()\"" +
                 " ></iframe>";

@@ -1,6 +1,7 @@
 package pagebuild;
 
 import generators.DonateGenerator;
+import generators.GA;
 import storedentities.Donate;
 
 import java.io.IOException;
