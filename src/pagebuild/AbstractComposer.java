@@ -6,17 +6,20 @@ import datasource.DonateDataSource;
 import datasource.TypeDataSource;
 import datasource.AdDataSource;
 
+import javax.servlet.Servlet;
+import javax.servlet.http.HttpServlet;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Buchina
  * Date: 08.02.2013
  * Time: 16:09:12
  */
-abstract class AbstractComposer {
-    UserClicksDataSource userClicksDataSource;
-    DonateDataSource donateDataSource;
-    TypeDataSource typeDataSource;
-    AdDataSource adDataSource;
+public abstract class AbstractComposer extends HttpServlet{
+    protected UserClicksDataSource userClicksDataSource;
+    protected DonateDataSource donateDataSource;
+    protected TypeDataSource typeDataSource;
+    protected AdDataSource adDataSource;
 
 
     void initDataSources(){
@@ -26,7 +29,7 @@ abstract class AbstractComposer {
        this.typeDataSource = new XmlDataSourcesRepository().XmlTypeDataSourceInstance;
     }
 
-    AbstractComposer(){
+    protected AbstractComposer(){
         initDataSources();
     }
 }

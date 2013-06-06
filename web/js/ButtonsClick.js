@@ -2,9 +2,7 @@ var context = "/RCTD";
 var viewer_id;
 
 function clickDonateButton(donateID) {
-    //Clear screen and place loader
     document.getElementById("innerBody").innerHTML = "<i class='icon-spinner icon-spin'></i>";
-    //Request thankYou page
     loadData("/thankyou?id=" + donateID + "&viewer_id=" + viewer_id);
     return false;
 }

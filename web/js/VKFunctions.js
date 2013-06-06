@@ -13,7 +13,7 @@ function proposeToInstall(){
 }
 
 //Вызывать, когда человек второй раз заходит в приложение (уже есть другая дата). Однократно.
-function proposeToInstall(){
+function proposeFriendsToInstall(){
     VK.callMethod("showInviteBox");
 }
 
