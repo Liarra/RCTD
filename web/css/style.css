@@ -1,3 +1,6 @@
+@import url("../font/FontAwesome/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Tenor+Sans&subset=latin,cyrillic");
+
 body {
     height: 100%;
     width: 100%;
@@ -31,6 +34,11 @@ body {
 
 #content {
     height: 430px;
+}
+
+#myIframe{
+    border: transparent 0px;
+    display: compact;
 }
 
 .donate {

@@ -2,8 +2,10 @@ var context = "/RCTD";
 var viewer_id;
 
 function clickDonateButton(donateID) {
-    document.getElementById("innerBody").innerHTML = "<i class='icon-spinner icon-spin'></i>";
-    loadData("/thankyou?id=" + donateID + "&viewer_id=" + viewer_id);
+    parent.clearSpace();
+    parent.replaceIframeContent("/thankyou?id=" + donateID + "&viewer_id=" + viewer_id)  ;
+//    document.getElementById("innerBody").innerHTML = "<i class='icon-spinner icon-spin'></i>";
+//    loadData("/thankyou?id=" + donateID + "&viewer_id=" + viewer_id);
     return false;
 }
 
@@ -101,7 +103,7 @@ function setViewerId(vid) {
 
 function processingComplete() {
     document.getElementById("spinner").style.display = "none";
-    document.getElementById("myIframe").style.display = "block";
+    document.getElementById("myIframe").style.display = "compact";
 }
 
 initScript();

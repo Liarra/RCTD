@@ -55,7 +55,7 @@ public class PageComposer extends AbstractComposer {
 
     private void addAllDonateHTMLs(Document doc) {
         String donateHTMLs = GA.GACode+"<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
-                "width='800' height='440' style='border: transparent 0px;'" +
+                "width='800' height='440' style='display:compact' " +
                 "onload=\"processingComplete()\"" +
                 " ></iframe>";
         Element menuContainer = doc.getElementById("content");

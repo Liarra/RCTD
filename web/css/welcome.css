@@ -18,8 +18,7 @@
 }
 
 #dialog-box {
-
-    /* css3 drop shadow */
+     /* css3 drop shadow */
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 

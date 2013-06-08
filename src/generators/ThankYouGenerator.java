@@ -12,8 +12,7 @@ public class ThankYouGenerator {
         String ret;
         String head= " <head>" +
                 "<link href=\"css/thankyou.css\" type=\"text/css\" rel=\"stylesheet\"/>" +
-                "    <link rel=\"stylesheet\" href=\"font/FontAwesome/css/font-awesome.min.css\">\n" +
-                "    <link href='https://fonts.googleapis.com/css?family=Tenor+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>\n" +
+                "<link href=\"css/style.css\" type=\"text/css\" rel=\"stylesheet\"/>" +
 
                 GA.GACode+
                 "</head>";
