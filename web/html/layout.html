@@ -8,10 +8,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body id="mainbody">
+${welcome}
 <table id="frametable">
     <tr id="menurow" class="btn_menu">
         <td style="box-shadow: 1px 2px 5px 1px gray; width: 793px">
-            <div id="menucell"></div>
+            <div id="menucell">${menu}</div>
             <div id="buttonscell">
                 <a href="#" class="btn_unchecked" id="helpMenuBtn" onclick="clickHelp()">?</a>
                 <a href="#" class="btn_checked " onclick="clickBackButton()"><i class="icon-reply"></i></a>
@@ -21,6 +22,7 @@
     <tr>
         <td id="contentd" colspan="2">
             <div id="content">
+                ${donates}
                 <i class='icon-spinner icon-spin' id="spinner"></i>
             </div>
             <br/>

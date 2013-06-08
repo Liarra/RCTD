@@ -56,7 +56,7 @@ function clearSpace() {
 }
 
 function replaceIframeContent(servletpath) {
-    document.getElementById("myIframe").src = "/RCTD" + servletpath;
+    document.getElementById("myIframe").src = context + servletpath;
  }
 
 function initScript() {

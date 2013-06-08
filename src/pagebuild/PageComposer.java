@@ -1,16 +1,21 @@
 package pagebuild;
 
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import generators.GA;
 import generators.MenuGenerator;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import storedentities.Type;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,7 +25,6 @@ import java.util.Collection;
  */
 public class PageComposer extends AbstractComposer {
     private String viewer_id = "";
-    private Document page;
 
     public PageComposer(String viewer) {
         initDataSources();
@@ -32,42 +36,45 @@ public class PageComposer extends AbstractComposer {
             InputStream layout = context.getResourceAsStream("/html/layout.html"),
                     welcome = context.getResourceAsStream("/html/welcome.html");
 
-            page = getHTMLFromFile(layout);
-            addWelcomeScreenForNewUsers(welcome);
-            addMenu();
-            addAllDonateHTMLs();
-            return page.html();
+            Template t = new Template("Overall", new InputStreamReader(layout, "UTF-8"), new Configuration(), "UTF-8");
+            Map<String, String> parameters = new HashMap<String, String>();
+            parameters.put("menu", getMenu());
+            parameters.put("welcome", getWelcomeScreenForNewUsers(welcome));
+            parameters.put("donates", getAllDonateHTMLs());
+
+            StringWriter stringWriter = new StringWriter();
+            t.process(parameters, stringWriter);
+
+            return stringWriter.toString();
         } catch (IOException e) {
+            e.printStackTrace();
+            return "<html>Sorry chief, something went wrong</html>";
+        } catch (TemplateException e) {
             e.printStackTrace();
             return "<html>Sorry chief, something went wrong</html>";
         }
     }
 
-    private Document getHTMLFromFile(InputStream source) throws IOException {
-        return Jsoup.parse(source, "UTF-8", "http://example.com/");
+    private String getWelcomeScreenForNewUsers(InputStream source) throws IOException, TemplateException {
+        if (userClicksDataSource.existRecord(viewer_id)) return "";
+        StringWriter stringWriter = new StringWriter();
+
+        new Template("Welcome", new InputStreamReader(source, "UTF-8"), new Configuration(), "UTF-8").process(new HashMap(), stringWriter);
+        String welcomeScreen = stringWriter.toString();
+        return welcomeScreen;
     }
 
-    private void addWelcomeScreenForNewUsers(InputStream source) throws IOException {
-        if (userClicksDataSource.existRecord(viewer_id)) return;
-
-        String welcomeScreen = Jsoup.parse(source, "UTF-8", "http://example.com/").html();
-        Element body = page.getElementsByTag("body").first();
-        body.append(welcomeScreen);
-    }
-
-    private void addMenu() {
+    private String getMenu() {
         String categories = getCategoriesHTML();
-        Element menuContainer = page.getElementById("menucell");
-        menuContainer.append(categories);
+        return categories;
     }
 
-    private void addAllDonateHTMLs() {
+    private String getAllDonateHTMLs() {
         String donateHTMLs = GA.GACode + "<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
                 "width='800' height='440' style='display:compact' " +
                 "onload=\"processingComplete()\"" +
                 " ></iframe>";
-        Element menuContainer = page.getElementById("content");
-        menuContainer.append(donateHTMLs);
+        return donateHTMLs;
     }
 
     private String getCategoriesHTML() {
