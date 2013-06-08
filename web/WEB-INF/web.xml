@@ -8,6 +8,10 @@
             <param-name>layout</param-name>
             <param-value>/html/layout.html</param-value>
         </init-param>
+        <init-param>
+            <param-name>welcome</param-name>
+            <param-value>/html/welcome.html</param-value>
+        </init-param>
     </servlet>
     <servlet>
         <servlet-name>ThankYouServlet</servlet-name>

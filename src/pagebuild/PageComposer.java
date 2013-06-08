@@ -2,12 +2,12 @@ package pagebuild;
 
 import generators.GA;
 import generators.MenuGenerator;
-import generators.WelcomeScreenGenerator;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import storedentities.Type;
 
+import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
@@ -20,50 +20,54 @@ import java.util.Collection;
  */
 public class PageComposer extends AbstractComposer {
     private String viewer_id = "";
+    private Document page;
 
     public PageComposer(String viewer) {
         initDataSources();
         this.viewer_id = viewer;
     }
 
-    public String getMainPage(InputStream context) {
+    public String getMainPage(ServletContext context) {
         try {
-            Document basePage = getHTMLFromFile(context);
-            addWelcomeScreenForNewUsers(basePage);
-            addMenu(basePage);
-            addAllDonateHTMLs(basePage);
-            return basePage.html();
+            InputStream layout = context.getResourceAsStream("/html/layout.html"),
+                    welcome = context.getResourceAsStream("/html/welcome.html");
+
+            page = getHTMLFromFile(layout);
+            addWelcomeScreenForNewUsers(welcome);
+            addMenu();
+            addAllDonateHTMLs();
+            return page.html();
         } catch (IOException e) {
             e.printStackTrace();
             return "<html>Sorry chief, something went wrong</html>";
         }
     }
 
-    private void addWelcomeScreenForNewUsers(Document doc) {
+    private Document getHTMLFromFile(InputStream source) throws IOException {
+        return Jsoup.parse(source, "UTF-8", "http://example.com/");
+    }
+
+    private void addWelcomeScreenForNewUsers(InputStream source) throws IOException {
         if (userClicksDataSource.existRecord(viewer_id)) return;
 
-        String welcomeScreen = new WelcomeScreenGenerator().getWelcomeScreen();
-        Element body = doc.getElementsByTag("body").first();
+        String welcomeScreen = Jsoup.parse(source, "UTF-8", "http://example.com/").html();
+        Element body = page.getElementsByTag("body").first();
         body.append(welcomeScreen);
     }
 
-    private void addMenu(Document doc) {
+    private void addMenu() {
         String categories = getCategoriesHTML();
-        Element menuContainer = doc.getElementById("menucell");
+        Element menuContainer = page.getElementById("menucell");
         menuContainer.append(categories);
     }
 
-    private void addAllDonateHTMLs(Document doc) {
-        String donateHTMLs = GA.GACode+"<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
+    private void addAllDonateHTMLs() {
+        String donateHTMLs = GA.GACode + "<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
                 "width='800' height='440' style='display:compact' " +
                 "onload=\"processingComplete()\"" +
                 " ></iframe>";
-        Element menuContainer = doc.getElementById("content");
+        Element menuContainer = page.getElementById("content");
         menuContainer.append(donateHTMLs);
-    }
-
-    private Document getHTMLFromFile(InputStream source) throws IOException {
-        return Jsoup.parse(source, "UTF-8", "http://example.com/");
     }
 
     private String getCategoriesHTML() {

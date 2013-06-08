@@ -4,8 +4,6 @@ var viewer_id;
 function clickDonateButton(donateID) {
     parent.clearSpace();
     parent.replaceIframeContent("/thankyou?id=" + donateID + "&viewer_id=" + viewer_id)  ;
-//    document.getElementById("innerBody").innerHTML = "<i class='icon-spinner icon-spin'></i>";
-//    loadData("/thankyou?id=" + donateID + "&viewer_id=" + viewer_id);
     return false;
 }
 
@@ -57,32 +55,9 @@ function clearSpace() {
     document.getElementById("myIframe").style.display = "none";
 }
 
-function loadData(servletpath) {
-    var xmlhttp = getAJAXSender();
-    xmlhttp.open("GET", context + servletpath, true);
-    xmlhttp.send();
-}
 function replaceIframeContent(servletpath) {
     document.getElementById("myIframe").src = "/RCTD" + servletpath;
-
-}
-
-function getAJAXSender() {
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById("innerBody").innerHTML = xmlhttp.responseText;
-        }
-    }
-
-    return xmlhttp;
-}
+ }
 
 function initScript() {
     var prmstr = window.location.search.substr(1);

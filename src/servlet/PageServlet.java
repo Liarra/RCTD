@@ -31,7 +31,7 @@ public class PageServlet extends HttpServlet {
          String viewer_id=request.getParameter("viewer_id");
 
          PageComposer pageComposer =new PageComposer(viewer_id);
-         String page= pageComposer.getMainPage(getServletContext().getResourceAsStream(layout));
+         String page= pageComposer.getMainPage(getServletContext());
          
          responseWriter.writeResponse(response,page);
     }
