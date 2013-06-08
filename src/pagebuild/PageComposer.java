@@ -60,27 +60,19 @@ public class PageComposer extends AbstractComposer {
         StringWriter stringWriter = new StringWriter();
 
         new Template("Welcome", new InputStreamReader(source, "UTF-8"), new Configuration(), "UTF-8").process(new HashMap(), stringWriter);
-        String welcomeScreen = stringWriter.toString();
-        return welcomeScreen;
+        return stringWriter.toString();
     }
 
     private String getMenu() {
-        String categories = getCategoriesHTML();
-        return categories;
-    }
-
-    private String getAllDonateHTMLs() {
-        String donateHTMLs = GA.GACode + "<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
-                "width='800' height='440' style='display:none' " +
-                "onload=\"processingComplete()\"" +
-                " ></iframe>";
-        return donateHTMLs;
-    }
-
-    private String getCategoriesHTML() {
         Collection<Type> types = typeDataSource.getAllTypes();
         MenuGenerator menuGenerator = new MenuGenerator();
         return menuGenerator.generateMenu(types);
     }
 
+    private String getAllDonateHTMLs() {
+        return GA.GACode + "<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
+                "width='800' height='440' style='display:none' " +
+                "onload=\"processingComplete()\"" +
+                " ></iframe>";
+    }
 }
