@@ -20,7 +20,7 @@ function proposeFriendsToInstall(){
 //Вызывать, если человек жмёт клавишу рассказать друзьям
 function postToWall(donationId){
     VK.init();
-    VK.api('wall.post', {message: "Сегодня я сделал доброе дело! Попробуй и ты - это бесплатно!",attachments:"photo54578214_304768390"},function(data) {
+    VK.api('wall.post', {message: "Сегодня я сделал доброе дело! Попробуй и ты - это бесплатно!",attachments:"photo18462180_305497230"},function(data) {
         if (data.response) {
             // data.response is object
         }

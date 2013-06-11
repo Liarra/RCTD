@@ -13,7 +13,7 @@ import java.util.Collection;
 public class MenuGenerator {
 
     String generateMenuItem(Type t) {
-        String menuTemplate = "<a href=\"#\" class=\"btn_unchecked\" id=\"%s\", onclick=\"clickMenu(%s,'%s')\">%s</a>";
+        String menuTemplate = "<a href=\"#\" class=\"btn_unchecked\" id=\"%s\", onclick=\"clickMenu(%s,'%s'); proposeToInstall();\">%s</a>";
         String elementID = "menu" + t.getId();
 
         return String.format(menuTemplate, elementID, t.getId(), elementID, t.getName());
@@ -21,7 +21,7 @@ public class MenuGenerator {
 
     String generateAllMenuItem() {
         String elementID = "menuAll";
-        String mainMenuTemplate = "<a href=\"#\" class=\"btn_checked\" id=\"%s\", onclick=\"clickMenu(%s,'%s')\">%s</a>";
+        String mainMenuTemplate = "<a href=\"#\" class=\"btn_checked\" id=\"%s\", onclick=\"clickMenu(%s,'%s'); proposeToInstall();\">%s</a>";
         return String.format(mainMenuTemplate, elementID, -1, elementID, "Все");
     }
 
