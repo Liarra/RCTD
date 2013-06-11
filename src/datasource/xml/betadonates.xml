@@ -1,0 +1,66 @@
+<donates>
+
+    <type id="0" name="Животные">
+        <donate id="00">
+            <name>Котики</name>
+            <picURL>img/betapic/cat3.jpg</picURL>
+            <description>https://www.google.com/search?q=котики</description>
+            <accountNumber>string</accountNumber>
+        </donate>
+
+        <donate id="01">
+            <name>Черепашки</name>
+            <picURL>img/betapic/turtle2.jpg</picURL>
+            <description>
+                https://commons.wikimedia.org/wiki/File:Turtle_project_Bentota_C.jpg?uselang=ru
+            </description>
+            <accountNumber>string</accountNumber>
+        </donate>
+    </type>
+
+    <type id="1" name="Дети">
+        <donate id="03">
+            <name>Детский рисунок</name>
+            <picURL>
+                http://upload.wikimedia.org/wikipedia/commons/f/fc/Косилки_и_стрелы_рисунок_да_Винчи.jpg
+            </picURL>
+            <description>https://www.google.com/search?q=детский рисунок</description>
+            <accountNumber>string</accountNumber>
+        </donate>
+        <donate id="04">
+            <name>Игрушки для детей</name>
+            <picURL>
+                img/betapic/toys2.jpg
+            </picURL>
+            <description>https://www.google.com/search?q=детский рисунок</description>
+            <accountNumber>string</accountNumber>
+        </donate>
+    </type>
+
+    <type id="2" name="Инвалиды">
+        <donate id="06">
+            <name>Театр инвалидов</name>
+            <picURL>http://upload.wikimedia.org/wikipedia/commons/7/79/WheelchairSeatingNTSB.jpg</picURL>
+            <description>http://mir-teatra.ru/theatre-disabled/</description>
+            <accountNumber>string</accountNumber>
+        </donate>
+
+    </type>
+
+    <type id="3" name="Другое">
+        <donate id="08">
+            <name>Красивые места</name>
+            <picURL>http://cs316220.vk.me/v316220053/1a1b/0W6bjm4dbbY.jpg</picURL>
+            <description>https://www.google.com/search?q=ереван</description>
+            <accountNumber>string</accountNumber>
+        </donate>
+
+        <donate id="100">
+            <name>Поддержать добрую кнопку</name>
+            <picURL>http://cs14102.vk.me/c9354/v9354180/10af/nH0rIvGZZJQ.jpg</picURL>
+            <description>http://vk.com/kind_button</description>
+            <accountNumber>string</accountNumber>
+        </donate>
+
+    </type>
+</donates>

@@ -27,7 +27,8 @@ public class MenuGenerator {
 
     public String generateMenu(Collection<Type> types) {
         String menu = generateAllMenuItem();
-
+        if(types==null)
+            throw new IllegalArgumentException("types collection must not be null!");
         for (Type type : types)
             menu += generateMenuItem(type);
 

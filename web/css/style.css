@@ -45,7 +45,9 @@ body {
     width: 210px;
     height: 140px;
     margin: 20px;
-    background: white no-repeat center top;
+    background: white no-repeat center ;
+    background-size: cover;
+    border: 3px solid #ffffff;
     box-shadow: 2px 2px 3px 2px gray;
     display: inline-block;
 }
@@ -70,6 +72,8 @@ body {
     visibility: hidden;
     width: 205px;
     position: relative;
+    left: -3px;
+    top: -3px;
 }
 
 .icon-spinner {
