@@ -71,7 +71,7 @@ public class PageComposer extends AbstractComposer {
 
     private String getAllDonateHTMLs() {
         return GA.GACode + "<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
-                "width='800' height='440' style='display:none' " +
+                "width='800' height='440' " +
                 "onload=\"processingComplete()\"" +
                 " ></iframe>";
     }

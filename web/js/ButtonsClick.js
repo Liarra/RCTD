@@ -1,6 +1,17 @@
 var context = "/RCTD";
 var viewer_id;
 
+var IE=false;
+var browser = navigator.appName;
+if(browser == "Microsoft Internet Explorer")
+   IE=true;
+
+if(!IE) {
+    document.getElementById("myIframe").style.display = "none";
+}
+
+
+
 function clickDonateButton(donateID) {
     parent.clearSpace();
     parent.replaceIframeContent("/thankyou?id=" + donateID + "&viewer_id=" + viewer_id)  ;
@@ -51,6 +62,7 @@ function checkStartMenuButton() {
 }
 
 function clearSpace() {
+    if(IE)return;
     document.getElementById("spinner").style.display = "block";
     document.getElementById("myIframe").style.display = "none";
 }
