@@ -6,10 +6,14 @@
  * To change this template use File | Settings | File Templates.
  */
 var access_token;
+var proposedToday=false;
 
 //Вызывать после нажатия "назад", если приложение не установлено у пользователя. Не чаще, чем раз в день
 function proposeToInstall(){
+    if(!proposedToday){
     VK.callMethod("showInstallBox");
+        proposedToday=true;
+    }
 }
 
 //Вызывать, когда человек второй раз заходит в приложение (уже есть другая дата). Однократно.

@@ -1,16 +1,10 @@
 var context = "/RCTD";
 var viewer_id;
 
-var IE=false;
-var browser = navigator.appName;
-if(browser == "Microsoft Internet Explorer")
-   IE=true;
-
-if(!IE) {
-    document.getElementById("myIframe").style.display = "none";
-}
-
-
+document.getElementById("myIframe").style.height=1;
+document.getElementById("myIframe").style.width=10;
+document.getElementById("myIframe").style.position="absolute";
+document.getElementById("myIframe").style.left=-50;
 
 function clickDonateButton(donateID) {
     parent.clearSpace();
@@ -62,9 +56,12 @@ function checkStartMenuButton() {
 }
 
 function clearSpace() {
-    if(IE)return;
+//    if(IE)return;
     document.getElementById("spinner").style.display = "block";
-    document.getElementById("myIframe").style.display = "none";
+    document.getElementById("myIframe").style.height=1;
+    document.getElementById("myIframe").style.width=10;
+    document.getElementById("myIframe").style.position="absolute";
+    document.getElementById("myIframe").style.left=-50;
 }
 
 function replaceIframeContent(servletpath) {
@@ -91,6 +88,11 @@ function setViewerId(vid) {
 function processingComplete() {
     document.getElementById("spinner").style.display = "none";
     document.getElementById("myIframe").style.display = "compact";
+
+    document.getElementById("myIframe").style.height=440;
+    document.getElementById("myIframe").style.width=800;
+    document.getElementById("myIframe").style.position="relative";
+    document.getElementById("myIframe").style.left=0;
 }
 
 initScript();

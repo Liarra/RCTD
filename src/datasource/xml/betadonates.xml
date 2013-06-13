@@ -1,14 +1,14 @@
 <donates>
 
     <type id="0" name="Животные">
-        <donate id="00">
+        <donate id="0">
             <name>Котики</name>
             <picURL>img/betapic/cat3.jpg</picURL>
             <description>https://www.google.com/search?q=котики</description>
             <accountNumber>string</accountNumber>
         </donate>
 
-        <donate id="01">
+        <donate id="1">
             <name>Черепашки</name>
             <picURL>img/betapic/turtle2.jpg</picURL>
             <description>
@@ -19,7 +19,7 @@
     </type>
 
     <type id="1" name="Дети">
-        <donate id="03">
+        <donate id="3">
             <name>Детский рисунок</name>
             <picURL>
                 http://upload.wikimedia.org/wikipedia/commons/f/fc/Косилки_и_стрелы_рисунок_да_Винчи.jpg
@@ -27,7 +27,7 @@
             <description>https://www.google.com/search?q=детский рисунок</description>
             <accountNumber>string</accountNumber>
         </donate>
-        <donate id="04">
+        <donate id="4">
             <name>Игрушки для детей</name>
             <picURL>
                 img/betapic/toys2.jpg
@@ -38,7 +38,7 @@
     </type>
 
     <type id="2" name="Инвалиды">
-        <donate id="06">
+        <donate id="6">
             <name>Театр инвалидов</name>
             <picURL>http://upload.wikimedia.org/wikipedia/commons/7/79/WheelchairSeatingNTSB.jpg</picURL>
             <description>http://mir-teatra.ru/theatre-disabled/</description>
@@ -48,7 +48,7 @@
     </type>
 
     <type id="3" name="Другое">
-        <donate id="08">
+        <donate id="8">
             <name>Красивые места</name>
             <picURL>http://cs316220.vk.me/v316220053/1a1b/0W6bjm4dbbY.jpg</picURL>
             <description>https://www.google.com/search?q=ереван</description>
