@@ -1,10 +1,7 @@
 var context = "/RCTD";
 var viewer_id;
 
-document.getElementById("myIframe").style.height=1;
-document.getElementById("myIframe").style.width=10;
-document.getElementById("myIframe").style.position="absolute";
-document.getElementById("myIframe").style.left=-50;
+
 
 function clickDonateButton(donateID) {
     parent.clearSpace();
@@ -95,4 +92,12 @@ function processingComplete() {
     document.getElementById("myIframe").style.left=0;
 }
 
+function hideFrameByDefault(){
+    document.getElementById("myIframe").style.height=1;
+    document.getElementById("myIframe").style.width=10;
+    document.getElementById("myIframe").style.position="absolute";
+    document.getElementById("myIframe").style.left=-50;
+}
+
 initScript();
+hideFrameByDefault();

@@ -39,7 +39,7 @@ public class XmlDonatedataSource implements DonateDataSource{
             e.printStackTrace(); 
         }
 
-        return ret;  //To change body of implemented methods use File | Settings | File Templates.
+        return ret;
     }
 
     public Collection<Donate> getDonatesByType(Type t) {
