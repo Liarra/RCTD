@@ -15,6 +15,11 @@
             <param-name>Welcome</param-name>
             <param-value>/html/welcome.html</param-value>
         </init-param>
+
+        <init-param>
+            <param-name>Menu</param-name>
+            <param-value>/html/menu.html</param-value>
+        </init-param>
     </servlet>
     <servlet>
         <servlet-name>ThankYouServlet</servlet-name>

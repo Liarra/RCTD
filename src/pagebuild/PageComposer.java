@@ -1,10 +1,7 @@
 package pagebuild;
 
-import generators.GA;
-import generators.MenuGenerator;
 import storedentities.Type;
 
-import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
@@ -22,21 +19,22 @@ public class PageComposer extends AbstractComposer {
     private String viewer_id = "";
     private InputStream layoutTemplate;
     private InputStream welcomeTemplate;
+    private InputStream menuTemplate;
 
-    public PageComposer(String viewer, InputStream layoutTemplate, InputStream welcomeTemplate) {
+    public PageComposer(String viewer, InputStream layoutTemplate, InputStream welcomeTemplate, InputStream menuTemplate) {
         this.layoutTemplate = layoutTemplate;
         this.welcomeTemplate = welcomeTemplate;
+        this.menuTemplate = menuTemplate;
         initDataSources();
         this.viewer_id = viewer;
     }
 
-    public String getMainPage(ServletContext context) {
+    public String getMainPage() {
         try {
-
             Map<String, String> parameters = new HashMap<String, String>();
             parameters.put("menu", getMenu());
             parameters.put("welcome", getWelcomeScreenForNewUsers(welcomeTemplate));
-            parameters.put("donates", getAllDonateHTMLs());
+//            parameters.put("donates", getAllDonateHTMLs());
 
             return new FreeMarkerPageBuilder(layoutTemplate, parameters).process();
         } catch (IOException e) {
@@ -50,16 +48,11 @@ public class PageComposer extends AbstractComposer {
         return new FreeMarkerPageBuilder(source, new HashMap<String, String>()).process();
     }
 
-    private String getMenu() {
+    private String getMenu() throws IOException {
         Collection<Type> types = typeDataSource.getAllTypes();
-        MenuGenerator menuGenerator = new MenuGenerator();
-        return menuGenerator.generateMenu(types);
-    }
+        HashMap<String, Collection> parameters = new HashMap<String, Collection>();
+        parameters.put("types", types);
 
-    private String getAllDonateHTMLs() {
-        return GA.GACode + "<iframe id='myIframe' src='/RCTD/main?viewer_id=" + viewer_id + "' " +
-                "width='800' height='440' " +
-                "onload=\"processingComplete()\"" +
-                " ></iframe>";
+        return new FreeMarkerPageBuilder(menuTemplate, parameters).process();
     }
 }

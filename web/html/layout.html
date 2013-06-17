@@ -28,7 +28,7 @@ ${welcome}
     <tr>
         <td id="contentd" colspan="2">
             <div id="content">
-                ${donates}
+                <iframe id='myIframe' width='800' height='440' onload="processingComplete()"></iframe>
                 <i class='icon-spinner icon-spin' id="spinner"></i>
             </div>
             <br/>
@@ -38,4 +38,16 @@ ${welcome}
     </tr>
 </table>
 </body>
+<script>
+replaceIframeContent("/main" + "?viewer_id=" + viewer_id);
+hideFrameByDefault();
+</script>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-41508504-1");
+    pageTracker._trackPageview();
+</script>
 </html>

@@ -1,8 +1,6 @@
 var context = "/RCTD";
 var viewer_id;
 
-
-
 function clickDonateButton(donateID) {
     parent.clearSpace();
     parent.replaceIframeContent("/thankyou?id=" + donateID + "&viewer_id=" + viewer_id)  ;
@@ -100,4 +98,4 @@ function hideFrameByDefault(){
 }
 
 initScript();
-hideFrameByDefault();
+

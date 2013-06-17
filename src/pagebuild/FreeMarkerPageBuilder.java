@@ -17,13 +17,13 @@ import java.util.Map;
  * Time: 14:59
  */
 public class FreeMarkerPageBuilder {
-    public FreeMarkerPageBuilder(InputStream templateInputStream, Map<String, String> parameters) {
+    public FreeMarkerPageBuilder(InputStream templateInputStream, Map parameters) {
         this.templateInputStream = templateInputStream;
         this.parameters = parameters;
     }
 
     InputStream templateInputStream;
-    Map<String, String> parameters;
+    Map parameters;
 
     public String process() throws IOException {
         templateInputStream.reset();

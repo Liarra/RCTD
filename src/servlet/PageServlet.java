@@ -30,15 +30,16 @@ public class PageServlet extends HttpServlet {
     private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String welcomeTemplatePath = getServletConfig().getInitParameter("Welcome");
         String layoutTemplatePath = getServletConfig().getInitParameter("Layout");
+        String menuTemplatePath = getServletConfig().getInitParameter("Menu");
 
         InputStream welcomeTemplate = getServletContext().getResourceAsStream(welcomeTemplatePath);
         InputStream layoutTemplate = getServletContext().getResourceAsStream(layoutTemplatePath);
-
+        InputStream menuTemplate = getServletContext().getResourceAsStream(menuTemplatePath);
 
         String viewer_id = request.getParameter("viewer_id");
 
-        PageComposer pageComposer = new PageComposer(viewer_id,layoutTemplate,welcomeTemplate);
-        String page = pageComposer.getMainPage(getServletContext());
+        PageComposer pageComposer = new PageComposer(viewer_id,layoutTemplate,welcomeTemplate,menuTemplate);
+        String page = pageComposer.getMainPage();
 
         responseWriter.writeResponse(response, page);
     }
