@@ -1,8 +1,5 @@
 package pagebuild;
 
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 import generators.GA;
 import generators.MenuGenerator;
 import storedentities.Type;
@@ -10,8 +7,6 @@ import storedentities.Type;
 import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,42 +20,34 @@ import java.util.Map;
  */
 public class PageComposer extends AbstractComposer {
     private String viewer_id = "";
+    private InputStream layoutTemplate;
+    private InputStream welcomeTemplate;
 
-    public PageComposer(String viewer) {
+    public PageComposer(String viewer, InputStream layoutTemplate, InputStream welcomeTemplate) {
+        this.layoutTemplate = layoutTemplate;
+        this.welcomeTemplate = welcomeTemplate;
         initDataSources();
         this.viewer_id = viewer;
     }
 
     public String getMainPage(ServletContext context) {
         try {
-            InputStream layout = context.getResourceAsStream("/html/layout.html"),
-                    welcome = context.getResourceAsStream("/html/welcome.html");
 
-            Template t = new Template("Overall", new InputStreamReader(layout, "UTF-8"), new Configuration(), "UTF-8");
             Map<String, String> parameters = new HashMap<String, String>();
             parameters.put("menu", getMenu());
-            parameters.put("welcome", getWelcomeScreenForNewUsers(welcome));
+            parameters.put("welcome", getWelcomeScreenForNewUsers(welcomeTemplate));
             parameters.put("donates", getAllDonateHTMLs());
 
-            StringWriter stringWriter = new StringWriter();
-            t.process(parameters, stringWriter);
-
-            return stringWriter.toString();
+            return new FreeMarkerPageBuilder(layoutTemplate, parameters).process();
         } catch (IOException e) {
-            e.printStackTrace();
-            return "<html>Sorry chief, something went wrong</html>";
-        } catch (TemplateException e) {
             e.printStackTrace();
             return "<html>Sorry chief, something went wrong</html>";
         }
     }
 
-    private String getWelcomeScreenForNewUsers(InputStream source) throws IOException, TemplateException {
+    private String getWelcomeScreenForNewUsers(InputStream source) throws IOException {
         if (userClicksDataSource.existRecord(viewer_id)) return "";
-        StringWriter stringWriter = new StringWriter();
-
-        new Template("Welcome", new InputStreamReader(source, "UTF-8"), new Configuration(), "UTF-8").process(new HashMap(), stringWriter);
-        return stringWriter.toString();
+        return new FreeMarkerPageBuilder(source, new HashMap<String, String>()).process();
     }
 
     private String getMenu() {
