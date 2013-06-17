@@ -34,7 +34,6 @@ public class PageComposer extends AbstractComposer {
             Map<String, String> parameters = new HashMap<String, String>();
             parameters.put("menu", getMenu());
             parameters.put("welcome", getWelcomeScreenForNewUsers(welcomeTemplate));
-//            parameters.put("donates", getAllDonateHTMLs());
 
             return new FreeMarkerPageBuilder(layoutTemplate, parameters).process();
         } catch (IOException e) {

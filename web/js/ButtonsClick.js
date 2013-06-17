@@ -51,7 +51,6 @@ function checkStartMenuButton() {
 }
 
 function clearSpace() {
-//    if(IE)return;
     document.getElementById("spinner").style.display = "block";
     document.getElementById("myIframe").style.height=1;
     document.getElementById("myIframe").style.width=10;

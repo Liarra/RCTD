@@ -28,18 +28,6 @@ public class DonatesServlet extends HttpServlet {
         doServe(request, response);
     }
 
-    @SuppressWarnings("FieldCanBeLocal")
-    private final String cost = " <link rel=\"stylesheet\" type=\"text/css\" href=\"css/buttons.css\"/>\n" +
-            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\"/>\n" +
-            "    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/welcome.css\"/>\n" +
-
-            "    <link href='https://fonts.googleapis.com/css?family=Tenor+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>\n" +
-            "    <link rel=\"stylesheet\" href=\"font/FontAwesome/css/font-awesome.min.css\">\n" +
-
-            "    <script type=\"text/javascript\" src=\"js/ButtonsClick.js\"></script>\n" +
-            "    <script type=\"text/javascript\" src=\"js/menu.js\"></script>\n" +
-            "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">";
-
     private void doServe(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String page = "something went wrong";
         if (!request.getParameterMap().isEmpty()) {
@@ -47,19 +35,22 @@ public class DonatesServlet extends HttpServlet {
             String donateTemplatePath = getServletConfig().getInitParameter("DonateTemplate");
             InputStream donateTemplate = getServletContext().getResourceAsStream(donateTemplatePath);
 
+            String donatesPageTemplatePath = getServletConfig().getInitParameter("DonatesPage");
+            InputStream donatesPageTemplate = getServletContext().getResourceAsStream(donatesPageTemplatePath);
+
             String typeIdS = request.getParameter("id");
             if (typeIdS == null) typeIdS = "-1";
             Long typeId = new Long(typeIdS);
 
             String userId = request.getParameter("viewer_id");
 
-            DonatesListComposer gen = new DonatesListComposer(userId,donateTemplate);
+            DonatesListComposer gen = new DonatesListComposer(userId, donateTemplate, donatesPageTemplate);
             if (typeId == -1L)
                 page = gen.getDonatesHTML();
             else {
                 page = gen.getDonatesHTML(typeId);
             }
         }
-        responseWriter.writeResponse(response, cost + page);
+        responseWriter.writeResponse(response, page);
     }
 }

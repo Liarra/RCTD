@@ -17,9 +17,11 @@ import java.util.Map;
 public class DonatesListComposer extends AbstractComposer {
     private String userId;
     private InputStream donateTemplate;
+    private InputStream donatesPageTemplate;
 
-    public DonatesListComposer(String userId, InputStream donateTemplate) throws IOException {
+    public DonatesListComposer(String userId, InputStream donateTemplate, InputStream donatesPageTemplate) throws IOException {
         this.donateTemplate = donateTemplate;
+        this.donatesPageTemplate = donatesPageTemplate;
         initDataSources();
         this.userId = userId;
     }
@@ -35,7 +37,7 @@ public class DonatesListComposer extends AbstractComposer {
     }
 
     private String generateDonatesHTML(Collection<Donate> d) throws IOException {
-        String ret = "<body id='innerBody'>";
+        String ret = "";
 
         if (userClicksDataSource == null)
             for (Donate donate : d) {
@@ -49,7 +51,10 @@ public class DonatesListComposer extends AbstractComposer {
             }
         }
 
-        return ret + "</body>";
+        HashMap<String, String> hashMap=new HashMap<String, String>();
+        hashMap.put("donates",ret);
+
+        return new FreeMarkerPageBuilder(donatesPageTemplate,hashMap).process();
     }
 
     private String getDonateHTML(Donate d, boolean enabled) throws IOException {
