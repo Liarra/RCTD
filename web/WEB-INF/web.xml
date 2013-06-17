@@ -28,6 +28,11 @@
     <servlet>
         <servlet-name>DonatesServlet</servlet-name>
         <servlet-class>servlet.DonatesServlet</servlet-class>
+
+        <init-param>
+            <param-name>DonateTemplate</param-name>
+            <param-value>/html/donate.html</param-value>
+        </init-param>
     </servlet>
     <servlet>
         <servlet-name>HelpServlet</servlet-name>

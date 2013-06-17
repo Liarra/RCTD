@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,14 +44,16 @@ public class DonatesServlet extends HttpServlet {
         String page = "something went wrong";
         if (!request.getParameterMap().isEmpty()) {
 
+            String donateTemplatePath = getServletConfig().getInitParameter("DonateTemplate");
+            InputStream donateTemplate = getServletContext().getResourceAsStream(donateTemplatePath);
+
             String typeIdS = request.getParameter("id");
             if (typeIdS == null) typeIdS = "-1";
             Long typeId = new Long(typeIdS);
 
             String userId = request.getParameter("viewer_id");
 
-
-            DonatesListComposer gen = new DonatesListComposer(userId);
+            DonatesListComposer gen = new DonatesListComposer(userId,donateTemplate);
             if (typeId == -1L)
                 page = gen.getDonatesHTML();
             else {

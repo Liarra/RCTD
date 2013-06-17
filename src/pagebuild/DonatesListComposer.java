@@ -1,10 +1,12 @@
 package pagebuild;
 
-import generators.DonateGenerator;
 import storedentities.Donate;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,12 +15,12 @@ import java.util.Collection;
  * Time: 15:02:24
  */
 public class DonatesListComposer extends AbstractComposer {
-    private DonateGenerator gen;
     private String userId;
+    private InputStream donateTemplate;
 
-    public DonatesListComposer(String userId) throws IOException {
+    public DonatesListComposer(String userId, InputStream donateTemplate) throws IOException {
+        this.donateTemplate = donateTemplate;
         initDataSources();
-        gen = new DonateGenerator();
         this.userId = userId;
     }
 
@@ -37,16 +39,37 @@ public class DonatesListComposer extends AbstractComposer {
 
         if (userClicksDataSource == null)
             for (Donate donate : d) {
-                ret += gen.generateDonateHTML(donate, true);
+                ret += getDonateHTML(donate, true);
             }
 
         else {
             for (Donate donate : d) {
                 boolean isEnabled = userClicksDataSource.isAbleToClick(userId, donate);
-                ret += gen.generateDonateHTML(donate, isEnabled);
+                ret += getDonateHTML(donate, isEnabled);
             }
         }
 
         return ret + "</body>";
+    }
+
+    private String getDonateHTML(Donate d, boolean enabled) throws IOException {
+        if (d == null) throw new IllegalArgumentException("Donate must not be null!");
+        if (d.getId() == null) throw new IllegalArgumentException("Donate must have an Id!");
+        String donateName = d.getName();
+        String donatePic = d.getPicURL();
+        String id = String.valueOf(d.getId());
+        String donateHome = d.getDescription();
+        String btn_className = enabled ? "btn_checked" : "btn_unchecked";
+        String btn_onclickFunction = enabled ? "onclick=\"clickDonateButton(" + id + ");\"" : "";
+
+        Map<String, String> parameters = new HashMap<String, String>();
+        parameters.put("id", id);
+        parameters.put("donate_name", donateName);
+        parameters.put("btn_className", btn_className);
+        parameters.put("btn_onclickfunction", btn_onclickFunction);
+        parameters.put("donate_home", donateHome == null ? "" : donateHome);
+        parameters.put("donate_pic", donatePic == null ? "" : donatePic);
+
+        return new FreeMarkerPageBuilder(donateTemplate, parameters).process();
     }
 }

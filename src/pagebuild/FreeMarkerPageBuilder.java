@@ -26,6 +26,7 @@ public class FreeMarkerPageBuilder {
     Map<String, String> parameters;
 
     public String process() throws IOException {
+        templateInputStream.reset();
         Template t = new Template("Overall", new InputStreamReader(templateInputStream, "UTF-8"), new Configuration(), "UTF-8");
 
         StringWriter stringWriter = new StringWriter();
