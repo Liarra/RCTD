@@ -26,7 +26,6 @@ class Transformer {
         }
 
         return types;
-
     }
 
     private static Type getTypeByJAXBType(datasource.xml.jaxbGenerated.Type t){

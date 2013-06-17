@@ -1,6 +1,8 @@
 var context = "/RCTD";
 var viewer_id;
 
+
+
 function clickDonateButton(donateID) {
     parent.clearSpace();
     parent.replaceIframeContent("/thankyou?id=" + donateID + "&viewer_id=" + viewer_id)  ;
@@ -51,8 +53,12 @@ function checkStartMenuButton() {
 }
 
 function clearSpace() {
+//    if(IE)return;
     document.getElementById("spinner").style.display = "block";
-    document.getElementById("myIframe").style.display = "none";
+    document.getElementById("myIframe").style.height=1;
+    document.getElementById("myIframe").style.width=10;
+    document.getElementById("myIframe").style.position="absolute";
+    document.getElementById("myIframe").style.left=-50;
 }
 
 function replaceIframeContent(servletpath) {
@@ -79,6 +85,19 @@ function setViewerId(vid) {
 function processingComplete() {
     document.getElementById("spinner").style.display = "none";
     document.getElementById("myIframe").style.display = "compact";
+
+    document.getElementById("myIframe").style.height=440;
+    document.getElementById("myIframe").style.width=800;
+    document.getElementById("myIframe").style.position="relative";
+    document.getElementById("myIframe").style.left=0;
+}
+
+function hideFrameByDefault(){
+    document.getElementById("myIframe").style.height=1;
+    document.getElementById("myIframe").style.width=10;
+    document.getElementById("myIframe").style.position="absolute";
+    document.getElementById("myIframe").style.left=-50;
 }
 
 initScript();
+hideFrameByDefault();
