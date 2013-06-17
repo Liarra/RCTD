@@ -13,7 +13,7 @@ public class ThankYouGenerator {
         String head= " <head>" +
                 "<link href=\"css/thankyou.css\" type=\"text/css\" rel=\"stylesheet\"/>" +
                 "<link href=\"css/style.css\" type=\"text/css\" rel=\"stylesheet\"/>" +
-
+                 "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">"+
                 GA.GACode+
                 "</head>";
         String template =
