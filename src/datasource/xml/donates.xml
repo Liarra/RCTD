@@ -1,30 +1,37 @@
 <donates>
 
-  <type id="0" name="Животные">
-  </type>
+    <type id="0" name="Животные">
+        <donate id="200">
+            <name>Группа помощи животным "9 жизней" г. Ульяновск</name>
+            <picURL>img/donate_pics/9lives.jpg</picURL>
+            <description>http://vk.com/ulpriut</description>
+            <accountNumber>Номер "Голодного" телефона 8 937 274 61 12. Номер карты Сбербанка 6761 9600 0469 971239
+            </accountNumber>
+        </donate>
+    </type>
 
-     <type id="1" name="Дети">
+    <type id="1" name="Дети">
 
-  </type>
-     <type id="2" name="Пожилые люди">
-     <donate id="20">
-      <name>Группа помощи Пожилым людям (г.Якутск)</name>
-      <picURL>img/donate_pics/pomosh_pozjilim.jpg</picURL>
-      <description>http://vk.com/pomoshpojilimyakutsk</description>
-      <accountNumber>Билайн 8962-73-1111-3, сбер карта 4276 7600 1255 2020,Киви 8967-91-00000 Билайн</accountNumber>
-    </donate>
-   </type>
+    </type>
+    <type id="2" name="Пожилые люди">
+        <donate id="220">
+            <name>Группа помощи Пожилым людям (г.Якутск)</name>
+            <picURL>img/donate_pics/pomosh_pozjilim.jpg</picURL>
+            <description>http://vk.com/pomoshpojilimyakutsk</description>
+            <accountNumber>Билайн 8962-73-1111-3, сбер карта 4276 7600 1255 2020,Киви 8967-91-00000 Билайн
+            </accountNumber>
+        </donate>
+    </type>
 
-     <type id="3" name="Другое">
-    <donate id="100">
-      <name>Поддержать добрую кнопку</name>
-      <picURL>https://pp.userapi.com/c304913/u18462180/a_3c4d7725.jpg</picURL>
-      <description>string</description>
-      <accountNumber>string</accountNumber>
-    </donate>
+    <type id="3" name="Другое">
+        <donate id="100">
+            <name>Поддержать добрую кнопку</name>
+            <picURL>https://pp.userapi.com/c304913/u18462180/a_3c4d7725.jpg</picURL>
+            <description>string</description>
+            <accountNumber>string</accountNumber>
+        </donate>
 
-  </type>
-
+    </type>
 
 
 </donates>
