@@ -22,7 +22,8 @@ public class XmlDataSourcesRepository {
     }
 
     private synchronized void preloadData() throws IOException {
-        String filename = "betadonates.xml";
+        String filename = "donates.xml";
+//        String filename = "betadonates.xml";
 //        String filename = "testdonates.xml";
         InputStream xmlFile = XmlDataSourcesRepository.class.getResourceAsStream(filename);
         BufferedReader br = new BufferedReader(new InputStreamReader(xmlFile,"UTF-8"));
@@ -39,7 +40,7 @@ public class XmlDataSourcesRepository {
         br.close();
 
         InputStream storageFile = new ByteArrayInputStream(fileContent.getBytes("UTF-8"));
-        XmlDonateDataSourceInstance = new XmlDonatedataSource(storageFile);
+        XmlDonateDataSourceInstance = new XmlDonateDataSource(storageFile);
         XmlTypeDataSourceInstance = new XmlTypeDataSource(storageFile);
     }
 

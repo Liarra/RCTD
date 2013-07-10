@@ -11,7 +11,13 @@
     </type>
 
     <type id="1" name="Дети">
-
+        <donate id="210">
+            <name>Благотворительный фонд помощи детским учреждениям</name>
+            <picURL>img/donate_pics/podelis_teplom.jpg</picURL>
+            <description>http://sharecare.ru/</description>
+            <accountNumber>ЯК 41001121985828
+            </accountNumber>
+        </donate>
     </type>
     <type id="2" name="Пожилые люди">
         <donate id="220">
@@ -26,12 +32,10 @@
     <type id="3" name="Другое">
         <donate id="100">
             <name>Поддержать добрую кнопку</name>
-            <picURL>https://pp.userapi.com/c304913/u18462180/a_3c4d7725.jpg</picURL>
-            <description>string</description>
+            <picURL>http://cs14102.vk.me/c9354/v9354180/10af/nH0rIvGZZJQ.jpg</picURL>
+            <description>http://vk.com/kind_button</description>
             <accountNumber>string</accountNumber>
         </donate>
-
-    </type>
-
+      </type>
 
 </donates>
