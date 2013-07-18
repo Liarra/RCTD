@@ -178,3 +178,4 @@ web\META-INF\context.xml
 *.idea/*
 *out/*
 .war
+*target/*

@@ -1,5 +1,7 @@
 package pagebuild;
 
+import datasource.mongo.MongoDataSourcesConfig;
+import datasource.mongo.MongoTypeDataSource;
 import datasource.xml.XmlDataSourcesRepository;
 import datasource.UserClicksDataSource;
 import datasource.DonateDataSource;
@@ -25,7 +27,8 @@ public abstract class AbstractComposer extends HttpServlet{
        this.userClicksDataSource = datasource.stub.StubDataSourcesRepository.USER_DATA_SOURCE_INSTANCE;
        this.adDataSource=datasource.stub.StubDataSourcesRepository.AdDataSourceInstance;
        this.donateDataSource=new XmlDataSourcesRepository().XmlDonateDataSourceInstance;
-       this.typeDataSource = new XmlDataSourcesRepository().XmlTypeDataSourceInstance;
+//       this.typeDataSource = new XmlDataSourcesRepository().XmlTypeDataSourceInstance;
+       this.typeDataSource = new MongoTypeDataSource(new MongoDataSourcesConfig());
     }
 
     protected AbstractComposer(){

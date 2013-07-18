@@ -22,8 +22,8 @@ public class XmlDataSourcesRepository {
     }
 
     private synchronized void preloadData() throws IOException {
-        String filename = "donates.xml";
-//        String filename = "betadonates.xml";
+//        String filename = "donates.xml";
+        String filename = "betadonates.xml";
 //        String filename = "testdonates.xml";
         InputStream xmlFile = XmlDataSourcesRepository.class.getResourceAsStream(filename);
         BufferedReader br = new BufferedReader(new InputStreamReader(xmlFile,"UTF-8"));
