@@ -1,11 +1,11 @@
-package storedentities;
+package datasource.storedentities;
 
 import javax.persistence.*;
 import java.util.Collection;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 10.01.2013
  * Time: 10:47:57
  */
@@ -17,7 +17,7 @@ public class Donate {
     private String description;
     private String accountNumber;
     private Type type;
-    private Collection<UserLastDonate> lastDonates;
+    private Collection<UserClickData> lastDonates;
 
     protected Donate() {
     }
@@ -84,11 +84,11 @@ public class Donate {
     }
 
     @OneToMany(mappedBy = "donate")
-    public Collection<UserLastDonate> getLastDonates() {
+    public Collection<UserClickData> getLastDonates() {
         return lastDonates;
     }
 
-    public void setLastDonates(Collection<UserLastDonate> lastDonates) {
+    public void setLastDonates(Collection<UserClickData> lastDonates) {
         this.lastDonates = lastDonates;
     }
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
 
-    <persistence-unit name="NewPeristenceUnit">
+    <persistence-unit name="NewPersistenceUnit">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>storedentities.Type</class>
-        <class>storedentities.Ad</class>
-        <class>storedentities.UserLastDonate</class>
+        <class>datasource.storedentities.Type</class>
+        <class>datasource.storedentities.Ad</class>
+        <class>datasource.storedentities.UserClickData</class>
         <properties>
             <property name="hibernate.connection.url" value=""/>
             <property name="hibernate.connection.driver_class" value=""/>

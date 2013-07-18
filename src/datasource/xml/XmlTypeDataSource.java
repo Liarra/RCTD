@@ -2,7 +2,7 @@ package datasource.xml;
 
 import datasource.TypeDataSource;
 import datasource.xml.jaxbGenerated.Donates;
-import storedentities.Type;
+import datasource.storedentities.Type;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.util.Collection;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 31.01.2013
  * Time: 13:07:45
  */

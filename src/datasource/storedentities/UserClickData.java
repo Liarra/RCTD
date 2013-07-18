@@ -1,16 +1,16 @@
-package storedentities;
+package datasource.storedentities;
 
 import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 10.01.2013
  * Time: 11:23:01
  */
 @Entity
-public class UserLastDonate {
+public class UserClickData {
     private Long id;
 
     @Id

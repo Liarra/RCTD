@@ -1,7 +1,7 @@
 package datasource.xml;
 
-import storedentities.Type;
-import storedentities.Donate;
+import datasource.storedentities.Type;
+import datasource.storedentities.Donate;
 
 import java.util.Collection;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import datasource.xml.jaxbGenerated.Donates;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 31.01.2013
  * Time: 14:18:42
  */

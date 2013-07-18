@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 31.01.2013
  * Time: 14:36:26
  */

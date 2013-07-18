@@ -1,8 +1,8 @@
 package datasource.persistance;
 
 import datasource.DonateDataSource;
-import storedentities.Donate;
-import storedentities.Type;
+import datasource.storedentities.Donate;
+import datasource.storedentities.Type;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,7 +13,7 @@ import java.util.Collection;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 10.01.2013
  * Time: 14:05:06
  */
@@ -21,7 +21,7 @@ public class DonateGetter implements DonateDataSource {
     private final EntityManager donateManager;
 
     public DonateGetter() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("NewPersistanceUnit");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("NewPersistenceUnit");
         donateManager = entityManagerFactory.createEntityManager();
     }
 

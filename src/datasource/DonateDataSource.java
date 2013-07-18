@@ -1,13 +1,13 @@
 package datasource;
 
-import storedentities.Donate;
-import storedentities.Type;
+import datasource.storedentities.Donate;
+import datasource.storedentities.Type;
 
 import java.util.Collection;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 22.01.2013
  * Time: 12:01:49
  */

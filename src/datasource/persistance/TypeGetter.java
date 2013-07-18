@@ -1,7 +1,7 @@
 package datasource.persistance;
 
 import datasource.TypeDataSource;
-import storedentities.Type;
+import datasource.storedentities.Type;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,7 +11,7 @@ import java.util.Collection;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 10.01.2013
  * Time: 14:07:28
  */
@@ -19,7 +19,7 @@ public class TypeGetter implements TypeDataSource {
     private final EntityManager typeManager;
 
     public TypeGetter() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("NewPersistanceUnit");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("NewPersistenceUnit");
         typeManager = entityManagerFactory.createEntityManager();
     }
 

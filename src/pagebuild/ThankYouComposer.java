@@ -1,7 +1,7 @@
 package pagebuild;
 
-import storedentities.Ad;
-import storedentities.Donate;
+import datasource.storedentities.Ad;
+import datasource.storedentities.Donate;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 08.02.2013
  * Time: 16:00:39
  */
@@ -25,7 +25,7 @@ public class ThankYouComposer extends AbstractComposer {
     }
 
     public String composeThankYouPage() {
-        Ad ad = adDataSource.getAdbyId(1L);
+        Ad ad = adDataSource.getAdById(1L);
         String adH = ad.getHTML();
 
         Donate donate = donateDataSource.getDonateById(donateId);

@@ -1,14 +1,14 @@
 package datasource.stub;
 
 import datasource.TypeDataSource;
-import storedentities.Type;
+import datasource.storedentities.Type;
 
 import java.util.Collection;
 import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 25.01.2013
  * Time: 14:17:50
  */

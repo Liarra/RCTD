@@ -1,4 +1,4 @@
-package storedentities;
+package datasource.storedentities;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import java.util.Collection;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 10.01.2013
  * Time: 11:02:22
  */

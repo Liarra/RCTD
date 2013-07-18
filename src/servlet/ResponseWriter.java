@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 08.02.2013
  * Time: 10:56:16
  */

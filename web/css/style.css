@@ -37,7 +37,7 @@ body {
 }
 
 #myIframe{
-    border: transparent 0px;
+    border: transparent 0;
     display: compact;
 }
 

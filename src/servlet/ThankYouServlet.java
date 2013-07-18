@@ -12,7 +12,7 @@ import java.io.InputStream;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 11.01.2013
  * Time: 16:25:13
  */

@@ -1,6 +1,6 @@
 package pagebuild;
 
-import storedentities.Donate;
+import datasource.storedentities.Donate;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 08.02.2013
  * Time: 15:02:24
  */

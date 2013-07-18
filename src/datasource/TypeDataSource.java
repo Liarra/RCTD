@@ -1,13 +1,12 @@
 package datasource;
 
-import storedentities.Type;
+import datasource.storedentities.Type;
 
-import javax.xml.bind.JAXBException;
 import java.util.Collection;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 22.01.2013
  * Time: 12:01:39
  */

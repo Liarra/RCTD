@@ -7,7 +7,7 @@ import java.io.*;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 31.01.2013
  * Time: 13:08:23
  */

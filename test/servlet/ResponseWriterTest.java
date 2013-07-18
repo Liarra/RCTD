@@ -6,10 +6,9 @@ import org.junit.Test;
 
 /**
  * Created by IntelliJ IDEA.
- * User: NBuchina
+ * UserClickData: NBuchina
  * Date: 21.02.13
  * Time: 12:56
- * To change this template use File | Settings | File Templates.
  */
 public class ResponseWriterTest {
     @Before

@@ -1,6 +1,6 @@
 package pagebuild;
 
-import storedentities.Type;
+import datasource.storedentities.Type;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 09.01.2013
  * Time: 13:02:01
  */

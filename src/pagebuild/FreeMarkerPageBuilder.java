@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
- * User: NBuchina
+ * UserClickData: NBuchina
  * Date: 17.06.13
  * Time: 14:59
  */

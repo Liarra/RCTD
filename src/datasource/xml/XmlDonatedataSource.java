@@ -2,8 +2,8 @@ package datasource.xml;
 
 import datasource.DonateDataSource;
 import datasource.xml.jaxbGenerated.Donates;
-import storedentities.Donate;
-import storedentities.Type;
+import datasource.storedentities.Donate;
+import datasource.storedentities.Type;
 
 import javax.xml.bind.JAXBException;
 import java.util.Collection;
@@ -13,12 +13,12 @@ import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Buchina
+ * UserClickData: Buchina
  * Date: 31.01.2013
  * Time: 13:07:57
  */
-public class XmlDonatedataSource implements DonateDataSource{
-    public XmlDonatedataSource(InputStream storageFile) {
+public class XmlDonateDataSource implements DonateDataSource{
+    public XmlDonateDataSource(InputStream storageFile) {
         this.storageFile = storageFile;
     }
 
