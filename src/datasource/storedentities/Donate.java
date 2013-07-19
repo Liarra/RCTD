@@ -17,7 +17,6 @@ public class Donate {
     private String description;
     private String accountNumber;
     private Type type;
-    private Collection<UserClickData> lastDonates;
 
     protected Donate() {
     }
@@ -81,14 +80,5 @@ public class Donate {
 
     public void setType(Type type) {
         this.type = type;
-    }
-
-    @OneToMany(mappedBy = "donate")
-    public Collection<UserClickData> getLastDonates() {
-        return lastDonates;
-    }
-
-    public void setLastDonates(Collection<UserClickData> lastDonates) {
-        this.lastDonates = lastDonates;
     }
 }

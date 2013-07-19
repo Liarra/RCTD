@@ -12,8 +12,6 @@ import javax.persistence.Id;
  */
 @Entity
 public class UserRemindData {
-
-
     private boolean reminded;
 
     @Basic

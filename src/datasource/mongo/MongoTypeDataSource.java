@@ -28,7 +28,7 @@ public class MongoTypeDataSource implements TypeDataSource {
                 database.authenticate(config.getUserName(), config.getPass().toCharArray());
             }
         } catch (UnknownHostException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
     }
 
@@ -62,7 +62,6 @@ public class MongoTypeDataSource implements TypeDataSource {
         if (types == null) {
             types = database.createCollection("types", null);
         }
-
 
         BasicDBObject query = new BasicDBObject("id", typeId);
         DBCursor typeCursor = types.find(query);

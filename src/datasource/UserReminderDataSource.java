@@ -12,8 +12,6 @@ import java.util.Collection;
  */
 public interface UserReminderDataSource {
 
-    public Collection<UserRemindData> getAllUsers();
-
     public boolean isReminded(String userId);
 
     public void setReminded(String user, boolean reminded);
