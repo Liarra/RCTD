@@ -1,4 +1,4 @@
-<a href="#" class="btn_checked" id="menuAll" onclick="clickMenu(-1,'menuAll'); proposeToInstall();">Все</a>
+<a href="#" class="menu_checked" id="menuAll" onclick="clickMenu(-1,'menuAll'); proposeToInstall();">Все</a>
 <#list types as type>
-    <a href="#" class="btn_unchecked" id="menu${type.getId()}" onclick="clickMenu(${type.getId()},'menu${type.getId()}'); proposeToInstall();">${type.getName()}</a>
+    <a href="#" class="menu_unchecked" id="menu${type.getId()}" onclick="clickMenu(${type.getId()},'menu${type.getId()}'); proposeToInstall();">${type.getName()}</a>
 </#list>

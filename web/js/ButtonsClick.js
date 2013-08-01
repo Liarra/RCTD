@@ -24,7 +24,7 @@ function clickHelp() {
 function clickMenu(TypeID, buttonID) {
     clearSpace();
     uncheckAllMenuButtons();
-    document.getElementById(buttonID).className = "btn_checked";
+    document.getElementById(buttonID).className = "menu_checked";
     replaceIframeContent("/main?id=" + TypeID + "&viewer_id=" + viewer_id);
 }
 
@@ -40,18 +40,17 @@ function uncheckAllMenuButtons() {
     var children = menuContainer.childNodes;
 
     for (var i in children) {
-        children[i].className = "btn_unchecked";
+        children[i].className = "menu_unchecked";
     }
-    document.getElementById("helpMenuBtn").className = "btn_unchecked";
 }
 
 function checkStartMenuButton() {
     var AllMenu = document.getElementById("menuAll");
-    AllMenu.className = "btn_checked";
+    AllMenu.className = "menu_checked";
 }
 
 function clearSpace() {
-    document.getElementById("spinner").style.display = "block";
+    document.getElementById("spinner").style.visibility="visible"
     document.getElementById("myIframe").style.height=1;
     document.getElementById("myIframe").style.width=10;
     document.getElementById("myIframe").style.position="absolute";
@@ -80,11 +79,11 @@ function setViewerId(vid) {
 }
 
 function processingComplete() {
-    document.getElementById("spinner").style.display = "none";
-    document.getElementById("myIframe").style.display = "compact";
+    document.getElementById("spinner").style.visibility="hidden";
+    document.getElementById("myIframe").style.visibility = "visible";
 
     document.getElementById("myIframe").style.height=440;
-    document.getElementById("myIframe").style.width=800;
+    document.getElementById("myIframe").style.width=793;
     document.getElementById("myIframe").style.position="relative";
     document.getElementById("myIframe").style.left=0;
 }

@@ -58,6 +58,7 @@ body {
     margin-left: 50px;
     width: 60px;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }
 
 .hint {
@@ -82,6 +83,7 @@ body {
     left: 50%;
     position: absolute;
     top: 235px;
+    border: none;
 }
 
 .donate-home-link {

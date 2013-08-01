@@ -16,6 +16,12 @@ a:active, a:visited, a:before,a:enabled,a{
     width: 90%;
 }
 
+#TellFriends{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
 #ThankYouBar {
     background: white repeat-x left center;
     height: 120px;
