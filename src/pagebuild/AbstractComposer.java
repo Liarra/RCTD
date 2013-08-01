@@ -10,6 +10,7 @@ import datasource.TypeDataSource;
 import datasource.AdDataSource;
 
 import javax.servlet.http.HttpServlet;
+import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,9 +26,14 @@ public abstract class AbstractComposer extends HttpServlet{
 
 
     void initDataSources(){
-        MongoDataSourcesConfig mongoConfig=new MongoDataSourcesConfig();
+        MongoDataSourcesConfig mongoConfig= null;
+        try {
+            mongoConfig = MongoDataSourcesConfig.createFromSource("default.cfg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-       this.adDataSource=datasource.stub.StubDataSourcesRepository.AdDataSourceInstance;
+        this.adDataSource=datasource.stub.StubDataSourcesRepository.AdDataSourceInstance;
        this.donateDataSource=new XmlDataSourcesRepository().XmlDonateDataSourceInstance;
        this.typeDataSource = new XmlDataSourcesRepository().XmlTypeDataSourceInstance;
 //       this.typeDataSource = new MongoTypeDataSource(mongoConfig);

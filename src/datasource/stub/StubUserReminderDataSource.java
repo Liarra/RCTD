@@ -17,11 +17,6 @@ public class StubUserReminderDataSource implements UserReminderDataSource {
     private final List<UserRemindData> reminders = new ArrayList<UserRemindData>();
 
     @Override
-    public Collection<UserRemindData> getAllUsers() {
-        return reminders;
-    }
-
-    @Override
     public boolean isReminded(String user) {
         for (UserRemindData userdata : reminders) {
             if ((userdata.getId() + "").equals(user)) {
