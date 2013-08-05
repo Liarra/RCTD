@@ -65,6 +65,7 @@ public class DonatesListComposer extends AbstractComposer {
         String id = String.valueOf(d.getId());
         String donateHome = d.getDescription();
         String btn_className = enabled ? "btn_checked" : "btn_unchecked";
+        String btn_text = enabled ? "Помочь" : "Спасибо!";
         String btn_onclickFunction = enabled ? "onclick=\"clickDonateButton(" + id + ");\"" : "";
 
         Map<String, String> parameters = new HashMap<String, String>();
@@ -74,6 +75,7 @@ public class DonatesListComposer extends AbstractComposer {
         parameters.put("btn_onclickfunction", btn_onclickFunction);
         parameters.put("donate_home", donateHome == null ? "" : donateHome);
         parameters.put("donate_pic", donatePic == null ? "" : donatePic);
+        parameters.put("btn_text", btn_text);
 
         return new FreeMarkerPageBuilder(donateTemplate, parameters).process();
     }
