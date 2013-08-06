@@ -28,8 +28,8 @@ public abstract class AbstractComposer extends HttpServlet{
     void initDataSources(){
         MongoDataSourcesConfig mongoConfig= null;
         try {
-            mongoConfig = MongoDataSourcesConfig.createFromSource("default.cfg");
-//            mongoConfig = MongoDataSourcesConfig.createFromSource();
+//            mongoConfig = MongoDataSourcesConfig.createFromSource("default.cfg");
+            mongoConfig = MongoDataSourcesConfig.createFromSource();
         } catch (IOException e) {
             e.printStackTrace();
         }
