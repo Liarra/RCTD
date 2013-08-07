@@ -14,6 +14,7 @@
         <xs:sequence>
             <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
             <xs:element name="picURL" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="sharePicId" type="xs:string" minOccurs="1" maxOccurs="1"/>
             <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
             <xs:element name="accountNumber" type="xs:string" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>

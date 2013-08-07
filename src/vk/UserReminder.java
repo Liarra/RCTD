@@ -6,6 +6,7 @@ import datasource.storedentities.Donate;
 import datasource.storedentities.UserRemindData;
 import datasource.stub.StubUserClicksDataSource;
 import datasource.stub.StubUserReminderDataSource;
+import pagebuild.AbstractComposer;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,9 +19,8 @@ import java.util.Date;
  * Date: 17.07.13
  * Time: 19:46
  */
-public class UserReminder {
-    UserClicksDataSource userClicksDataSource;
-    UserReminderDataSource userReminderDataSource;
+public class UserReminder extends AbstractComposer {
+
 
     public void remindBunchOfUsers() {
         Collection<String> usersToRemind = getUsersToRemind();

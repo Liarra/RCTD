@@ -47,6 +47,7 @@ class Transformer {
         ret.setAccountNumber(d.getAccountNumber());
         ret.setDescription(d.getDescription());
         ret.setPicURL(d.getPicURL());
+        ret.setSharePicId(d.getSharePicId());
         return ret;
     }
 }

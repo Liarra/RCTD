@@ -4,6 +4,7 @@
         <donate id="200">
             <name>Группа помощи животным "9 жизней" г. Ульяновск</name>
             <picURL>img/donate_pics/9lives.jpg</picURL>
+            <sharePicId>photo18462180_308854868</sharePicId>
             <description>http://vk.com/ulpriut</description>
             <accountNumber>Номер "Голодного" телефона 8 937 274 61 12. Номер карты Сбербанка 6761 9600 0469 971239
             </accountNumber>
@@ -14,6 +15,7 @@
         <donate id="210">
             <name>Благотворительный фонд помощи детским учреждениям</name>
             <picURL>img/donate_pics/podelis_teplom.jpg</picURL>
+            <sharePicId>photo18462180_308854870</sharePicId>
             <description>http://sharecare.ru/</description>
             <accountNumber>ЯК 41001121985828
             </accountNumber>
@@ -23,6 +25,7 @@
         <donate id="220">
             <name>Группа помощи Пожилым людям (г.Якутск)</name>
             <picURL>img/donate_pics/pomosh_pozjilim.jpg</picURL>
+            <sharePicId>photo18462180_308854871</sharePicId>
             <description>http://vk.com/pomoshpojilimyakutsk</description>
             <accountNumber>Билайн 8962-73-1111-3, сбер карта 4276 7600 1255 2020,Киви 8967-91-00000 Билайн
             </accountNumber>
@@ -33,6 +36,7 @@
         <donate id="100">
             <name>Поддержать добрую кнопку</name>
             <picURL>http://cs14102.vk.me/c9354/v9354180/10af/nH0rIvGZZJQ.jpg</picURL>
+            <sharePicId>photo18462180_305497230</sharePicId>
             <description>http://vk.com/kind_button</description>
             <accountNumber>string</accountNumber>
         </donate>

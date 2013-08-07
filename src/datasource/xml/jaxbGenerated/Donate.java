@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "Donate", propOrder = {
         "name",
         "picURL",
+        "sharePicId",
         "description",
         "accountNumber"
 })
@@ -52,6 +53,16 @@ public class Donate {
     protected String accountNumber;
     @XmlAttribute
     protected String id;
+    @XmlElement(required = true)
+    private String sharePicId;
+
+    public String getSharePicId() {
+        return sharePicId;
+    }
+
+    public void setSharePicId(String sharePicId) {
+        this.sharePicId = sharePicId;
+    }
 
     /**
      * Gets the value of the name property.

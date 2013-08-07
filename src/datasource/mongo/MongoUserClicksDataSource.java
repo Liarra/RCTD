@@ -113,14 +113,20 @@ public class MongoUserClicksDataSource implements UserClicksDataSource {
 
     @Override
     public Collection<String> getAllUserIds() {
-        DBCursor cursor = userclicks.find();
         Set<String> ret = new HashSet<String>();
-        while (cursor.hasNext()) {
-            DBObject current = cursor.next();
-            String user_id = current.get("user_id").toString();
-            if (ret.contains(user_id)) continue;
-            ret.add(user_id);
+        try {
+            DBCursor cursor = userclicks.find();
+
+            while (cursor.hasNext()) {
+                DBObject current = cursor.next();
+                String user_id = current.get("user_id").toString();
+                if (ret.contains(user_id)) continue;
+                ret.add(user_id);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
+
         return ret;
     }
 

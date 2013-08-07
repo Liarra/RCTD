@@ -1,13 +1,11 @@
 package pagebuild;
 
+import datasource.*;
 import datasource.mongo.MongoDataSourcesConfig;
 import datasource.mongo.MongoTypeDataSource;
 import datasource.mongo.MongoUserClicksDataSource;
+import datasource.mongo.MongoUserReminderDataSource;
 import datasource.xml.XmlDataSourcesRepository;
-import datasource.UserClicksDataSource;
-import datasource.DonateDataSource;
-import datasource.TypeDataSource;
-import datasource.AdDataSource;
 
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
@@ -18,11 +16,12 @@ import java.io.IOException;
  * Date: 08.02.2013
  * Time: 16:09:12
  */
-public abstract class AbstractComposer extends HttpServlet{
+public abstract class AbstractComposer{
     protected UserClicksDataSource userClicksDataSource;
     protected DonateDataSource donateDataSource;
     protected TypeDataSource typeDataSource;
     protected AdDataSource adDataSource;
+    protected UserReminderDataSource userReminderDataSource;
 
 
     void initDataSources(){
@@ -40,6 +39,7 @@ public abstract class AbstractComposer extends HttpServlet{
 //       this.typeDataSource = new MongoTypeDataSource(mongoConfig);
 //        this.userClicksDataSource = datasource.stub.StubDataSourcesRepository.USER_DATA_SOURCE_INSTANCE;
         this.userClicksDataSource = new MongoUserClicksDataSource(mongoConfig);
+        this.userReminderDataSource=new MongoUserReminderDataSource(mongoConfig);
 
     }
 

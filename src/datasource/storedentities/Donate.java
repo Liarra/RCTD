@@ -1,7 +1,6 @@
 package datasource.storedentities;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,6 +13,7 @@ public class Donate {
     private Long id;
     private String name;
     private String picURL;
+    private String sharePicId;
     private String description;
     private String accountNumber;
     private Type type;
@@ -80,5 +80,14 @@ public class Donate {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    @Column
+    public String getSharePicId() {
+        return sharePicId;
+    }
+
+    public void setSharePicId(String sharePicId) {
+        this.sharePicId = sharePicId;
     }
 }

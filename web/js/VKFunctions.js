@@ -22,9 +22,13 @@ function proposeFriendsToInstall(){
 }
 
 //Вызывать, если человек жмёт клавишу рассказать друзьям
-function postToWall(donationId){
+function postToWall(att_id){
     VK.init();
-    VK.api('wall.post', {message: "Сегодня я сделал доброе дело! Попробуй и ты - это бесплатно!",attachments:"photo18462180_305497230"},function(data) {
+    VK.api('wall.post', {
+        message: "Сегодня я сделал доброе дело! Попробуй и ты - это бесплатно!"
+//        ,attachments:"photo18462180_305497230"},
+        ,attachments:att_id},
+        function(data) {
         if (data.response) {
             // data.response is object
         }

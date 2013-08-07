@@ -33,6 +33,7 @@ public class ThankYouComposer extends AbstractComposer {
         Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("bg_image", donate.getPicURL());
         parameters.put("ad", adH);
+        parameters.put("picToShare", donate.getSharePicId());
 
         return composePageFromTemplateInputStream(parameters);
     }

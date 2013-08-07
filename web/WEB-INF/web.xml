@@ -76,6 +76,9 @@
     </servlet-mapping>
 
 
+    <listener>
+        <listener-class>vk.ReminderServletContextListener</listener-class>
+    </listener>
 </web-app>
 
 
