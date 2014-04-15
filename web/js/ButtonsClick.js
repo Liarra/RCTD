@@ -50,15 +50,30 @@ function checkStartMenuButton() {
 }
 
 function clearSpace() {
-    document.getElementById("spinner").style.visibility="visible"
-    document.getElementById("myIframe").style.height=1;
-    document.getElementById("myIframe").style.width=10;
-    document.getElementById("myIframe").style.position="absolute";
-    document.getElementById("myIframe").style.left=-50;
+    document.getElementById("window").style.visibility="hidden";
+    document.getElementById("spinner").style.visibility="visible";
 }
 
 function replaceIframeContent(servletpath) {
-    document.getElementById("myIframe").src = context + servletpath;
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            document.getElementById("window").innerHTML = xmlhttp.responseText;
+            processingComplete();
+        }
+    }
+    xmlhttp.open("GET",context + servletpath,true);
+    xmlhttp.send();
  }
 
 function initScript() {
@@ -79,21 +94,14 @@ function setViewerId(vid) {
 }
 
 function processingComplete() {
-    document.getElementById("spinner").style.visibility="hidden";
-    document.getElementById("myIframe").style.visibility = "visible";
-
-    document.getElementById("myIframe").style.height=440;
-    document.getElementById("myIframe").style.width=793;
-    document.getElementById("myIframe").style.position="relative";
-    document.getElementById("myIframe").style.left=0;
+    document.getElementById("window").style.visibility = "visible";
+   document.getElementById("spinner").style.visibility="hidden";
 }
 
 function hideFrameByDefault(){
-    document.getElementById("myIframe").style.height=1;
-    document.getElementById("myIframe").style.width=10;
-    document.getElementById("myIframe").style.position="absolute";
-    document.getElementById("myIframe").style.left=-50;
+
 }
 
 initScript();
+processingComplete();
 

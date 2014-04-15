@@ -8,7 +8,8 @@
 
         <init-param>
             <param-name>Layout</param-name>
-            <param-value>/html/layout.html</param-value>
+            <!--<param-value>/html/layout.html</param-value>-->
+            <param-value>site.html</param-value>
         </init-param>
 
         <init-param>
@@ -20,6 +21,17 @@
             <param-name>Menu</param-name>
             <param-value>/html/menu.html</param-value>
         </init-param>
+
+        <init-param>
+            <param-name>DonateTemplate</param-name>
+            <param-value>/html/donate.html</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>DonatesPage</param-name>
+            <param-value>/html/donatespage.html</param-value>
+        </init-param>
+
     </servlet>
     <servlet>
         <servlet-name>ThankYouServlet</servlet-name>
@@ -31,6 +43,7 @@
         </init-param>
     </servlet>
     <servlet>
+        <display-name>donates</display-name>
         <servlet-name>DonatesServlet</servlet-name>
         <servlet-class>servlet.DonatesServlet</servlet-class>
 

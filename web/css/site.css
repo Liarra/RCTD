@@ -1,0 +1,35 @@
+
+#window {
+    text-align: center;
+}
+#header {
+    background: none repeat scroll 0 0 #D2B48C;
+    height: 70px;
+    text-align: center;
+    vertical-align: text-bottom;
+    position: relative;
+}
+#menu {
+    vertical-align: bottom;
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+}
+#main {
+    background: none repeat scroll 0 0 #F0FFFF;
+    text-align: center;
+}
+#left {
+    background: none repeat scroll 0 0 #0000FF;
+    display: inline-block;
+}
+#right {
+    background: none repeat scroll 0 0 #FF0000;
+    display: inline-block;
+}
+#center {
+    background: none repeat scroll 0 0 #00FFFF;
+    width: 800px;
+    display: inline-block;
+}

@@ -20,11 +20,16 @@ public class PageComposer extends AbstractComposer {
     private InputStream layoutTemplate;
     private InputStream welcomeTemplate;
     private InputStream menuTemplate;
+    private InputStream donateTemplate;
+    private InputStream donatesPageTemplate;
 
-    public PageComposer(String viewer, InputStream layoutTemplate, InputStream welcomeTemplate, InputStream menuTemplate) {
+    public PageComposer(String viewer, InputStream layoutTemplate, InputStream welcomeTemplate, InputStream menuTemplate, InputStream donateTemplate, InputStream donatesPageTemplate) {
         this.layoutTemplate = layoutTemplate;
         this.welcomeTemplate = welcomeTemplate;
         this.menuTemplate = menuTemplate;
+        this.donateTemplate=donateTemplate;
+        this.donatesPageTemplate=donatesPageTemplate;
+
         initDataSources();
         this.viewer_id = viewer;
     }
@@ -34,6 +39,7 @@ public class PageComposer extends AbstractComposer {
             Map<String, String> parameters = new HashMap<String, String>();
             parameters.put("menu", getMenu());
             parameters.put("welcome", getWelcomeScreenForNewUsers(welcomeTemplate));
+            parameters.put("donates",getDonates(-1L))  ;
 
             return new FreeMarkerPageBuilder(layoutTemplate, parameters).process();
         } catch (IOException e) {
@@ -53,5 +59,17 @@ public class PageComposer extends AbstractComposer {
         parameters.put("types", types);
 
         return new FreeMarkerPageBuilder(menuTemplate, parameters).process();
+    }
+
+    private String getDonates(long type) throws IOException{
+        String page="";
+        DonatesListComposer gen = new DonatesListComposer(viewer_id, donateTemplate, donatesPageTemplate);
+        if (type == -1L)
+            page = gen.getDonatesHTML();
+        else {
+            page = gen.getDonatesHTML(type);
+        }
+
+        return page;
     }
 }

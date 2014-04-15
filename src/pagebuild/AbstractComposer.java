@@ -25,21 +25,21 @@ public abstract class AbstractComposer{
 
 
     void initDataSources(){
-        MongoDataSourcesConfig mongoConfig= null;
-        try {
+//        MongoDataSourcesConfig mongoConfig= null;
+//        try {
 //            mongoConfig = MongoDataSourcesConfig.createFromSource("default.cfg");
-            mongoConfig = MongoDataSourcesConfig.createFromSource();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+////            mongoConfig = MongoDataSourcesConfig.createFromSource();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         this.adDataSource=datasource.stub.StubDataSourcesRepository.AdDataSourceInstance;
        this.donateDataSource=new XmlDataSourcesRepository().XmlDonateDataSourceInstance;
        this.typeDataSource = new XmlDataSourcesRepository().XmlTypeDataSourceInstance;
 //       this.typeDataSource = new MongoTypeDataSource(mongoConfig);
-//        this.userClicksDataSource = datasource.stub.StubDataSourcesRepository.USER_DATA_SOURCE_INSTANCE;
-        this.userClicksDataSource = new MongoUserClicksDataSource(mongoConfig);
-        this.userReminderDataSource=new MongoUserReminderDataSource(mongoConfig);
+        this.userClicksDataSource = datasource.stub.StubDataSourcesRepository.USER_DATA_SOURCE_INSTANCE;
+//        this.userClicksDataSource = new MongoUserClicksDataSource(mongoConfig);
+//        this.userReminderDataSource=new MongoUserReminderDataSource(mongoConfig);
 
     }
 

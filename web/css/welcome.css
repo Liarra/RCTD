@@ -34,11 +34,13 @@
     z-index: 5000;
 
     height: 400px;
-    left: 100px;
-    position: absolute;
-    top: 40px;
     width: 600px;
-    z-index: 5000;
+
+    left: 50%;
+    top: 50%;
+
+    margin-left: -300px;
+    margin-top: -200px;
 }
 
 h1 {

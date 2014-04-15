@@ -7,13 +7,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Tenor Sans', sans-serif;
+    background-attachment:fixed;
 }
 
 #mainbody {
     background-image: url("../img/2jfe2uw.png");
+    background-attachment:fixed;
 }
 
-#innerBody{
+#innerBody {
     text-align: center;
 }
 
@@ -24,7 +26,10 @@ body {
 }
 
 #menucell {
-    display: inline-block;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25));
+    background: -moz-linear-gradient(center top, #ffc477 5%, #fb9e25 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffc477', endColorstr = '#fb9e25');
+    background-color: #ffc477;
 }
 
 #buttonscell {
@@ -40,7 +45,7 @@ body {
     height: 430px;
 }
 
-#myIframe{
+#myIframe {
     border: transparent 0;
     display: compact;
 }
@@ -49,11 +54,12 @@ body {
     width: 280px;
     height: 210px;
     margin: 20px;
-    background: white no-repeat center ;
+    background: white no-repeat center;
     background-size: cover;
     border: 3px solid #ffffff;
     box-shadow: 2px 2px 3px 2px gray;
     display: inline-block;
+    text-align: center;
 }
 
 .btn_donate {
@@ -88,6 +94,7 @@ body {
     position: absolute;
     top: 235px;
     border: none;
+    visibility: hidden;
 }
 
 .donate-home-link {
@@ -102,4 +109,11 @@ body {
 .donate-home-link a {
     color: darkorange;
     text-decoration: none;
+}
+
+#window {
+    position: relative;
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
 }

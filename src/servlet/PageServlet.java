@@ -32,13 +32,24 @@ public class PageServlet extends HttpServlet {
         String layoutTemplatePath = getServletConfig().getInitParameter("Layout");
         String menuTemplatePath = getServletConfig().getInitParameter("Menu");
 
+        String donateTemplatePath = getServletConfig().getInitParameter("DonateTemplate");
+        String donatesPageTemplatePath = getServletConfig().getInitParameter("DonatesPage");
+
+
+
         InputStream welcomeTemplate = getServletContext().getResourceAsStream(welcomeTemplatePath);
         InputStream layoutTemplate = getServletContext().getResourceAsStream(layoutTemplatePath);
         InputStream menuTemplate = getServletContext().getResourceAsStream(menuTemplatePath);
+        InputStream donateTemplate = getServletContext().getResourceAsStream(donateTemplatePath);
+        InputStream donatesPageTemplate = getServletContext().getResourceAsStream(donatesPageTemplatePath);
 
         String viewer_id = request.getParameter("viewer_id");
 
-        PageComposer pageComposer = new PageComposer(viewer_id,layoutTemplate,welcomeTemplate,menuTemplate);
+        String typeIdS = request.getParameter("id");
+        if (typeIdS == null) typeIdS = "-1";
+        Long typeId = new Long(typeIdS);
+
+        PageComposer pageComposer = new PageComposer(viewer_id,layoutTemplate,welcomeTemplate,menuTemplate,donateTemplate,donatesPageTemplate);
         String page = pageComposer.getMainPage();
 
         responseWriter.writeResponse(response, page);
