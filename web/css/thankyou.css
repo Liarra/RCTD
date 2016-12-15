@@ -5,10 +5,10 @@ body{
     text-align: center;
 }
 
-a:active, a:visited, a:before,a:enabled,a{
-    color: #ee7b00;
-    text-decoration: none;
-}
+/*a:active, a:visited, a:before,a:enabled,a{*/
+    /*color: #ee7b00;*/
+    /*text-decoration: none;*/
+/*}*/
 
 #SponsorsText,#SomeKindStuffHere, #TellFriends{
     background: #ffffff;
@@ -27,6 +27,12 @@ a:active, a:visited, a:before,a:enabled,a{
     height: 120px;
     margin: auto;
     width: 90%;
+}
+
+#thanks{
+    margin-top: 50%;
+    position: absolute;
+    top: -300px;
 }
 
 #ThankYouString {
